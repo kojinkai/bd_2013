@@ -12,7 +12,7 @@ Read on for details on how to install and modify the page.
 
 [Jekyll][1] is a site generator capable of generating both static sites and blogs.  Content can be added via the [Markdown][2] language and pulled automatically into the content section.  Blog posts can be added the same way.  No database required.
 
-##Installation
+###Installation
 
 Installation is pretty straightforward:
 
