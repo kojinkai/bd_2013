@@ -1,0 +1,42 @@
+@mixin svgfallback($path, $width, $height) {
+  width: $width;
+  height: $height;
+	background-image: $path;
+	background-repeat: no-repeat;
+  img {
+  	opacity: 0;
+  	filter: alpha(opacity=0);
+  }
+}
+
+@mixin buttonhover {
+  color: $navy;
+  background-color: $white;
+}
+
+@mixin buttonactive {
+  background-color: $navy;
+  color: $white;
+}
+
+// Based on a base font size of 16px (1em)
+@mixin pix18 {
+  font-size: 1.125em;
+}
+
+@mixin pix22 {
+  font-size: 1.375em;
+}
+
+@mixin pix24 {
+  font-size: 1.5em;
+}
+
+@mixin pix30 {
+  font-size: 1.875em;
+}
+
+@mixin absolute_center {
+  position: absolute;
+  left: 50%;
+}

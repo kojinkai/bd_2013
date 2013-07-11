@@ -1,0 +1,175 @@
+.konami {
+  position: relative;
+}
+
+#mk_backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  @include animation(backdrop .3s infinite);
+}
+
+#cage {
+    @include absolute_center;
+    bottom: 340px;
+    z-index: 300;
+    margin-left: -25px;
+    width: 59px;
+    height: 113px;
+    background-image: url("/images/cage1.gif");
+    @include animation(playjohnny .8s steps(7) infinite);
+}
+
+#cage.dead {
+  background-image: url("/images/cage2.gif");
+}
+
+#scenery {
+  @include absolute_center;
+  z-index: 200;
+  bottom: 300px;
+  margin-left: -197px;  
+}
+
+#finish_him {
+  @include absolute_center;
+  z-index: 300;
+  bottom: 540px;
+  margin-left: -337px;
+  // @include transform(rotate(-20deg));
+  @include animation(finish_him_wobble .1s infinite);
+}
+
+#death_cat {
+  background-image: url("/images/fat_cat.gif");
+  width: 440px;
+  height: 612px;  
+  @include absolute_center;
+  z-index: 300;
+  bottom: -800px;
+  margin-left: 153px;
+  @include animation(death_cat_rises 1s 1 1.5s);
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  &.recede {
+    @include animation(death_cat_recedes 1s 1 1s);
+      -webkit-animation-fill-mode: backwards;
+         -moz-animation-fill-mode: backwards;
+          -ms-animation-fill-mode: backwards;
+              animation-fill-mode: backwards;    
+  }
+}
+
+#left_laser,
+#right_laser {
+  position: absolute; 
+  @include transform-origin(right top);
+  width: 5px;
+  @include linear-gradient(to right,#e51115 0%, #fefefe 50%, #fefefe 30%, #FEFEF6 30%, #E51116 100%);
+  border-radius: 10px;
+  &.recede {
+    @include transition(height 0.3s ease-in);
+    height: 0;
+  }
+}
+
+#left_laser {
+  top: 283px;
+  left: -152px;
+  height: 326px;
+  @include transform(rotate(-103deg));  
+}
+
+#right_laser {
+  top: 284px;
+  left: -153px;
+  height: 442px;  
+  @include transform(rotate(-99deg));
+}
+
+#death_pop {
+  @include absolute_center;
+  bottom: 422px;
+  z-index: 400;
+  margin-left: -1px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #e51115;
+  @include animation(explode 2s 1);
+}
+
+#brap_bubble {
+  position: absolute;
+  left: 390px;
+  z-index: 400;
+}
+
+// animations
+@include keyframes(playjohnny) {
+  from { background-position: -14px}
+    to { background-position: -387px }
+}
+
+@include keyframes(backdrop) {
+  0% {
+    background-color: #e93523;
+  }
+  100% {
+    background-color: #FFF; 
+  }
+}
+
+@include keyframes(death_cat_rises) {
+  0% {
+    bottom: -800px;
+  }
+  100% {
+    bottom: 100px;
+  }
+}
+
+@include keyframes(death_cat_recedes) {
+  0% {
+    bottom: 100px;
+  }
+  100% {
+    bottom: -800px;
+  }
+}
+
+@include keyframes(finish_him_wobble) {
+  0% {
+    @include transform(rotate(-1deg));
+  }
+  50% {
+    @include transform(rotate(2deg)); 
+  }
+  100% {
+    @include transform(rotate(-1deg));  
+  }
+}
+
+@include keyframes(explode) {
+  0% {
+    opacity: 0.4;
+    @include transform(scale(1));
+  }
+  80% {
+    opacity: 1;
+    @include transform(scale(7));   
+  }
+  90% {
+    opacity: 1;
+    @include transform(scale(10));   
+  }  
+  100% {
+    opacity: 0;
+    @include transform(scale(0));   
+  }  
+}

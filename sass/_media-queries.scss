@@ -1,0 +1,346 @@
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media only screen and (min-width: 1200px) {
+  .project-description {
+    margin: 20px;
+  } 
+  .csstransitions.csstransforms .project-description {
+    p {
+        margin-top: 1em;
+    }   
+  }
+}
+
+// override Bootstrap's rather focus / active styles
+// for tablet and smaller
+@media only screen and (max-width: 1024px) {
+  .navbar .btn-navbar {
+    background: $baby;
+    color: $white;
+  }
+  .navbar .btn-navbar.collapsed {
+    background: $baby;
+    color: $white;
+    &:active,
+    &:focus {
+      background: $baby;
+      color: $white;
+    }
+  }  
+}
+
+@media (min-width: 980px) {
+  .csstransitions.csstransforms {
+    
+    .projects {
+
+      &>article {
+        min-height: 292px;
+        &:hover {
+                  
+          .project-description {
+            p {
+              margin-top: 0;
+            }
+            .btn-project {
+              opacity: 1;
+              bottom: 0;
+            } 
+          }
+        }
+      }
+    }
+
+    .project-description {
+      overflow: hidden;
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      left: 0;      
+      p {
+        @include transition(margin-top 0.15s ease-in);
+      }
+      .btn-project {
+        position: absolute;      
+      }
+    }
+
+    &.no-touch {
+      .btn-project {
+        opacity: 0;
+        bottom: -40px;
+        -webkit-transition: bottom 0.2s ease-in-out, opacity 0.1s ease-in-out;
+           -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
+                transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;          
+      }      
+    }
+  }
+}
+
+
+
+@media (min-width: 980px) and (max-width: 1199px) {
+  .project-description {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+  #page-wrap .container,
+  .footer .container {
+    width: auto;
+    padding: 0 20px;
+  }
+  
+  .navbar .nav-collapse {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .navbar .btn-navbar {
+    margin-right: 0;
+  }
+
+  .projects > article {
+    float: none;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+  .navbar-fixed-top {
+    margin-bottom: 0;
+    
+    .navbar-inner {
+      padding: 0;
+    }
+  }
+
+  .navbar {
+   
+   .nav {
+      float: none;
+      padding: 20px 15px;
+    } 
+
+    .nav > li.contact-link span {
+        padding: 0;
+        background-color: $white;
+
+        a {
+          display: block;
+          text-align: center;
+          padding: 10px;
+          text-shadow: none;
+          color: $navy;
+          background: none;
+          @include pix22;
+          font-weight: bold; 
+          &:hover,
+          &:focus {
+            background-color: $navy;
+            color: $white;
+          }
+          &:active {
+           background-color: $navy;
+           color: $white;
+          }
+        }
+    }
+
+    .nav-collapse {
+      background: #3d77a5 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2N0RFNUY0NEQxMjQxMUUyQjRCOEY1MUIxNEU5QkMyOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2N0RFNUY0NUQxMjQxMUUyQjRCOEY1MUIxNEU5QkMyOSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAzRjFCRDdGRDExQzExRTJCNEI4RjUxQjE0RTlCQzI5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAzRjFCRDgwRDExQzExRTJCNEI4RjUxQjE0RTlCQzI5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VjwVQAAAAB1JREFUeNpiid3wseDFjdMMzLzS6hb8MmoMAAEGAEiFBdlC9c2cAAAAAElFTkSuQmCC);
+      
+      .nav {
+        margin: 0;
+      }
+
+      .nav > li {
+        width: 28.5%;
+        margin-left: 7.2%;
+        float: left;
+        border: none;
+        &:first-child {
+          margin-left: 0;
+        }
+        a {
+          @include pix22;
+          background-color: $white;
+          color: $navy;
+          padding: 10px;
+          border-radius: 0;
+          &:hover,
+          &:focus {
+            background-color: $navy;
+            color: $white;
+          }
+          &:active {
+            background-color: $navy;
+            color: $white;
+          }          
+        }
+      }
+    }
+  }
+
+  // The full-width project
+  // box styles
+  .project {
+    margin-bottom: 20px;
+  }
+  .project > div {
+    padding: 4%;
+  }
+  .project-description {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar {
+
+    .nav-collapse {
+      .nav li {
+        width: auto;
+        float: none;
+        margin-left: 0;
+        margin-bottom: 10px;
+
+        a {
+          line-height: 20px;
+        }
+
+      }
+    }
+
+    .brand {
+      padding-left: 20px;
+    }
+
+  }
+
+  .jumbotron {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    border-bottom: 0;
+  }
+  .strap {
+    text-align: center;
+  }
+  .social a {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  [class^="badge"] {
+    margin-top: 20px;
+  }
+
+  .main-head {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 10px 20px;
+    background-color: $navy;
+    color: $white;
+    margin-top: 0;
+    text-align: center;    
+  }
+
+  #main {
+    margin-top: 0;
+  }
+
+  .footer {
+    margin-left: -20px;
+    margin-right: -20px;    
+    padding: 0 20px;
+  }
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
