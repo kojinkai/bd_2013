@@ -1,10 +1,11 @@
 @import "../bourbon/bourbon";
 @import "../neat/neat";
 @import "normalize";
+@import "mixins";
 @import "variables";
 @import "base";
 @import "utilities";
-@import "mixins";
+@import "structure";
 @import "style";
 @import "media-queries";
 @import "fallbacks";

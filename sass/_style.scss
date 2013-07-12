@@ -17,75 +17,41 @@ h1,h2,h3,h4,h5,h6 {
    =navigation
    ========================================================================== */
 
-.navbar-inner {
-  background-image: none;
-  filter: none;
-  background-color: $darkblue;
-  border: none;
+.nav {
+  @include nav;
 }
 
 .navbar {
 
   @include navbar_fixed;
-  
+  background-color: $white;
+
+  .nav {
+    margin: 10px 0;
+  }
+
   .nav > li {
-    border: 1px solid $navborder;
-    border-width: 0 1px 0 0;
-    &:first-child {
-      border-width: 0 1px;
-    }
+    float: left;
 
     &>a {
       display: block;
       margin: 0;
       padding: 10px 40px;
-      text-shadow: none;
-      color: $white;
+      color: $royal;
       text-align: center;
       line-height: 55px;
-      vertical-align: middle;
       @include pix18;
       &:hover,
       &:focus,
       &:active {
-        color: $white;
-        background-color: $baby;
-        @include transition (background-color 0.2s ease-in-out);
+        border-bottom: 4px solid $white;
       }
     }
   }
 
-  .nav > li.contact-link span {
-    display: block;
-    margin: 0;
-    padding: 10px 40px;
-    line-height: 55px;
-    vertical-align: middle;
-
-    a {
-      padding: 10px 20px;
-      text-shadow: none;
-      color: $white;
-      background-color: $baby;
-      @include pix18;
-      @include transition (all 0.1s ease-in-out);
-      &:hover,
-      &:focus {
-        @include buttonhover;
-      }
-      &:active {
-       @include buttonhover; 
-      }
-    }
-  } 
-
   .btn-navbar {
-    border: none; 
-    background-image: none;
-    filter: none;
-    background-color: $baby;
-    text-shadow: none;
-    border-radius: 0;
+    display: none;
+    border-radius: 50%;
     margin: 15px;
     padding: 10px 20px;
     line-height: 25px;
@@ -98,89 +64,13 @@ h1,h2,h3,h4,h5,h6 {
   }
 
   &.scrolled {
-    box-shadow: 0 0 20px 2px transparentize($darkblue, 0.3);
+    box-shadow: 0 0 20px 2px transparentize($royal, 0.3);
   }
 }
-
 
 /* ==========================================================================
-   Main
+   =about
    ========================================================================== */
-#main {
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.main-head {
-  color: $navy;
-  @include pix30;
-}
-
-.projects {
-
-  &>article {
-    background-color: $navy;
-    position: relative;
-  }
-}
-
-.project {
-  
-  &>div {
-    padding: 8%;
-  }
-
-  h1 {
-    text-align: center;
-    @include pix24;
-    font-weight: 700;
-    a {
-      color: $white;
-
-      &:visited {
-        color: $white;
-      }
-    }
-  }
-
-  .btn-project {
-    text-shadow: none;
-    background-image: none;
-    background-color: $white;
-    color: $navy;
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 0;
-    border: none;
-    left: 0;
-    right: 0;
-    padding: 10px 12px;
-    bottom: 0;  
-  }
-}
-
-
-
-.project-type {
-  display: block;
-  text-align: center;
-  margin: auto; /*IE8*/
-  img {
-    width: 50px;
-  }
-}
-
-.project-title {
-  text-align: center;
-  text-transform: uppercase;
-  color: $white;
-}
-
-.project-description {
-  height: 100px;
-  text-align: center;
-  background-color: $navyshade;
-  color: $white;
-  padding: 15px 30px;
+#about {
+  background-color: $royal;
 }

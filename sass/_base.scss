@@ -6,10 +6,10 @@
 
 body {
   position: relative;
-  padding-top: 75px;
+  padding-top: 90px;
   line-height: 1.4;
   background-color: #FFF;
-  color: $black;
+  color: $white;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -21,10 +21,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 { margin-bottom: 1em; }
 p { margin: 1em 0; }
 
-a         { color: $baby; }
-a:hover   { color: $baby; text-decoration: none;}
+a         { color: $white; text-decoration: none;}
+a:hover   { color: $white; text-decoration: none;}
 a:focus   {text-decoration: none;}
-a:visited { color: $baby; }
+a:visited { color: $white; }
 
 table {
   font-size: inherit;

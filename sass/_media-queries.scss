@@ -17,15 +17,15 @@
 // for tablet and smaller
 @media only screen and (max-width: 1024px) {
   .navbar .btn-navbar {
-    background: $baby;
+    background: $orange;
     color: $white;
   }
   .navbar .btn-navbar.collapsed {
-    background: $baby;
+    background: $orange;
     color: $white;
     &:active,
     &:focus {
-      background: $baby;
+      background: $orange;
       color: $white;
     }
   }  
