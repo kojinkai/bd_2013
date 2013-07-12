@@ -11,10 +11,10 @@
   padding: 0; }
 
 body {
+  position: relative;
   padding-top: 75px;
   line-height: 1.4;
   background-color: #FFF;
-  font: 1em Helvetica, Arial, sans-serif;
   color: #333333;
   -webkit-font-smoothing: antialiased; }
 
@@ -190,125 +190,94 @@ textarea {
   *zoom: 1; }
 
 /* ==========================================================================
-   navigation
+   =type
    ========================================================================== */
-.navbar-fixed-top .navbar-inner,
-.navbar-static-top .navbar-inner {
-  box-shadow: none; }
+body {
+  font-family: "calluna-sans", sans-serif;
+  font-weight: 700; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "league-gothic", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase; }
+
+/* ==========================================================================
+   =navigation
+   ========================================================================== */
 .navbar-inner {
   background-image: none;
   filter: none;
   background-color: #013258;
   border: none; }
 
-.navbar .nav {
-  float: right; }
-.navbar .nav > li {
-  border: 1px solid #193d59;
-  border-width: 0 1px 0 0; }
-  .navbar .nav > li:first-child {
-    border-width: 0 1px; }
-  .navbar .nav > li > a {
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0; }
+  .navbar .nav > li {
+    border: 1px solid #193d59;
+    border-width: 0 1px 0 0; }
+    .navbar .nav > li:first-child {
+      border-width: 0 1px; }
+    .navbar .nav > li > a {
+      display: block;
+      margin: 0;
+      padding: 10px 40px;
+      text-shadow: none;
+      color: white;
+      text-align: center;
+      line-height: 55px;
+      vertical-align: middle;
+      font-size: 1.125em; }
+      .navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .navbar .nav > li > a:active {
+        color: white;
+        background-color: #00aeef;
+        -webkit-transition: background-color 0.2s ease-in-out;
+        -moz-transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out; }
+  .navbar .nav > li.contact-link span {
     display: block;
     margin: 0;
     padding: 10px 40px;
-    text-shadow: none;
-    color: white;
-    text-align: center;
     line-height: 55px;
-    vertical-align: middle;
-    font-size: 1.125em; }
-    .navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .navbar .nav > li > a:active {
+    vertical-align: middle; }
+    .navbar .nav > li.contact-link span a {
+      padding: 10px 20px;
+      text-shadow: none;
       color: white;
       background-color: #00aeef;
-      -webkit-transition: background-color 0.2s ease-in-out;
-      -moz-transition: background-color 0.2s ease-in-out;
-      transition: background-color 0.2s ease-in-out; }
-.navbar .nav > li.contact-link span {
-  display: block;
-  margin: 0;
-  padding: 10px 40px;
-  line-height: 55px;
-  vertical-align: middle; }
-  .navbar .nav > li.contact-link span a {
-    padding: 10px 20px;
-    text-shadow: none;
-    color: white;
+      font-size: 1.125em;
+      -webkit-transition: all 0.1s ease-in-out;
+      -moz-transition: all 0.1s ease-in-out;
+      transition: all 0.1s ease-in-out; }
+      .navbar .nav > li.contact-link span a:hover, .navbar .nav > li.contact-link span a:focus {
+        color: #376991;
+        background-color: white; }
+      .navbar .nav > li.contact-link span a:active {
+        color: #376991;
+        background-color: white; }
+  .navbar .btn-navbar {
+    border: none;
+    background-image: none;
+    filter: none;
     background-color: #00aeef;
-    font-size: 1.125em;
+    text-shadow: none;
+    border-radius: 0;
+    margin: 15px;
+    padding: 10px 20px;
+    line-height: 25px;
+    vertical-align: middle;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out; }
-    .navbar .nav > li.contact-link span a:hover, .navbar .nav > li.contact-link span a:focus {
+    .navbar .btn-navbar:hover, .navbar .btn-navbar:focus {
       color: #376991;
       background-color: white; }
-    .navbar .nav > li.contact-link span a:active {
-      color: #376991;
-      background-color: white; }
-.navbar .brand {
-  display: block;
-  margin: 0;
-  padding: 16px 20px 15px 0;
-  text-shadow: none;
-  color: white;
-  line-height: 55px;
-  vertical-align: middle; }
-  .navbar .brand img {
-    display: block;
-    width: 160px;
-    height: 44px; }
-.navbar .btn-navbar {
-  border: none;
-  background-image: none;
-  filter: none;
-  background-color: #00aeef;
-  text-shadow: none;
-  border-radius: 0;
-  margin: 15px;
-  padding: 10px 20px;
-  line-height: 25px;
-  vertical-align: middle;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out; }
-  .navbar .btn-navbar:hover, .navbar .btn-navbar:focus {
-    color: #376991;
-    background-color: white; }
-.navbar.scrolled {
-  box-shadow: 0 0 20px 2px rgba(1, 50, 88, 0.7); }
-
-/* ==========================================================================
-   Jumbotron
-   ========================================================================== */
-.jumbotron {
-  background-image: -webkit-linear-gradient(-270deg, #0092c7 35%, #00aeef 100%);
-  background-image: linear-gradient(0deg, #0092c7 35%, #00aeef 100%);
-  color: white;
-  border-bottom: 7px solid #376991;
-  padding: 45px 0 55px; }
-  .jumbotron .strap {
-    font-weight: normal;
-    font-size: 1.5em;
-    font-weight: 200; }
-  .jumbotron a {
-    color: white; }
-
-[class^="badge"] {
-  margin-bottom: 15px; }
-  [class^="badge"] img {
-    display: block;
-    width: 115px;
-    height: 115px;
-    margin: 0 auto; }
-
-.tech-title {
-  display: block;
-  text-align: center;
-  font-size: 1.125em; }
-
-.social a {
-  margin-right: 20px; }
+  .navbar.scrolled {
+    box-shadow: 0 0 20px 2px rgba(1, 50, 88, 0.7); }
 
 /* ==========================================================================
    Main

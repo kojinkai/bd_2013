@@ -1,11 +1,21 @@
-/* ==========================================================================
-   navigation
-   ========================================================================== */
 
-.navbar-fixed-top .navbar-inner,
-.navbar-static-top .navbar-inner {
-  box-shadow: none;
+/* ==========================================================================
+   =type
+   ========================================================================== */
+body {
+  font-family: $bodycopy;
+  font-weight: 700;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $headline;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   =navigation
+   ========================================================================== */
 
 .navbar-inner {
   background-image: none;
@@ -15,10 +25,8 @@
 }
 
 .navbar {
-  
-  .nav {
-    float: right;
-  }  
+
+  @include navbar_fixed;
   
   .nav > li {
     border: 1px solid $navborder;
@@ -71,23 +79,6 @@
     }
   } 
 
-  .brand {
-    display: block;
-    margin: 0;
-    padding: 16px 20px 15px 0;
-    text-shadow: none;
-    color: $white;
-    line-height: 55px;
-    vertical-align: middle;
-
-    img {
-      display: block;
-      width: 160px;
-      height: 44px;
-    }
-
-  }
-
   .btn-navbar {
     border: none; 
     background-image: none;
@@ -111,48 +102,6 @@
   }
 }
 
-
-/* ==========================================================================
-   Jumbotron
-   ========================================================================== */
-.jumbotron {
-  @include background-image(linear-gradient(0deg, $babyshade 35%, $baby 100%));
-  color: $white;
-  border-bottom: 7px solid $navy;
-  padding: 45px 0 55px;
-
-  .strap {
-    font-weight: normal;
-    @include pix24;
-    font-weight: 200;
-  }
-
-  a {
-    color: $white;
-  }
-}
-
-[class^="badge"] {
-  margin-bottom: 15px;
-  img {
-    display: block;
-    width: 115px;
-    height: 115px;
-    margin: 0 auto;
-  }
-}
-
-.tech-title {
-  display: block;
-  text-align: center;
-  @include pix18;
-}
-
-.social {
-  a {
-    margin-right: 20px;
-  }
-}
 
 /* ==========================================================================
    Main
