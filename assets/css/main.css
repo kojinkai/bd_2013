@@ -3,7 +3,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/*! normalize.css v1.1.2 | MIT License | git.io/normalize */
+/* normalize.css v1.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -496,7 +496,7 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
+  margin-top: 0;
   text-transform: uppercase; }
 
 h1 {
@@ -709,7 +709,8 @@ textarea {
    ========================================================================== */
 body {
   font-family: "calluna-sans", sans-serif;
-  font-weight: 700; }
+  font-weight: 700;
+  text-align: center; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "league-gothic", sans-serif;
@@ -720,9 +721,9 @@ h1, h2, h3, h4, h5, h6 {
    =navigation
    ========================================================================== */
 .nav {
+  *zoom: 1;
   list-style: none;
-  padding-left: 0;
-  *zoom: 1; }
+  padding-left: 0; }
   .nav:before, .nav:after {
     content: " ";
     /* 1 */
@@ -730,8 +731,9 @@ h1, h2, h3, h4, h5, h6 {
     /* 2 */ }
   .nav:after {
     clear: both; }
-  .nav li {
-    list-style: none; }
+  .nav > li {
+    list-style: none;
+    float: left; }
 
 .navbar {
   position: fixed;
@@ -742,9 +744,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   background-color: white; }
   .navbar .nav {
-    margin: 10px 0; }
+    margin: 10px 0;
+    width: 70%;
+    margin-left: 15%; }
   .navbar .nav > li {
-    float: left; }
+    width: 25%; }
     .navbar .nav > li > a {
       display: block;
       margin: 0;
@@ -776,6 +780,77 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 #about {
   background-color: #2e4066; }
+
+/* ==========================================================================
+   =development
+   ========================================================================== */
+#development {
+  background-color: #f05000; }
+  #development ul {
+    *zoom: 1;
+    list-style: none;
+    padding-left: 0;
+    width: 82.94039%;
+    /*span10*/
+    margin-left: 8.5298%;
+    /*offset1*/ }
+    #development ul:before, #development ul:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    #development ul:after {
+      clear: both; }
+    #development ul > li {
+      list-style: none;
+      float: left; }
+    #development ul li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%; }
+
+/* ==========================================================================
+   =skills
+   ========================================================================== */
+#design {
+  background: #efefef;
+  color: #798497; }
+  #design ul {
+    *zoom: 1;
+    list-style: none;
+    padding-left: 0;
+    width: 82.94039%;
+    /*span10*/
+    margin-left: 8.5298%;
+    /*offset1*/ }
+    #design ul:before, #design ul:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    #design ul:after {
+      clear: both; }
+    #design ul > li {
+      list-style: none;
+      float: left; }
+    #design ul li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%; }
+
+/* ==========================================================================
+   =ethos
+   ========================================================================== */
+#ethos {
+  background-color: #316aa3; }
+
+/* ==========================================================================
+   =main-footer
+   ========================================================================== */
+#main-footer {
+  background-color: #9ca2ad; }
 
 /* ==========================================================================
    Media Queries

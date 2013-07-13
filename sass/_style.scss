@@ -5,6 +5,7 @@
 body {
   font-family: $bodycopy;
   font-weight: 700;
+  text-align: center;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -28,10 +29,13 @@ h1,h2,h3,h4,h5,h6 {
 
   .nav {
     margin: 10px 0;
+    width: 70%;
+    margin-left: 15%;
   }
 
   .nav > li {
-    float: left;
+
+    width: 25%;
 
     &>a {
       display: block;
@@ -73,4 +77,63 @@ h1,h2,h3,h4,h5,h6 {
    ========================================================================== */
 #about {
   background-color: $royal;
+}
+
+/* ==========================================================================
+   =development
+   ========================================================================== */
+#development {
+
+  background-color: $orange; 
+  
+  ul {
+    @include nav;
+    width: 82.94039%; /*span10*/
+    margin-left: 8.5298%; /*offset1*/
+    li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%;
+    }
+  }
+}
+
+/* ==========================================================================
+   =skills
+   ========================================================================== */
+
+#design {
+
+  background: $lightgrey;
+  color: $slate;
+
+  ul {
+    @include nav;
+    width: 82.94039%; /*span10*/
+    margin-left: 8.5298%; /*offset1*/
+    li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%;
+    }
+  }  
+}
+
+/* ==========================================================================
+   =ethos
+   ========================================================================== */
+
+#ethos {
+
+  background-color: $navy;
+}
+
+/* ==========================================================================
+   =main-footer
+   ========================================================================== */
+
+#main-footer {
+  background-color: $darkgrey;
 }

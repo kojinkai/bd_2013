@@ -54,11 +54,12 @@
    =navigation
    ========================================================================== */
 @mixin nav {
+  @include clearfix;
   list-style: none;
   padding-left: 0;
-  @include clearfix;
-  li {
+  &>li {
     list-style: none;
+    float: left;
   }
 }
 
