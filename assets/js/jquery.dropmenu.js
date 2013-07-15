@@ -1,3 +1,4 @@
+// see http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/
 // the semi-colon before the function invocation is a safety 
 // net against concatenated scripts and/or other plugins 
 // that are not closed properly.
@@ -24,6 +25,7 @@
 
     // The actual plugin constructor
     function Plugin( element, options ) {
+
         this.element = element;
 
         // jQuery has an extend method that merges the 
@@ -44,18 +46,38 @@
         // You already have access to the DOM element and
         // the options via the instance, e.g. this.element 
         // and this.options
-        console.log("innit, mate", this);
+        var $this = $(this);
+
+            // data = $this.data('height', $this.height());
+            // console.log("data is ", data);
+            console.log("this is ", $this);
     };
 
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
     $.fn[dropmenu] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, 'plugin_' + dropmenu)) {
-                $.data(this, 'plugin_' + dropmenu, 
-                new Plugin( this, options ));
-            }
+                new Plugin( this, options );
         });
     };
+
+
+ /* COLLAPSE DATA-API
+  * ================= */
+
+    $(document).on('click.dropmenu.data-api', '[data-toggle=collapse]', function (e) {
+    
+        var $this = $(this), 
+        href,
+
+        // regex strip for ie7
+        target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
+        option = $(target).data('collapse') ? 'toggle' : $this.data();
+
+        $(target).toggleClass('collapsed');
+        $(target).dropmenu(option);
+
+    })
+
 
 })( jQuery, window, document );

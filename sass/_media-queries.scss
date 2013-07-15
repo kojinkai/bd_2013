@@ -47,10 +47,10 @@
 @media only screen and (max-width: 767px) {
   .navbar {
 
-    .nav-collapse,
-    .nav-collapse.collapse {
-      height: 0;
+    .nav-collapse {
+      height: 200px;
       overflow: hidden;
+      @include transition(height 0.2s ease-in-out);
 
       .nav {
         margin-top: 10px;
@@ -66,6 +66,10 @@
           line-height: 20px;
         }
 
+      }
+      &.collapsed {
+        height: 0;
+        overflow: hidden;
       }
     }
 
