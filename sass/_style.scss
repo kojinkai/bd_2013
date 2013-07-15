@@ -15,6 +15,13 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* ==========================================================================
+   =buttons
+   ========================================================================== */
+button {
+  border: none;
+}
+
+/* ==========================================================================
    =navigation
    ========================================================================== */
 
@@ -24,11 +31,16 @@ h1,h2,h3,h4,h5,h6 {
 
 .navbar {
 
-  @include navbar_fixed;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
   background-color: $white;
 
   .nav {
-    margin: 10px 0 10px 15%;
+    margin: 0 0 0 15%;
     width: 70%;
   }
 
@@ -42,28 +54,38 @@ h1,h2,h3,h4,h5,h6 {
       padding: 10px 40px;
       color: $royal;
       text-align: center;
-      line-height: 55px;
+      line-height: 70px;
       @include pix18;
       &:hover,
       &:focus,
       &:active {
-        border-bottom: 4px solid $white;
+        // border-bottom: 4px solid $white;
       }
     }
   }
 
   .btn-navbar {
     display: none;
-    border-radius: 50%;
-    margin: 15px;
-    padding: 10px 20px;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
     line-height: 25px;
-    vertical-align: middle;
+    font-family: $headline;
+    @include pix40;
+    text-transform: uppercase;
+    background: $orange;
+    color: $white;
+    &.collapsed {
+      &:active,
+      &:focus {
+
+      }
+    }     
     @include transition (all 0.1s ease-in-out);
     &:hover,
     &:focus {
-      @include buttonhover;
-    }   
+
+    }
   }
 
   &.scrolled {

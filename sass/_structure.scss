@@ -6,6 +6,8 @@
 	@include row;
 	padding: 60px 0 30px;
 	&>div {
-		@include outer-container;		
+		@include outer-container;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
