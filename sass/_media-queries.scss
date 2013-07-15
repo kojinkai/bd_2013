@@ -33,6 +33,7 @@
           &:focus {
             background-color: $orange;
             color: $white;
+            outline: none;
           }
           &:active {
             background-color: $orange;

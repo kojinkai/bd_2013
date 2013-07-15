@@ -881,7 +881,8 @@ button {
       transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
       .navbar .nav-collapse .nav > li a:hover, .navbar .nav-collapse .nav > li a:focus {
         background-color: #f05000;
-        color: white; }
+        color: white;
+        outline: none; }
       .navbar .nav-collapse .nav > li a:active {
         background-color: #f05000;
         color: white; } }
