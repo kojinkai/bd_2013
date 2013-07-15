@@ -59,7 +59,8 @@ button {
       &:hover,
       &:focus,
       &:active {
-        // border-bottom: 4px solid $white;
+        outline: none;
+        
       }
     }
   }
