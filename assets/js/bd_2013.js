@@ -80,7 +80,7 @@
     })
 
 
-})( jQuery, window, document );;;(function($){
+})( jQuery, window, document );;(function($){
    
     $.fn.scrollover = function( options ) {
 
@@ -133,7 +133,7 @@
       return this;
    };
 
-})(jQuery);;// Our main JS file
+})(jQuery);// Our main JS file
 (function($) {
 	$('.navbar .nav').scrollover().dropmenu();
 })(jQuery);
