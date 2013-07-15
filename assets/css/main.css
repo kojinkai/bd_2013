@@ -695,7 +695,9 @@ textarea {
     *zoom: 1;
     max-width: 68em;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px; }
     .waypoint > div:before, .waypoint > div:after {
       content: " ";
       /* 1 */
@@ -728,7 +730,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon {
+.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -738,29 +740,32 @@ you can use the generic selector below, but it's slower:
   line-height: 1;
   -webkit-font-smoothing: antialiased; }
 
-.icon-star_icon:before {
+.icon-menu_icon:before {
   content: "\e000"; }
 
-.icon-twitter_icon:before {
+.icon-star_icon:before {
   content: "\e001"; }
 
-.icon-linkedin_icon:before {
+.icon-twitter_icon:before {
   content: "\e002"; }
 
-.icon-google_icon:before {
+.icon-linkedin_icon:before {
   content: "\e003"; }
 
-.icon-github_icon:before {
+.icon-google_icon:before {
   content: "\e004"; }
 
-.icon-flickr_icon:before {
+.icon-github_icon:before {
   content: "\e005"; }
 
-.icon-dribbble_icon:before {
+.icon-flickr_icon:before {
   content: "\e006"; }
 
-.icon-behance_icon:before {
+.icon-dribbble_icon:before {
   content: "\e007"; }
+
+.icon-behance_icon:before {
+  content: "\e008"; }
 
 /* ==========================================================================
    =type
@@ -822,20 +827,18 @@ button {
       font-size: 1.125em; }
   .navbar .btn-navbar {
     display: none;
-    border-radius: 25px;
-    margin: 15px;
-    padding: 10px 30px;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
     line-height: 25px;
-    vertical-align: middle;
+    font-family: "league-gothic", sans-serif;
+    font-size: 2.5em;
+    text-transform: uppercase;
     background: #f05000;
     color: white;
-    float: right;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out; }
-    .navbar .btn-navbar:hover, .navbar .btn-navbar:focus {
-      color: #316aa3;
-      background-color: white; }
   .navbar.scrolled {
     box-shadow: 0 0 20px 2px rgba(46, 64, 102, 0.7); }
 
@@ -889,9 +892,11 @@ button {
 @media only screen and (max-width: 767px) {
   .navbar .nav-collapse,
   .navbar .nav-collapse.collapse {
-    clear: both;
     height: 0;
     overflow: hidden; }
+    .navbar .nav-collapse .nav,
+    .navbar .nav-collapse.collapse .nav {
+      margin-top: 10px; }
     .navbar .nav-collapse .nav li,
     .navbar .nav-collapse.collapse .nav li {
       width: auto;
