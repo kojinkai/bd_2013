@@ -704,12 +704,71 @@ textarea {
     .waypoint > div:after {
       clear: both; }
 
+@font-face {
+  font-family: 'icomoon';
+  src: url("/assets/fonts/icomoon.eot");
+  src: url("/assets/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/icomoon.woff") format("woff"), url("/assets/fonts/icomoon.ttf") format("truetype"), url("/assets/fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+.icon-star_icon:before {
+  content: "\e000"; }
+
+.icon-twitter_icon:before {
+  content: "\e001"; }
+
+.icon-linkedin_icon:before {
+  content: "\e002"; }
+
+.icon-google_icon:before {
+  content: "\e003"; }
+
+.icon-github_icon:before {
+  content: "\e004"; }
+
+.icon-flickr_icon:before {
+  content: "\e005"; }
+
+.icon-dribbble_icon:before {
+  content: "\e006"; }
+
+.icon-behance_icon:before {
+  content: "\e007"; }
+
 /* ==========================================================================
    =type
    ========================================================================== */
 body {
   font-family: "calluna-sans", sans-serif;
-  font-weight: 700; }
+  font-weight: 700;
+  text-align: center; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "league-gothic", sans-serif;
@@ -742,9 +801,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   background-color: white; }
   .navbar .nav {
-    margin: 10px 0; }
+    margin: 10px 0 10px 15%;
+    width: 70%; }
   .navbar .nav > li {
-    float: left; }
+    float: left;
+    width: 25%; }
     .navbar .nav > li > a {
       display: block;
       margin: 0;
@@ -775,6 +836,24 @@ h1, h2, h3, h4, h5, h6 {
    =about
    ========================================================================== */
 #about {
+  background-color: #2e4066;
+  padding-top: 82px; }
+  #about p {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto; }
+
+.brand img {
+  display: block;
+  margin: 0 auto;
+  padding: 0 15px 50px;
+  border-bottom: 1px solid white;
+  width: 280px; }
+.brand b {
+  padding: 0 15px;
+  font-size: 28px;
+  position: relative;
+  bottom: 14px;
   background-color: #2e4066; }
 
 /* ==========================================================================
