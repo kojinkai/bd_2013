@@ -17,7 +17,7 @@
     // regularly referenced in your plugin).
 
     // Create the defaults once
-    var expander = 'expander',
+    var dropmenu = 'dropmenu',
         defaults = {
             propertyName: "value"
         };
@@ -34,7 +34,7 @@
         this.options = $.extend( {}, defaults, options) ;
         
         this._defaults = defaults;
-        this._name = pluginName;
+        this._name = dropmenu;
         
         this.init();
     }
@@ -44,17 +44,74 @@
         // You already have access to the DOM element and
         // the options via the instance, e.g. this.element 
         // and this.options
+        console.log("innit, mate", this);
     };
 
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
-    $.fn[pluginName] = function ( options ) {
+    $.fn[dropmenu] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, 
+            if (!$.data(this, 'plugin_' + dropmenu)) {
+                $.data(this, 'plugin_' + dropmenu, 
                 new Plugin( this, options ));
             }
         });
     };
 
-})( jQuery, window, document );
+})( jQuery, window, document );;;(function($){
+   
+    $.fn.scrollover = function( options ) {
+
+      var defaults = {
+        
+        // Our Settings.
+        classname:        "scrolled",
+        onScrollStart:    function() {}
+
+      };
+
+      var settings = $.extend( defaults, options );
+
+
+      // Begin plugin code
+      
+      // Cache $(this)
+      var $this = $(this);
+
+      // Instance variables
+      var nav_height = $this.height(),
+          offset = $this.scrollTop();
+
+
+      function scrolled_switch() {
+        if ( offset > 0 ) {
+          $this.addClass( defaults.classname );
+        }
+
+        else {
+          $this.removeClass( defaults.classname );
+        }
+      }
+
+      $(window).on("scroll", function() {
+        defaults.onScrollStart();
+        
+        // Update our scrollTop value
+        offset = $(this).scrollTop();
+
+        // switch our state, if needed
+        scrolled_switch();
+
+      });
+
+      
+      // Just return this object for now.
+      // We're not gonna be applying this to
+      // a jQuery set so no need to return this.each()
+      return this;
+   };
+
+})(jQuery);;// Our main JS file
+(function($) {
+	$('.navbar .nav').scrollover().dropmenu();
+})(jQuery);

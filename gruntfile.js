@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       },
       dist: {
         // the files to concatenate
-        src: ['assets/js/jquery.dropmenu.js', 'assets/js/jquery.scrollover.js'],
+        src: ['assets/js/jquery.dropmenu.js', 'assets/js/jquery.scrollover.js', 'assets/js/main.js'],
         // the location of the resulting JS file
         dest: 'assets/js/<%= pkg.name %>.js'
       }

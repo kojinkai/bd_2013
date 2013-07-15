@@ -34,7 +34,7 @@
         this.options = $.extend( {}, defaults, options) ;
         
         this._defaults = defaults;
-        this._name = pluginName;
+        this._name = dropmenu;
         
         this.init();
     }
@@ -44,7 +44,7 @@
         // You already have access to the DOM element and
         // the options via the instance, e.g. this.element 
         // and this.options
-        console.log("innit, mate");
+        console.log("innit, mate", this);
     };
 
     // A really lightweight plugin wrapper around the constructor, 
