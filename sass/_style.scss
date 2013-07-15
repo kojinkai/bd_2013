@@ -66,14 +66,15 @@ button {
 
   .btn-navbar {
     display: none;
-    border-radius: 25px;
-    margin: 15px;
-    padding: 10px 30px;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
     line-height: 25px;
-    vertical-align: middle;
+    font-family: $headline;
+    @include pix40;
+    text-transform: uppercase;
     background: $orange;
     color: $white;
-    float: right;
     &.collapsed {
       &:active,
       &:focus {
@@ -83,8 +84,8 @@ button {
     @include transition (all 0.1s ease-in-out);
     &:hover,
     &:focus {
-      @include buttonhover;
-    }   
+
+    }
   }
 
   &.scrolled {

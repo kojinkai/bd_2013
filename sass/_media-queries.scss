@@ -50,9 +50,12 @@
 
     .nav-collapse,
     .nav-collapse.collapse {
-      clear: both;
       height: 0;
       overflow: hidden;
+
+      .nav {
+        margin-top: 10px;
+      }
 
       .nav li {
         width: auto;

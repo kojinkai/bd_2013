@@ -9,11 +9,6 @@
   }
 }
 
-@mixin buttonhover {
-  color: $navy;
-  background-color: $white;
-}
-
 @mixin buttonactive {
   background-color: $navy;
   color: $white;
@@ -34,6 +29,10 @@
 
 @mixin pix30 {
   font-size: 1.875em;
+}
+
+@mixin pix40 {
+  font-size: 2.5em;
 }
 
 @mixin absolute_center {
