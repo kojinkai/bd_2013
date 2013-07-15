@@ -17,7 +17,7 @@
     // regularly referenced in your plugin).
 
     // Create the defaults once
-    var expander = 'expander',
+    var dropmenu = 'dropmenu',
         defaults = {
             propertyName: "value"
         };
@@ -44,14 +44,15 @@
         // You already have access to the DOM element and
         // the options via the instance, e.g. this.element 
         // and this.options
+        console.log("innit, mate");
     };
 
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
-    $.fn[pluginName] = function ( options ) {
+    $.fn[dropmenu] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, 
+            if (!$.data(this, 'plugin_' + dropmenu)) {
+                $.data(this, 'plugin_' + dropmenu, 
                 new Plugin( this, options ));
             }
         });

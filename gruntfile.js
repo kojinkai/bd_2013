@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       },
       dist: {
         // the files to concatenate
-        src: ['js/*.js'],
+        src: ['assets/js/jquery.dropmenu.js', 'assets/js/jquery.scrollover.js'],
         // the location of the resulting JS file
         dest: 'assets/js/<%= pkg.name %>.js'
       }
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     },
     jshint: {
       // define the files to lint
-      files: ['gruntfile.js', 'js/jquery.konami.js', 'js/jquery.scrollover.js', 'js/main.js'],
+      files: ['gruntfile.js', 'assets/js/jquery.konami.js', 'assets/js/jquery.scrollover.js', 'assets/js/jquery.menu-collapse.js'],
       options: {
           // more options here if you want to override JSHint defaults
         globals: {
