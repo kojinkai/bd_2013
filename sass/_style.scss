@@ -5,6 +5,7 @@
 body {
   font-family: $bodycopy;
   font-weight: 700;
+  text-align: center;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -27,11 +28,13 @@ h1,h2,h3,h4,h5,h6 {
   background-color: $white;
 
   .nav {
-    margin: 10px 0;
+    margin: 10px 0 10px 15%;
+    width: 70%;
   }
 
   .nav > li {
     float: left;
+    width: 25%;
 
     &>a {
       display: block;
@@ -73,4 +76,29 @@ h1,h2,h3,h4,h5,h6 {
    ========================================================================== */
 #about {
   background-color: $royal;
+  padding-top: 82px;
+
+  p {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.brand {
+  
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 0 15px 50px;
+    border-bottom: 1px solid $white;
+    width: 280px;
+  }
+  b {
+    padding: 0 15px;
+    font-size: 28px;
+    position: relative;
+    bottom: 14px;
+    background-color: $royal;
+  }
 }
