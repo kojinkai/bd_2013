@@ -19,14 +19,14 @@
   .navbar {
    position: static;
 
-    .nav {
+    .navigation {
       width: auto;
       margin-left: 0;
     } 
 
     .nav-collapse {
 
-      .nav > li {
+      .navigation > li {
         a {
           @include transition(background-color 0.2s ease-in-out, color 0.2s ease-in-out);
           &:hover,
@@ -48,15 +48,10 @@
   .navbar {
 
     .nav-collapse {
-      height: 200px;
       overflow: hidden;
       @include transition(height 0.2s ease-in-out);
 
-      .nav {
-        margin-top: 10px;
-      }
-
-      .nav li {
+      .navigation li {
         width: auto;
         float: none;
         margin-left: 0;
