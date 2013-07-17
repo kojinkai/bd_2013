@@ -27,7 +27,6 @@
   function Dropmenu( element, options ) {
 
     this.element = element;
-    console.log("new Dropmenu ", this.element);
 
     // jQuery has an extend method that merges the 
     // contents of two or more objects, storing the 
@@ -43,62 +42,38 @@
     this.toggle();
   }
 
-  Dropmenu.prototype.init = function () {
-    // Place initialization logic here
-    // You already have access to the DOM element and
-    // the options via the instance, e.g. this.element 
-    // and this.options
+  Dropmenu.prototype = {
+    
+    init: function () {
+      // Place initialization logic here
+      // You already have access to the DOM element and
+      // the options via the instance, e.g. this.element 
+      // and this.options
 
-    // Grab our child menu, at the moment its hardcoded
-    // attach it's height to the main object
+      // Grab our child menu, at the moment its hardcoded
+      // attach it's height to the main object
 
-    this.child = $(this.element).find('.navigation');
-    this.child.height = this.getHeight(this.child);
-
-    if ( this.hasTransition() ) {
-      console.log("hasTransition ", this.hasTransition());
-    }
-  };
-
-  Dropmenu.prototype.getHeight = function (el) {
-    if (el) {
-      return $(el).height();
-    }
-  };
-
-  Dropmenu.prototype.toggle = function () {
-    this[$(this.element).hasClass( this.options.toggle ) ? 'show' : 'hide']();
-  };
-
-  Dropmenu.prototype.hide = function () {
-    console.log("hide ", this.child.height);
-    $(this.element).addClass( this.options.toggle )
-             .height(0);
-  };
-
-  Dropmenu.prototype.show = function () {
-    console.log("show ", this.child.height);
-    $(this.element).removeClass( this.options.toggle )
-             .height( this.child.height );
-  }; 
-
-  Dropmenu.prototype.hasTransition = function () {
-    var t,
-        el = document.createElement('testelement');
-
-    var transitions = {
-      'transition':'transitionend',
-      'OTransition':'otransitionEnd',
-      'MozTransition':'transitionend',
-      'WebkitTransition':'webkitTransitionEnd'
-    };
-
-    for( t in transitions ) {
-        if( el.style[t] !== undefined && el.style[t] !== null ) {
-            return t;
+      this.child = $(this.element).find('.navigation');
+      this.child.height = this.getHeight(this.child);
+    },
+    
+    getHeight: function (el) {
+      if (el) {
+        return $(el).height();
       }
+    },
+
+    toggle: function () {
+      this[$(this.element).hasClass( this.options.toggle ) ? 'show' : 'hide']();      
+    },
+
+    hide: function () {
+      $(this.element).addClass( this.options.toggle ).height(0);      
+    },
+
+    show: function () {
+      $(this.element).removeClass( this.options.toggle ).height( this.child.height );    
     }
-    return false;
   };
 
   $.fn[dropmenu] = function ( options ) {
