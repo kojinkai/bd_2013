@@ -25,7 +25,7 @@ button {
    =navigation
    ========================================================================== */
 
-.nav {
+.navigation {
   @include nav;
 }
 
@@ -39,12 +39,12 @@ button {
   margin-bottom: 0;
   background-color: $white;
 
-  .nav {
+  .navigation {
     margin: 0 0 0 15%;
     width: 70%;
   }
 
-  .nav > li {
+  .navigation > li {
     float: left;
     width: 25%;
 
@@ -124,4 +124,63 @@ button {
     bottom: 14px;
     background-color: $royal;
   }
+}
+
+/* ==========================================================================
+   =development
+   ========================================================================== */
+#development {
+
+  background-color: $orange; 
+  
+  ul {
+    @include nav;
+    width: 82.94039%; /*span10*/
+    margin-left: 8.5298%; /*offset1*/
+    li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%;
+    }
+  }
+}
+
+/* ==========================================================================
+   =skills
+   ========================================================================== */
+
+#design {
+
+  background: $lightgrey;
+  color: $slate;
+
+  ul {
+    @include nav;
+    width: 82.94039%; /*span10*/
+    margin-left: 8.5298%; /*offset1*/
+    li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%;
+    }
+  }  
+}
+
+/* ==========================================================================
+   =ethos
+   ========================================================================== */
+
+#ethos {
+
+  background-color: $navy;
+}
+
+/* ==========================================================================
+   =main-footer
+   ========================================================================== */
+
+#main-footer {
+  background-color: $darkgrey;
 }
