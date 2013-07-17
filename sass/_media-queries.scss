@@ -44,6 +44,12 @@
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .navbar .nav-collapse {
+    height: auto!important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .navbar {
 
