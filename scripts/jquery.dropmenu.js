@@ -92,7 +92,7 @@
     href,
 
     // regex strip for ie7
-    target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
+    target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
     option = $this.data();
     // $(target).toggleClass(option.toggle);
     $(target).dropmenu(option);

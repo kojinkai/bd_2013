@@ -1,4 +1,5 @@
 // Our main JS file
 (function($) {
-	$('.navbar .nav').scrollover().dropmenu();
+	$('.navbar .navigation').scrollover();
+	$('.waypoint').backfill();
 })(jQuery);
