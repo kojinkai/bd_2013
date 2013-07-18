@@ -47,20 +47,17 @@
 
       // get and set the window width minus any offsets
       var options = this.options,
-          // userOptions = this.hasOptions(),
-          userSum = this.sum(options.marginTop, options.marginBottom);
+          userSum = this.sum(options.marginTop, options.marginBottom),
+          r = /\d+/,
+          padding = $(this.element).css("padding");
+          console.log( padding, "matching our regex ", padding.match(r) );
 
-      // var window_height = userOptions ? $(window).height() - userSum : $(window).height();
-      
-      // this.resize(this.element, window_height);
       var that = this;
 
       $(window).on( "load resize", function () {
-        console.log("strettch it");
         var window_height = $(window).height() - userSum;
         that.resize(that.element, window_height);
       });
-
     },
 
     resize: function (element, height) {
@@ -260,5 +257,7 @@
 })(jQuery);// Our main JS file
 (function($) {
 	$('.navbar .navigation').scrollover();
-	$('.waypoint').backfill();
+	$('.waypoint').backfill({
+		marginTop: $('.navbar').height() + 160
+	});
 })(jQuery);

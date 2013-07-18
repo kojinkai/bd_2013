@@ -47,7 +47,20 @@
 
       // get and set the window width minus any offsets
       var options = this.options,
-          userSum = this.sum(options.marginTop, options.marginBottom);
+          userSum = this.sum(options.marginTop, options.marginBottom),
+          
+          // what we need is to strip out the numbers
+          // from the CSS padding top and padding bottom values
+          // and convert them to numbers
+          // $().css returns a string but that could be say 30px 0 30px, or 30px 30px 20px 20px
+          // so rather than splitting the string into and array
+          // testing for a length of say 3 or 4, maybe its just easier to have 2 variables and
+          // assign $().css("paddingTop"), $().css("paddingBottom") and match both against the regex
+          // and then convert both to numbers?
+          // not the most elegant, but concise at least.
+          r = /\d+/,
+          padding = $(this.element).css("padding");
+          console.log( padding, "matching our regex ", padding.match(r) );
 
       var that = this;
 
