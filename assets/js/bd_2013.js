@@ -15,8 +15,7 @@
   // Create the defaults once
   var backfill = 'backfill',
       defaults = {
-        marginTop: false,
-        marginBottom: false
+        offset: false
       };
 
   // The actual Backfill constructor
@@ -47,15 +46,32 @@
 
       // get and set the window width minus any offsets
       var options = this.options,
-          userSum = this.sum(options.marginTop, options.marginBottom),
-          r = /\d+/,
-          padding = $(this.element).css("padding");
-          console.log( padding, "matching our regex ", padding.match(r) );
+          userOffset = this.options.offset;
+          console.log("now offset is ", userOffset);
+          
+          // what we need is to strip out the numbers
+          // from the CSS padding top and padding bottom values
+          // and convert them to numbers
+          // $().css returns a string but that could be say 30px 0 30px, or 30px 30px 20px 20px
+          // so rather than splitting the string into and array
+          // testing for a length of say 3 or 4, maybe its just easier to have 2 variables and
+          // assign $().css("paddingTop"), $().css("paddingBottom") and match both against the regex
+          // and then convert both to numbers?
+          // not the most elegant, but concise at least.
+          var r = /\d+/,
+          paddingTop = $(this.element).css("paddingTop"),
+          paddingBottom = $(this.element).css("paddingBottom"),
+
+          totalPadding = this.sum( parseInt(paddingTop.match(r)[0], 10), parseInt(paddingBottom.match(r)[0], 10) );
+
+          userOffset += totalPadding;
+
+          console.log("now offset is ", userOffset);
 
       var that = this;
 
       $(window).on( "load resize", function () {
-        var window_height = $(window).height() - userSum;
+        var window_height = $(window).height() - userOffset;
         that.resize(that.element, window_height);
       });
     },
@@ -258,6 +274,6 @@
 (function($) {
 	$('.navbar .navigation').scrollover();
 	$('.waypoint').backfill({
-		marginTop: $('.navbar').height() + 160
+		offset: 90
 	});
 })(jQuery);

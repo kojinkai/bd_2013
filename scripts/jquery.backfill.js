@@ -15,8 +15,7 @@
   // Create the defaults once
   var backfill = 'backfill',
       defaults = {
-        marginTop: false,
-        marginBottom: false
+        offset: false
       };
 
   // The actual Backfill constructor
@@ -47,25 +46,26 @@
 
       // get and set the window width minus any offsets
       var options = this.options,
-          userSum = this.sum(options.marginTop, options.marginBottom),
+          userOffset = this.options.offset,
           
-          // what we need is to strip out the numbers
-          // from the CSS padding top and padding bottom values
-          // and convert them to numbers
-          // $().css returns a string but that could be say 30px 0 30px, or 30px 30px 20px 20px
-          // so rather than splitting the string into and array
-          // testing for a length of say 3 or 4, maybe its just easier to have 2 variables and
-          // assign $().css("paddingTop"), $().css("paddingBottom") and match both against the regex
-          // and then convert both to numbers?
-          // not the most elegant, but concise at least.
+          // Our number matching Regex
           r = /\d+/,
-          padding = $(this.element).css("padding");
-          console.log( padding, "matching our regex ", padding.match(r) );
+
+          // Grab padding top and padding bottom CSS value, pull out the numbers and parse as numbers
+          paddingTop = parseInt( $(this.element).css("paddingTop").match(r)[0], 10),
+          paddingBottom = parseInt( $(this.element).css("paddingBottom").match(r)[0], 10),
+
+          // Now cast as numbers, we can total up the padding of each div..
+          totalPadding = this.sum( paddingTop, paddingBottom );
+
+          // And the total offset
+          userOffset += totalPadding;
+
 
       var that = this;
 
       $(window).on( "load resize", function () {
-        var window_height = $(window).height() - userSum;
+        var window_height = $(window).height() - userOffset;
         that.resize(that.element, window_height);
       });
     },
