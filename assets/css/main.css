@@ -781,6 +781,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   text-transform: uppercase; }
 
+#page-wrap {
+  position: relative; }
+
 .waypoint {
   font-size: 1.6em; }
 
@@ -920,7 +923,7 @@ button {
       width: 20%; }
 
 /* ==========================================================================
-   =skills
+   =design
    ========================================================================== */
 #design {
   background: #efefef;
@@ -958,10 +961,49 @@ button {
   background-color: #316aa3; }
 
 /* ==========================================================================
+   =contact
+   ========================================================================== */
+#contact {
+  background-color: #9ca2ad; }
+  #contact ul {
+    *zoom: 1;
+    list-style: none;
+    padding-left: 0;
+    width: 82.94039%;
+    /*span10*/
+    margin-left: 8.5298%;
+    /*offset1*/ }
+    #contact ul:before, #contact ul:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    #contact ul:after {
+      clear: both; }
+    #contact ul > li {
+      list-style: none;
+      float: left; }
+      #contact ul > li a {
+        cursor: pointer; }
+    #contact ul li {
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 20%; }
+
+/* ==========================================================================
    =main-footer
    ========================================================================== */
 #main-footer {
-  background-color: #9ca2ad; }
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 0; }
+  #main-footer img {
+    display: block;
+    margin: auto;
+    max-width: 300px; }
 
 /* ==========================================================================
    Media Queries
