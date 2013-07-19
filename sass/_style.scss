@@ -40,18 +40,18 @@ button {
   background-color: $white;
 
   .navigation {
-    margin: 0 0 0 15%;
-    width: 70%;
+    margin: 0 0 0 10%;
+    width: 80%;
   }
 
   .navigation > li {
     float: left;
-    width: 25%;
+    width: 20%;
 
     &>a {
       display: block;
       margin: 0;
-      padding: 10px 40px;
+      padding: 10px 0;
       color: $royal;
       text-align: center;
       line-height: 70px;

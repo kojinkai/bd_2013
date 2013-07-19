@@ -1,20 +1,18 @@
 // Our main JS file
 (function($) {
-	$('.navbar .navigation').scrollover();
-	$('.waypoint').backfill({
-		offset: $( '.navbar').height()
-	});
-  // add class to fixed navbar
-  $('.navbar .navigation').scrollover();
+    var $navbar = $('.navbar'),
+        navOffset = $navbar.height();
 
-  // stretch each panel to full screen
-  $('.waypoint').backfill({
-    offset: $( '.navbar').height()
-  });
-  var $paneTarget = $('#page-wrap');
-  $('a[href="#intro"]').click(function(){
-    console.log('shitknacker: ', $paneTarget);
-    var target = $paneTarget.find('#design');
-    $paneTarget.stop().scrollTo( target );
-  });
+    $('.navigation').scrollover();
+    $('.waypoint').backfill({
+        offset: navOffset
+    });
+
+    $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
+        var $t = $(this);
+        $.scrollTo($t.dataAttr('scroll-target'), {
+            offset: { top: -navOffset, left: 0 },
+            duration: 800
+        });
+    });
 })(jQuery);
