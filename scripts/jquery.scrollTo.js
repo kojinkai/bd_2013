@@ -7,7 +7,6 @@
  * http://flesler.blogspot.com/2007/10/jqueryscrollto.html
  * @author Ariel Flesler
  * @version 1.4.6
- *
  * @id jQuery.scrollTo
  * @id jQuery.fn.scrollTo
  * @param {String, Number, DOMElement, jQuery, Object} target Where to scroll the matched elements.
