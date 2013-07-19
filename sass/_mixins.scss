@@ -50,6 +50,9 @@
   &>li {
     list-style: none;
     float: left;
+    a {
+      cursor: pointer;
+    }
   }
 }
 
