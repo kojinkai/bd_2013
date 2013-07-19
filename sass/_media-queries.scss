@@ -4,7 +4,21 @@
    ========================================================================== */
 
 @media only screen and (max-width: 1024px) {
-
+  .waypoint {
+    font-size: 1.4em;
+  }  
+  .svg .brand {
+    
+    img {
+      width: 300px;
+    }
+    
+    b {
+      font-size: 28px;
+      bottom: 14px;
+    }
+    
+  }
 }
 
 @media (max-width: 979px) and (min-width: 768px) {
@@ -42,6 +56,7 @@
       }
     }  
   }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -78,6 +93,22 @@
       display: block;
     } 
 
+  }
+
+  .waypoint {
+    font-size: 1em;
+  } 
+  .svg .brand {
+    
+    img {
+      width: 260px;
+    }
+    
+    b {
+      font-size: 24px;
+      bottom: 12px;
+    }
+    
   }
 }
 
