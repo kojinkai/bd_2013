@@ -168,14 +168,17 @@ button {
     width: 960px;
   }
 
-  .content > div {
-    width: 30%;
-    margin-right: 5%;    
-    float: left;
-    position: relative;
-    -webkit-backface-visibility: hidden;
-    @include omega(3n);
-    
+  .content {
+
+    &>div {
+      width: 30%;
+      margin-right: 5%;    
+      float: left;
+      position: relative;
+      -webkit-backface-visibility: hidden;
+      @include omega(3n);
+    }
+
     h3 {
       width: 250px;
       height: 250px;
@@ -185,6 +188,18 @@ button {
       border-radius: 50%;
       @include box-sizing(border-box);
       @include transition( all .3s ease);
+
+      &:before,
+      &:after {
+        font-size: 4em;
+        font-weight: bold;
+        line-height: 250px;
+        position: absolute;
+        top: 0;
+        opacity: 1;
+        @include transition(all .3s ease);
+        z-index: 100;       
+      }        
       
       span {
         width: 100%;
@@ -206,7 +221,7 @@ button {
     }    
 
     // skills boxes hover styles
-    &:hover {
+    &>div:hover {
       color: $orange;     
       
       h3 {
@@ -234,22 +249,6 @@ button {
 
       p {
         color: $white;
-      }      
-    }
-  }
-
-  div {
-    h3 {
-      &:before,
-      &:after {
-        font-size: 4em;
-        font-weight: bold;
-        line-height: 250px;
-        position: absolute;
-        top: 0;
-        opacity: 1;
-        @include transition(all .3s ease);
-        z-index: 100;       
       }      
     }
   }

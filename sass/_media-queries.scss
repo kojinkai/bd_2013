@@ -19,6 +19,34 @@
     }
     
   }
+
+  #development {
+    .content {
+      width: auto;
+      margin-left: 5%;
+      margin-right: 5%;
+
+      h3 {
+        width: 160px;
+        height: 160px;
+        &:before,
+        &:after {
+          content: "";   
+        }
+
+        span {
+          line-height: 148px;
+          font-size: 1em;
+          opacity: 1;
+          top: auto;
+        }        
+      }
+
+      p {
+        font-size: 0.8em;
+      }
+    }
+  }
 }
 
 @media (max-width: 979px) and (min-width: 768px) {
@@ -110,21 +138,46 @@
     }
     
   }
+
+  #development {
+    .content {
+      
+      &>div {
+        float: none;
+        width: auto;
+        margin-right: 0;
+      }
+
+      h3 {
+
+        span {
+          line-height: 148px;
+          font-size: 1em;
+          opacity: 1;
+          top: auto;
+        }        
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  }  
 }
 
 
 // Prevent the main slide from centering
 // when the screen gets too narrow or too short
 @media only screen and (max-width: 640px) {
-  #about {
+  .waypoint {
     &>div {
       @include reset-content-box
     }
   }
 }
 
-@media only screen and (max-height: 767px) {
-  #about {
+@media only screen and (max-height: 768px) {
+  .waypoint {
     &>div {
       @include reset-content-box
     }
