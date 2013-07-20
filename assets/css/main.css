@@ -710,6 +710,17 @@ textarea {
     .waypoint > div:after {
       clear: both; }
 
+.content {
+  *zoom: 1;
+  margin: auto; }
+  .content:before, .content:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .content:after {
+    clear: both; }
+
 @font-face {
   font-family: 'icomoon';
   src: url("/assets/fonts/icomoon.eot");
@@ -896,31 +907,95 @@ button {
    ========================================================================== */
 #development {
   background-color: #f05000; }
-  #development ul {
-    *zoom: 1;
-    list-style: none;
-    padding-left: 0;
-    width: 82.94039%;
-    /*span10*/
-    margin-left: 8.5298%;
-    /*offset1*/ }
-    #development ul:before, #development ul:after {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    #development ul:after {
-      clear: both; }
-    #development ul > li {
-      list-style: none;
-      float: left; }
-      #development ul > li a {
-        cursor: pointer; }
-    #development ul li {
-      padding: 20px;
-      box-sizing: border-box;
+  #development .content {
+    width: 960px; }
+  #development .content > div {
+    width: 286px;
+    margin-right: 50px;
+    float: left;
+    position: relative;
+    -webkit-backface-visibility: hidden; }
+    #development .content > div:nth-child(3n) {
+      margin-right: 0; }
+    #development .content > div:nth-child(3n+1) {
+      clear: left; }
+    #development .content > div h3 {
+      height: 286px;
+      position: relative;
+      border: 4px solid white;
       border-radius: 50%;
-      width: 20%; }
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      margin-bottom: 20px; }
+      #development .content > div h3 span {
+        width: 100%;
+        text-align: center;
+        display: block;
+        line-height: 286px;
+        font-size: 1.5em;
+        opacity: 0;
+        top: 20px;
+        position: relative;
+        margin-bottom: 20px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+    #development .content > div p {
+      color: #f05000;
+      -webkit-transition: color 0.3s ease;
+      -moz-transition: color 0.3s ease;
+      transition: color 0.3s ease; }
+    #development .content > div:hover {
+      color: #f05000; }
+      #development .content > div:hover h3 {
+        color: white; }
+        #development .content > div:hover h3:before, #development .content > div:hover h3:after {
+          font-size: 3.5em;
+          opacity: 0; }
+        #development .content > div:hover h3:before {
+          left: 7%; }
+        #development .content > div:hover h3:after {
+          right: 7%; }
+        #development .content > div:hover h3 span {
+          top: 0;
+          opacity: 1; }
+      #development .content > div:hover p {
+        color: white; }
+  #development div h3:before, #development div h3:after {
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 286px;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 100; }
+  #development .skill-html5 h3:after {
+    content: ">";
+    right: 23%; }
+  #development .skill-html5 h3:before {
+    content: "<";
+    left: 23%; }
+  #development .skill-css h3:after {
+    content: "}";
+    right: 30%;
+    top: -7px; }
+  #development .skill-css h3:before {
+    content: "{";
+    left: 30%;
+    top: -7px; }
+  #development .skill-js h3:after {
+    content: ")";
+    right: 23%; }
+  #development .skill-js h3:before {
+    content: "(";
+    left: 23%; }
 
 /* ==========================================================================
    =design

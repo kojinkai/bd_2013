@@ -164,18 +164,136 @@ button {
 
   background-color: $orange; 
   
-  ul {
-    @include nav;
-    width: 82.94039%; /*span10*/
-    margin-left: 8.5298%; /*offset1*/
-    li {
-      padding: 20px;
-      box-sizing: border-box;
+  .content {
+    width: 960px;
+  }
+
+  .content > div {
+    width: 286px;
+    margin-right: 50px;    
+    float: left;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    @include omega(3n);
+    
+    h3 {
+      height: 286px;
+      position: relative;
+      border: 4px solid $white;
       border-radius: 50%;
-      width: 20%;
+      @include box-sizing(border-box);
+      @include transition( all .3s ease);
+      margin-bottom: 20px;
+      
+      span {
+        width: 100%;
+        text-align: center;
+        display: block;
+        line-height: 286px;
+        @include pix24;
+        opacity: 0;
+        top: 20px;
+        position: relative;
+        margin-bottom: 20px;
+        @include transition(all .3s ease);       
+      }     
+    }
+
+    p {
+      color: $orange;
+      @include transition(color .3s ease);
+    }    
+
+    // skills boxes hover styles
+    &:hover {
+      color: $orange;     
+      
+      h3 {
+        color: $white;
+        
+        &:before,
+        &:after {
+          font-size: 3.5em;
+          opacity: 0;   
+        }
+
+        &:before {
+          left: 7%;
+        } 
+
+        &:after {
+          right: 7%;
+        }                
+
+        span {
+          top: 0;
+          opacity: 1;
+        }
+      }
+
+      p {
+        color: $white;
+      }      
     }
   }
+
+  div {
+    h3 {
+      &:before,
+      &:after {
+        font-size: 4em;
+        font-weight: bold;
+        line-height: 286px;
+        position: absolute;
+        top: 0;
+        opacity: 1;
+        @include transition(all .3s ease);
+        z-index: 100;       
+      }      
+    }
+  }
+
+  .skill-html5 {
+    h3 {
+      &:after {
+        content: ">";
+        right: 23%;
+      }
+      &:before {
+        content: "<";
+        left: 23%;
+      }      
+    }
+  }
+  .skill-css {
+    h3 {
+      &:after {
+        content: "}";
+        right: 30%;
+        top: -7px;
+      }
+      &:before {
+        content: "{";
+        left: 30%;
+        top: -7px;
+      }      
+    }
+  }
+  .skill-js {
+    h3 {
+      &:after {
+        content: ")";
+        right: 23%;
+      }
+      &:before {
+        content: "(";
+        left: 23%;
+      }      
+    }
+  }    
 }
+
+
 
 /* ==========================================================================
    =design

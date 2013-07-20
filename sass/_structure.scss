@@ -11,3 +11,8 @@
 		padding-right: 20px;
 	}
 }
+
+.content {
+  @include clearfix;
+  margin: auto;
+}
