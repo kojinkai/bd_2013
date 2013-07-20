@@ -1165,6 +1165,13 @@ button {
 
   .waypoint {
     font-size: 1em; }
+    .waypoint > div {
+      position: relative;
+      position: inherit;
+      left: auto;
+      right: auto;
+      top: auto;
+      margin-top: 6em; }
 
   .svg .brand img {
     width: 260px; }
@@ -1183,14 +1190,6 @@ button {
     top: auto; }
   #development .content p {
     font-size: 1em; } }
-@media only screen and (max-width: 640px) {
-  .waypoint > div {
-    position: relative;
-    position: inherit;
-    left: auto;
-    right: auto;
-    top: auto;
-    margin-top: 30px; } }
 @media only screen and (max-height: 768px) {
   .waypoint > div {
     position: relative;
@@ -1198,7 +1197,7 @@ button {
     left: auto;
     right: auto;
     top: auto;
-    margin-top: 30px; } }
+    margin-top: 6em; } }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }
 /* ==========================================================================
