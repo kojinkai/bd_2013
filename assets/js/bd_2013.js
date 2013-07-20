@@ -510,4 +510,6 @@
           duration: 800
         });
     });
+
+    $('#page-wrap').removeClass('unstaged');
 })(jQuery);

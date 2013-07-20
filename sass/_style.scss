@@ -18,6 +18,14 @@ h1,h2,h3,h4,h5,h6 {
   position: relative;
 }
 
+.js.opacity.csstransitions #page-wrap {
+  opacity: 1;
+  @include transition(opacity 1s ease);
+  &.unstaged {
+    opacity: 0;
+  }
+}
+
 .waypoint {
   font-size: 1.6em;
 }
