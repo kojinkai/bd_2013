@@ -687,7 +687,8 @@ textarea {
 .waypoint {
   *zoom: 1;
   display: block;
-  padding: 60px 0 30px; }
+  position: relative;
+  padding: 60px 20px 30px 20px; }
   .waypoint:before, .waypoint:after {
     content: " ";
     /* 1 */
@@ -700,8 +701,11 @@ textarea {
     max-width: 68em;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px; }
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin: -220px auto 0; }
     .waypoint > div:before, .waypoint > div:after {
       content: " ";
       /* 1 */
@@ -709,17 +713,6 @@ textarea {
       /* 2 */ }
     .waypoint > div:after {
       clear: both; }
-
-.content {
-  *zoom: 1;
-  margin: auto; }
-  .content:before, .content:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  .content:after {
-    clear: both; }
 
 @font-face {
   font-family: 'icomoon';
@@ -870,14 +863,8 @@ button {
    ========================================================================== */
 #about {
   background-color: #2e4066;
-  padding: 80px 0;
+  padding: 80px 20px;
   position: relative; }
-  #about > div {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    margin-top: -220px; }
   #about p {
     max-width: 30em;
     margin-left: auto;
@@ -910,8 +897,8 @@ button {
   #development .content {
     width: 960px; }
   #development .content > div {
-    width: 286px;
-    margin-right: 50px;
+    width: 30%;
+    margin-right: 5%;
     float: left;
     position: relative;
     -webkit-backface-visibility: hidden; }
@@ -920,22 +907,23 @@ button {
     #development .content > div:nth-child(3n+1) {
       clear: left; }
     #development .content > div h3 {
-      height: 286px;
+      width: 250px;
+      height: 250px;
+      margin: auto;
       position: relative;
-      border: 4px solid white;
+      border: 12px solid white;
       border-radius: 50%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      margin-bottom: 20px; }
+      transition: all 0.3s ease; }
       #development .content > div h3 span {
         width: 100%;
         text-align: center;
         display: block;
-        line-height: 286px;
+        line-height: 240px;
         font-size: 1.5em;
         opacity: 0;
         top: 20px;
@@ -945,7 +933,7 @@ button {
         -moz-transition: all 0.3s ease;
         transition: all 0.3s ease; }
     #development .content > div p {
-      color: #f05000;
+      color: white;
       -webkit-transition: color 0.3s ease;
       -moz-transition: color 0.3s ease;
       transition: color 0.3s ease; }
@@ -968,7 +956,7 @@ button {
   #development div h3:before, #development div h3:after {
     font-size: 4em;
     font-weight: bold;
-    line-height: 286px;
+    line-height: 250px;
     position: absolute;
     top: 0;
     opacity: 1;
@@ -978,24 +966,28 @@ button {
     z-index: 100; }
   #development .skill-html5 h3:after {
     content: ">";
-    right: 23%; }
+    right: 14%;
+    top: -5px; }
   #development .skill-html5 h3:before {
     content: "<";
-    left: 23%; }
+    left: 14%;
+    top: -5px; }
   #development .skill-css h3:after {
     content: "}";
-    right: 30%;
-    top: -7px; }
+    right: 26%;
+    top: -19px; }
   #development .skill-css h3:before {
     content: "{";
-    left: 30%;
-    top: -7px; }
+    left: 25%;
+    top: -19px; }
   #development .skill-js h3:after {
     content: ")";
-    right: 23%; }
+    right: 26%;
+    top: -12px; }
   #development .skill-js h3:before {
     content: "(";
-    left: 23%; }
+    left: 24%;
+    top: -12px; }
 
 /* ==========================================================================
    =design
