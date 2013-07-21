@@ -14,6 +14,14 @@ h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
 }
 
+.waypoint {
+  font-size: 1.6em;
+}
+
+/* ==========================================================================
+   =more structural
+   ========================================================================== */
+
 #page-wrap {
   position: relative;
 }
@@ -26,10 +34,9 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-.waypoint {
-  font-size: 1.6em;
+.fade {
+  overflow: hidden;
 }
-
 /* ==========================================================================
    =buttons
    ========================================================================== */
@@ -328,6 +335,14 @@ button {
 #ethos {
 
   background-color: $navy;
+  img {
+    border: 5px solid $white;
+    border-radius: 50%;
+  }
+
+  figure {
+    float: left;
+  }
 }
 
 /* ==========================================================================
@@ -363,11 +378,7 @@ button {
    ========================================================================== */
 
 #main-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 30px 0;
+  padding: 2.5em 0;
   img {
     display: block;
     margin: auto;

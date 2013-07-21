@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     },
     jshint: {
       // define the files to lint
-      files: ['gruntfile.js', 'scripts/*.js', '!scripts/jquery.scrollTo.js', '!scripts/jquery.dataAttr.min.js'],
+      files: ['gruntfile.js', 'scripts/*.js', '!scripts/jquery.scrollTo.js', '!scripts/jquery.dataAttr.min.js', '!scripts/jquery.carousel.js'],
       options: {
           // more options here if you want to override JSHint defaults
         globals: {
