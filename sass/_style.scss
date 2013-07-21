@@ -315,17 +315,10 @@ button {
   background: $lightgrey;
   color: $slate;
 
-  ul {
-    @include nav;
-    width: 82.94039%; /*span10*/
-    margin-left: 8.5298%; /*offset1*/
-    li {
-      padding: 20px;
-      box-sizing: border-box;
-      border-radius: 50%;
-      width: 20%;
-    }
-  }  
+  .carousel-outer {
+    width: auto;
+    overflow: hidden;
+  }
 }
 
 /* ==========================================================================
@@ -338,10 +331,15 @@ button {
   img {
     border: 5px solid $white;
     border-radius: 50%;
+    @include absolute_center;
+    bottom: 7em;
+    margin-left: -56px;
   }
 
   figure {
-    float: left;
+    position: absolute;
+    left: 0;
+    right: 0;
   }
 }
 

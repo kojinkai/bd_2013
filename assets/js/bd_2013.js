@@ -267,8 +267,20 @@
 })(jQuery);// Our main JS file
 $(document).ready(function() {
 
+  // doc ready here because grunt concat is not managing
+  // dependencies so calls to non-existent functions are
+  // breaking the shit. Get require.js going at some point
+
     var $navbar = $('.navbar'),
-        navOffset = $navbar.height(),
+        $navbarHeight = $navbar.height(),
+        
+        navOffset = function() {
+          var offset = $(window).width();
+          if ( offset >= 979 ) {
+            return $navbarHeight; 
+          }
+          return 0;
+        },
         
         $waypoints = $('.waypoint'),
         $lastWaypoint = $('[data-scroll-target]').last();
@@ -278,7 +290,7 @@ $(document).ready(function() {
 
     // The backstretch plugin
     $('.waypoint').backfill({
-        offset: navOffset
+        offset: $navbarHeight
     });
 
     // The design Carousel
@@ -286,7 +298,8 @@ $(document).ready(function() {
       circular: false,
       infinite: false,
       auto  : false,
-      pagination  : "#design_pag"
+      pagination  : "#design_pag",
+      responsive: true
     });    
 
     $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
@@ -298,7 +311,7 @@ $(document).ready(function() {
 
         $.scrollTo(target, {
             
-          offset: { top: -navOffset, left: 0 },
+          offset: { top: -navOffset(), left: 0 },
           duration: 800
         });
     });
