@@ -8,10 +8,22 @@ module.exports = function(grunt) {
         separator: ''
       },
       dist: {
+        // options: {
+        //   process: function(src, filepath) {
+        //     grunt.log.writeln("shitsnax: ", src.length, filepath);
+        //     grunt.log.writeln("shitsnax: ", '// Source: ' + filepath + '\n');
+        //   }
+        // },
         // the files to concatenate
         src: ['scripts/**/*.js'],
         // the location of the resulting JS file
         dest: 'assets/js/<%= pkg.name %>.js'
+      },
+      stripBanners: {
+        options: {
+          block: true,
+          line: true
+        }
       }
     },
     uglify: {

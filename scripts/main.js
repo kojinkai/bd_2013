@@ -1,6 +1,10 @@
 // Our main JS file
-(function($) {
-    
+$(document).ready(function() {
+
+  // doc ready here because grunt concat is not managing
+  // dependencies so calls to non-existent functions are
+  // breaking the shit. Get require.js going at some point
+
     var $navbar = $('.navbar'),
         navOffset = $navbar.height(),
         
@@ -14,6 +18,14 @@
     $('.waypoint').backfill({
         offset: navOffset
     });
+
+    // The design Carousel
+    $(".design-carousel").caroufredsel({
+      circular: false,
+      infinite: false,
+      auto  : false,
+      pagination  : "#design_pag"
+    });    
 
     $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
         
@@ -30,4 +42,5 @@
     });
 
     $('#page-wrap').removeClass('unstaged');
-})(jQuery);
+
+});
