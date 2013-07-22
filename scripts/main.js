@@ -28,12 +28,8 @@ $(document).ready(function() {
     });
 
     // The design Carousel
-    $(".design-carousel").caroufredsel({
-      circular: false,
-      infinite: false,
-      auto  : false,
-      pagination  : "#design_pag",
-      responsive: true
+    $(".design-carousel, .ethos-carousel").simplefade({
+      interval: 3000
     });    
 
     $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
