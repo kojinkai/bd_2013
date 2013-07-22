@@ -28,7 +28,7 @@ $(document).ready(function() {
     });
 
     // The design Carousel
-    $(".design-carousel, .ethos-carousel").simplefade({
+    $(".fade").simplefade({
       interval: 3000
     });    
 

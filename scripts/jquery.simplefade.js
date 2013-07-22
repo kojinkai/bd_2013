@@ -24,13 +24,32 @@
         startsWith: 0
       };
 
+  function testTransition() {
+    var t,
+        el = document.createElement('fakeelement');
+    
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'otransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    };
+
+    for ( t in transitions ) {
+          if ( el.style[t] !== undefined ) {
+            return transitions[t];
+        }
+      }
+      return false;
+    }
+
   function SimpleFade(element, options) {
     this.element = element;
 
     // Merge defaults and uder options
     this.options = $.extend( {}, defaults, options);
     
-    this.$indicators = $(this.element).find('.fade-controls');
+    this.$indicators = $(this.element).siblings('.fade-controls');
 
     this._defaults = defaults;
     this._name = simplefade;
@@ -41,10 +60,12 @@
   SimpleFade.prototype = {
     
     init: function() {
-      $(this.element).css('position', 'relative').children().css({'position': 'absolute', 'left': 0, 'right': 0});
+      // $(this.element).css('position', 'relative').children().css({'position': 'absolute', 'left': 0, 'right': 0});
       $(this.element).children().eq(this.options.startsWith).addClass('active');
       this.cycle();
     },
+
+    transitionType: testTransition(),
 
     getActiveIndex: function () {
       this.$active = $(this.element).find('.active');
@@ -54,7 +75,6 @@
     },
 
     cycle: function() {
-      console.log("cycling");
       if (this.interval) {
         clearInterval(this.interval);
       }
@@ -100,21 +120,45 @@
       if ( this.$indicators.length ) {
         this.$indicators.find('.active').removeClass('active');
         $(this.element).one('faded', function () {
+          console.log("faded shits");
           var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()]);
           if ( $nextIndicator ) {
             $nextIndicator.addClass('active');            
           }
-          console.log('faded');
         });
       }
-      $(this.element).trigger(e);
-      $active.removeClass('active');
-      $next.addClass('active');
-      this.fading = false;
-      $(this.element).trigger('faded');
 
-      // Start Cycling
-      // this.cycle();
+
+      if ( this.transitionType ) {
+        console.log("transition type is: ", this.transitionType, 'direction: ', direction, 'type: ', type);
+        
+        $(this.element).trigger(e);
+
+        $next.addClass(type);
+        $active.addClass(direction);
+        $next.addClass(direction);
+
+        $active.one( this.transitionType, function () {
+          console.log("the active element is ", $active);
+          // when transition ends, cleanup transitioning classes
+          $next.removeClass([type, direction].join(' ')).addClass('active');
+          $active.removeClass(['active', direction].join(' '));
+          that.sliding = false;
+          
+          $(that.element).trigger('faded');
+
+        });
+      }
+
+      else {
+       
+        $(this.element).trigger(e);
+        $active.removeClass('active');
+        $next.addClass('active');
+        this.fading = false;
+        $(this.element).trigger('faded');
+      }
+
     }
   };
 
@@ -135,7 +179,6 @@
     // regex strip for ie7
     target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
     option = $this.data();
-    // $(target).toggleClass(option.toggle);
     $(target).simplefade(option);
   }); 
 
