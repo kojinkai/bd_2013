@@ -58,6 +58,6 @@ You should now be able to run
 	
 	grunt
 
-Which will compress, minify and lint everything into the /assets/ directory.  Run grunt before deployment, or just when you want to test your code.  Grunt tasks are configurable via gruntfile.js
+Which will compress, minify and lint everything into the /assets/ directory.  you can run grunt watch to listen for changes, and run manually when you want to re-build the JS file after changes.  Grunt tasks are configurable via gruntfile.js
 
 Thats it, for now
