@@ -22,7 +22,8 @@
       defaults = {
         interval: 5000,
         startsWith: 0
-      };
+      },
+      count = 0;
 
   function testTransition() {
     var t,
@@ -60,7 +61,6 @@
   SimpleFade.prototype = {
     
     init: function() {
-      // $(this.element).css('position', 'relative').children().css({'position': 'absolute', 'left': 0, 'right': 0});
       $(this.element).children().eq(this.options.startsWith).addClass('active');
       this.cycle();
     },
@@ -75,10 +75,11 @@
     },
 
     cycle: function() {
+      count++;
       if (this.interval) {
         clearInterval(this.interval);
       }
-      if ( this.options.interval && !this.paused ) {
+      if ( this.options.interval ) {
         this.interval = setInterval($.proxy(this.next, this), this.options.interval);
       }
       return this;
@@ -101,7 +102,6 @@
     fade: function (type, next) {
       var $active = $(this.element).children('.active'),
           $next = next || $active[type](),
-          // isCycling = this.interval,
           direction = type === 'next' ? 'left' : 'right',
           that = this,
           e;
@@ -120,7 +120,6 @@
       if ( this.$indicators.length ) {
         this.$indicators.find('.active').removeClass('active');
         $(this.element).one('faded', function () {
-          console.log("faded shits");
           var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()]);
           if ( $nextIndicator ) {
             $nextIndicator.addClass('active');            
@@ -130,7 +129,6 @@
 
 
       if ( this.transitionType ) {
-        console.log("transition type is: ", this.transitionType, 'direction: ', direction, 'type: ', type);
         
         $(this.element).trigger(e);
 
@@ -139,14 +137,12 @@
         $next.addClass(direction);
 
         $active.one( this.transitionType, function () {
-          console.log("the active element is ", $active);
           // when transition ends, cleanup transitioning classes
           $next.removeClass([type, direction].join(' ')).addClass('active');
           $active.removeClass(['active', direction].join(' '));
-          that.sliding = false;
+          that.fading = false;
           
           $(that.element).trigger('faded');
-
         });
       }
 
@@ -158,7 +154,7 @@
         this.fading = false;
         $(this.element).trigger('faded');
       }
-
+        this.cycle();
     }
   };
 
