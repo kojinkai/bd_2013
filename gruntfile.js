@@ -52,7 +52,7 @@ module.exports = function(grunt) {
     sass: {                              // Task
       dist: {
         options: {                       // Target options
-          style: 'compressed'
+          style: 'expanded'
         },                                // Target
         files: {                         // Dictionary of files
           'assets/css/main.css': 'sass/main.scss'       // 'destination': 'source'
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
       },
       dev: {                             // Another target
         options: {                       // Target options
-          style: 'compressed'
+          style: 'expanded'
         },
         files: {
           'assets/css/main.css': 'sass/main.scss'
