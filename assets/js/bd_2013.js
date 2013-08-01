@@ -317,7 +317,6 @@
     this.options = $.extend( {}, defaults, options);
     
     this.$indicators = $(this.element).siblings('.fade-controls');
-    console.log("indicators: ", this.$indicators);
 
     this._defaults = defaults;
     this._name = simplefade;
@@ -343,7 +342,6 @@
 
     cycle: function() {
       count++;
-      console.log('count is: ', count);
       if (this.interval) {
         clearInterval(this.interval);
       }
@@ -355,10 +353,9 @@
     
     next: function () {
       if (this.fading) {
-        console.log('fading');
         return;
       }
-      return this.fade('next');
+      // return this.fade('next');
     },
     
     prev: function () {
@@ -387,7 +384,6 @@
       });
 
       if ( this.$indicators.length ) {
-        console.log("yes we have indicators");
         this.$indicators.find('.active').removeClass('active');
         $(this.element).one('faded', function () {
           var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()]);
@@ -403,34 +399,32 @@
         $(this.element).trigger(e);
 
         $next.addClass(type);
-        $active.addClass(direction);
-        $next.addClass(direction);
-
         $active.one( this.transitionType, function () {
+          
           // when transition ends, cleanup transitioning classes
           $next.removeClass([type, direction].join(' ')).addClass('active');
           $active.removeClass(['active', direction].join(' '));
+          $next.addClass('active');
           that.fading = false;
           
           $(that.element).trigger('faded');
-          console.log("interval: ", that.options.interval);
         });
+        $active.removeClass('active');
       }
 
       else {
        
         $(this.element).trigger(e);
-        $active.removeClass('active');
-        $next.addClass('active');
-        this.fading = false;
-        $(this.element).trigger('faded');
-      }
-        // $(this.element).trigger(e);
         // $active.removeClass('active');
         // $next.addClass('active');
         // this.fading = false;
         // $(this.element).trigger('faded');
-        // console.log("interval: ", this.options.interval);
+        $active.fadeOut(250, function() {
+          $active.removeClass('active');
+          $next.fadeIn(250);
+        });
+
+      }
         this.cycle();
     }
   };
