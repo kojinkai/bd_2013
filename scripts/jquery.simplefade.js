@@ -89,7 +89,7 @@
       if (this.fading) {
         return;
       }
-      return this.fade('next');
+      // return this.fade('next');
     },
     
     prev: function () {
@@ -133,26 +133,33 @@
         $(this.element).trigger(e);
 
         $next.addClass(type);
-        $active.addClass(direction);
-        $next.addClass(direction);
-
         $active.one( this.transitionType, function () {
+          
           // when transition ends, cleanup transitioning classes
           $next.removeClass([type, direction].join(' ')).addClass('active');
           $active.removeClass(['active', direction].join(' '));
+          $next.addClass('active');
           that.fading = false;
           
           $(that.element).trigger('faded');
         });
+        $active.removeClass('active');
       }
 
       else {
        
+
+       // Fallback to jQuery
         $(this.element).trigger(e);
-        $active.removeClass('active');
-        $next.addClass('active');
+        // $active.removeClass('active');
+        // $next.addClass('active');
         this.fading = false;
         $(this.element).trigger('faded');
+        $active.fadeOut(250, function() {
+          $active.removeClass('active');
+          $next.fadeIn(250);
+        });
+
       }
         this.cycle();
     }
