@@ -2,14 +2,29 @@
     <h2>I don't mind a bit of</h2>
     <div class="content">
         <div class="fade">
-            <p>CLARITY, IMPACT AND ITELLIGIBILITY</p>
-            <p>HILARITY, BURGERS AND TOMATO SAUCE</p>
-            <p>DISPARITY, NIPPLES AND CHUD</p>
+            <p id="grid-desc">CLARITY, IMPACT AND ITELLIGIBILITY</p>
+            <p id="color-desc">HILARITY, BURGERS AND TOMATO SAUCE</p>
+            <p id="type-desc">DISPARITY, NIPPLES AND CHUD</p>
         </div>
         <div class="fade-controls">
-            <a data-target="next" title="grid"></a>
-            <a data-target="next" title="color"></a>
-            <a data-target="next" title="typography"></a>
+            <div>    
+                <a data-target="next" title="grid" class="icon-grid_icon" aria-labelledby="grid design" aria-describedby="grid-desc"></a>
+                <span id="grid">
+                    Grid
+                </span>
+            </div>
+            <div>    
+                <a data-target="next" title="color" class="icon-eyedropper" aria-labelledby="color design" aria-describedby="color-desc"></a>
+                <span id="color">
+                    Color
+                </span>
+            </div>
+            <div>    
+                <a data-target="next" title="typography" class="icon-type_icon" aria-labelledby="typography design" aria-describedby="type-desc"></a>
+                <span id="typography">
+                    Typography
+                </span>
+            </div>                        
         </div>
     </div>
     <a class="icon-down_arrow" href="design" data-scroll-target="#ethos"></a>     
