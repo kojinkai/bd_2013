@@ -89,7 +89,7 @@
       if (this.fading) {
         return;
       }
-      // return this.fade('next');
+      return this.fade('next');
     },
     
     prev: function () {
