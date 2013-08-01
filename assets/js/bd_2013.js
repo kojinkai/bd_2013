@@ -355,7 +355,7 @@
       if (this.fading) {
         return;
       }
-      // return this.fade('next');
+      return this.fade('next');
     },
     
     prev: function () {
@@ -414,11 +414,13 @@
 
       else {
        
+
+       // Fallback to jQuery
         $(this.element).trigger(e);
         // $active.removeClass('active');
         // $next.addClass('active');
-        // this.fading = false;
-        // $(this.element).trigger('faded');
+        this.fading = false;
+        $(this.element).trigger('faded');
         $active.fadeOut(250, function() {
           $active.removeClass('active');
           $next.fadeIn(250);
