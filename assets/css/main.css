@@ -1,9 +1,10 @@
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
-/* normalize.css v1.1.2 | MIT License | git.io/normalize */
+/*! normalize.css v1.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -22,7 +23,8 @@ main,
 nav,
 section,
 summary {
-  display: block; }
+  display: block;
+}
 
 /**
  * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
@@ -32,7 +34,8 @@ canvas,
 video {
   display: inline-block;
   *display: inline;
-  *zoom: 1; }
+  *zoom: 1;
+}
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
@@ -40,14 +43,16 @@ video {
  */
 audio:not([controls]) {
   display: none;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
  * Known issue: no IE 6 support.
  */
 [hidden] {
-  display: none; }
+  display: none;
+}
 
 /* ==========================================================================
    Base
@@ -64,7 +69,8 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Address `font-family` inconsistency between `textarea` and other form
@@ -75,13 +81,15 @@ button,
 input,
 select,
 textarea {
-  font-family: sans-serif; }
+  font-family: sans-serif;
+}
 
 /**
  * Address margins handled incorrectly in IE 6/7.
  */
 body {
-  margin: 0; }
+  margin: 0;
+}
 
 /* ==========================================================================
    Links
@@ -90,14 +98,16 @@ body {
  * Address `outline` inconsistency between Chrome and other browsers.
  */
 a:focus {
-  outline: thin dotted; }
+  outline: thin dotted;
+}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0;
+}
 
 /* ==========================================================================
    Typography
@@ -109,49 +119,59 @@ a:hover {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0; }
+  margin: 0.67em 0;
+}
 
 h2 {
   font-size: 1.5em;
-  margin: 0.83em 0; }
+  margin: 0.83em 0;
+}
 
 h3 {
   font-size: 1.17em;
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
 h4 {
   font-size: 1em;
-  margin: 1.33em 0; }
+  margin: 1.33em 0;
+}
 
 h5 {
   font-size: 0.83em;
-  margin: 1.67em 0; }
+  margin: 1.67em 0;
+}
 
 h6 {
   font-size: 0.67em;
-  margin: 2.33em 0; }
+  margin: 2.33em 0;
+}
 
 /**
  * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
  */
 abbr[title] {
-  border-bottom: 1px dotted; }
+  border-bottom: 1px dotted;
+}
 
 /**
  * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
  */
 b,
 strong {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 blockquote {
-  margin: 1em 40px; }
+  margin: 1em 40px;
+}
 
 /**
  * Address styling not present in Safari 5 and Chrome.
  */
 dfn {
-  font-style: italic; }
+  font-style: italic;
+}
 
 /**
  * Address differences between Firefox and other browsers.
@@ -160,21 +180,24 @@ dfn {
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Address styling not present in IE 6/7/8/9.
  */
 mark {
   background: #ff0;
-  color: #000; }
+  color: #000;
+}
 
 /**
  * Address margins set differently in IE 6/7.
  */
 p,
 pre {
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
 /**
  * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
@@ -185,7 +208,8 @@ pre,
 samp {
   font-family: monospace, serif;
   _font-family: 'courier new', monospace;
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 /**
  * Improve readability of pre-formatted text in all browsers.
@@ -193,13 +217,15 @@ samp {
 pre {
   white-space: pre;
   white-space: pre-wrap;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
 /**
  * Address CSS quotes not supported in IE 6/7.
  */
 q {
-  quotes: none; }
+  quotes: none;
+}
 
 /**
  * Address `quotes` property not supported in Safari 4.
@@ -207,13 +233,15 @@ q {
 q:before,
 q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 /**
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: 80%; }
+  font-size: 80%;
+}
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
@@ -223,13 +251,16 @@ sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 sup {
-  top: -0.5em; }
+  top: -0.5em;
+}
 
 sub {
-  bottom: -0.25em; }
+  bottom: -0.25em;
+}
 
 /* ==========================================================================
    Lists
@@ -241,10 +272,12 @@ dl,
 menu,
 ol,
 ul {
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
 dd {
-  margin: 0 0 0 40px; }
+  margin: 0 0 0 40px;
+}
 
 /**
  * Address paddings set differently in IE 6/7.
@@ -252,7 +285,8 @@ dd {
 menu,
 ol,
 ul {
-  padding: 0 0 0 40px; }
+  padding: 0 0 0 40px;
+}
 
 /**
  * Correct list images handled incorrectly in IE 7.
@@ -260,7 +294,8 @@ ul {
 nav ul,
 nav ol {
   list-style: none;
-  list-style-image: none; }
+  list-style-image: none;
+}
 
 /* ==========================================================================
    Embedded content
@@ -273,13 +308,15 @@ img {
   border: 0;
   /* 1 */
   -ms-interpolation-mode: bicubic;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Correct overflow displayed oddly in IE 9.
  */
 svg:not(:root) {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /* ==========================================================================
    Figures
@@ -288,7 +325,8 @@ svg:not(:root) {
  * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
  */
 figure {
-  margin: 0; }
+  margin: 0;
+}
 
 /* ==========================================================================
    Forms
@@ -297,7 +335,8 @@ figure {
  * Correct margin displayed oddly in IE 6/7.
  */
 form {
-  margin: 0; }
+  margin: 0;
+}
 
 /**
  * Define consistent border, margin, and padding.
@@ -305,7 +344,8 @@ form {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+  padding: 0.35em 0.625em 0.75em;
+}
 
 /**
  * 1. Correct color not being inherited in IE 6/7/8/9.
@@ -319,7 +359,8 @@ legend {
   white-space: normal;
   /* 2 */
   *margin-left: -7px;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * 1. Correct font size not being inherited in all browsers.
@@ -338,7 +379,8 @@ textarea {
   vertical-align: baseline;
   /* 3 */
   *vertical-align: middle;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * Address Firefox 3+ setting `line-height` on `input` using `!important` in
@@ -346,7 +388,8 @@ textarea {
  */
 button,
 input {
-  line-height: normal; }
+  line-height: normal;
+}
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -356,7 +399,8 @@ input {
  */
 button,
 select {
-  text-transform: none; }
+  text-transform: none;
+}
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -376,14 +420,16 @@ input[type="submit"] {
   cursor: pointer;
   /* 3 */
   *overflow: visible;
-  /* 4 */ }
+  /* 4 */
+}
 
 /**
  * Re-set default cursor for disabled elements.
  */
 button[disabled],
 html input[disabled] {
-  cursor: default; }
+  cursor: default;
+}
 
 /**
  * 1. Address box sizing set to content-box in IE 8/9.
@@ -400,7 +446,8 @@ input[type="radio"] {
   *height: 13px;
   /* 3 */
   *width: 13px;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
@@ -413,7 +460,8 @@ input[type="search"] {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 /**
  * Remove inner padding and search cancel button in Safari 5 and Chrome
@@ -421,7 +469,8 @@ input[type="search"] {
  */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
 
 /**
  * Remove inner padding and border in Firefox 3+.
@@ -429,7 +478,8 @@ input[type="search"]::-webkit-search-decoration {
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /**
  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
@@ -439,7 +489,8 @@ textarea {
   overflow: auto;
   /* 1 */
   vertical-align: top;
-  /* 2 */ }
+  /* 2 */
+}
 
 /* ==========================================================================
    Tables
@@ -449,7 +500,8 @@ textarea {
  */
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 /* ==========================================================================
    =navigation
@@ -488,7 +540,8 @@ table {
 /* Global Reset */
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   position: relative;
@@ -497,35 +550,44 @@ body {
   background-color: #FFF;
   color: white;
   -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 h1 {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+}
 
 p {
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
 a {
   color: white;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:hover {
   color: white;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:focus {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:visited {
-  color: white; }
+  color: white;
+}
 
 table {
   font-size: inherit;
-  font: 100%; }
+  font: 100%;
+}
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -537,11 +599,13 @@ table {
  */
 ::-moz-selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
 ::selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
 /*
  * A better looking default horizontal rule
@@ -552,7 +616,8 @@ hr {
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
@@ -561,7 +626,8 @@ audio,
 canvas,
 img,
 video {
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /*
  * Remove default fieldset styles.
@@ -569,13 +635,15 @@ video {
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /*
  * Allow only vertical resizing of textareas.
  */
 textarea {
-  resize: vertical; }
+  resize: vertical;
+}
 
 /* ==========================================================================
    Chrome Frame prompt
@@ -584,7 +652,8 @@ textarea {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0; }
+  padding: 0.2em 0;
+}
 
 /* ==========================================================================
    Helper classes
@@ -596,20 +665,23 @@ textarea {
   background-color: transparent;
   border: 0;
   overflow: hidden;
-  *text-indent: -9999px; }
+  *text-indent: -9999px;
+}
 
 .ir:before {
   content: "";
   display: block;
   width: 0;
-  height: 150%; }
+  height: 150%;
+}
 
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
 .hidden {
   display: none !important;
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 /*
  * Hide only visually, but have it available for screenreaders
@@ -622,7 +694,8 @@ textarea {
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px; }
+  width: 1px;
+}
 
 /*
  * Extends the .visuallyhidden class to allow the element to be focusable
@@ -635,13 +708,15 @@ textarea {
   margin: 0;
   overflow: visible;
   position: static;
-  width: auto; }
+  width: auto;
+}
 
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
 .invisible {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 /*
  * Clearfix: contain floats
@@ -659,83 +734,98 @@ textarea {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */ }
+  /* 2 */
+}
 
 .clearfix:after {
-  clear: both; }
+  clear: both;
+}
 
 /*
  * For IE 7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
 .clearfix {
-  *zoom: 1; }
+  *zoom: 1;
+}
 
 .container {
   *zoom: 1;
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
-  .container:before, .container:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  .container:after {
-    clear: both; }
+  margin-right: auto;
+}
+.container:before, .container:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.container:after {
+  clear: both;
+}
 
 .waypoint {
   *zoom: 1;
   display: block;
   position: relative;
-  padding: 60px 20px 30px 20px; }
-  .waypoint:before, .waypoint:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  .waypoint:after {
-    clear: both; }
-  .waypoint > div {
-    *zoom: 1;
-    max-width: 68em;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    margin: -220px auto 0; }
-    .waypoint > div:before, .waypoint > div:after {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    .waypoint > div:after {
-      clear: both; }
-  .waypoint .icon-down_arrow,
-  .waypoint .icon-up_arrow {
-    display: block;
-    position: absolute;
-    left: 50%;
-    bottom: 1.5em;
-    margin-left: -3em;
-    padding: 10px;
-    width: 6em;
-    color: white; }
-    .waypoint .icon-down_arrow span,
-    .waypoint .icon-up_arrow span {
-      display: block;
-      font-family: "league-gothic", sans-serif;
-      text-transform: uppercase;
-      margin-top: 1em; }
+  padding: 60px 20px 30px 20px;
+}
+.waypoint:before, .waypoint:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.waypoint:after {
+  clear: both;
+}
+.waypoint > div {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin: -220px auto 0;
+}
+.waypoint > div:before, .waypoint > div:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.waypoint > div:after {
+  clear: both;
+}
+.waypoint .icon-down_arrow,
+.waypoint .icon-up_arrow {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 1.5em;
+  margin-left: -3em;
+  padding: 10px;
+  width: 6em;
+  color: white;
+}
+.waypoint .icon-down_arrow span,
+.waypoint .icon-up_arrow span {
+  display: block;
+  font-family: "league-gothic", sans-serif;
+  text-transform: uppercase;
+  margin-top: 1em;
+}
 
 @font-face {
   font-family: 'icomoon';
   src: url("/assets/fonts/icomoon.eot");
   src: url("/assets/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/icomoon.woff") format("woff"), url("/assets/fonts/icomoon.ttf") format("truetype"), url("/assets/fonts/icomoon.svg#icomoon") format("svg");
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+}
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
@@ -746,7 +836,8 @@ textarea {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
 /* Use the following CSS code if you want to have a class per icon */
 /*
@@ -754,7 +845,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon, .icon-eyedropper, .icon-grid_icon, .icon-type_icon, .icon-down_arrow {
+.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon, .icon-grid_icon, .icon-type_icon, .icon-down_arrow, .icon-color_icon {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -762,46 +853,60 @@ you can use the generic selector below, but it's slower:
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
 .icon-menu_icon:before {
-  content: "\e000"; }
+  content: "\e000";
+}
 
 .icon-star_icon:before {
-  content: "\e001"; }
+  content: "\e001";
+}
 
 .icon-twitter_icon:before {
-  content: "\e002"; }
+  content: "\e002";
+}
 
 .icon-linkedin_icon:before {
-  content: "\e003"; }
+  content: "\e003";
+}
 
 .icon-google_icon:before {
-  content: "\e004"; }
+  content: "\e004";
+}
 
 .icon-github_icon:before {
-  content: "\e005"; }
+  content: "\e005";
+}
 
 .icon-flickr_icon:before {
-  content: "\e006"; }
+  content: "\e006";
+}
 
 .icon-dribbble_icon:before {
-  content: "\e007"; }
+  content: "\e007";
+}
 
 .icon-behance_icon:before {
-  content: "\e008"; }
-
-.icon-eyedropper:before {
-  content: "\e009"; }
+  content: "\e008";
+}
 
 .icon-grid_icon:before {
-  content: "\e00a"; }
+  content: "\e00a";
+}
 
 .icon-type_icon:before {
-  content: "\e00b"; }
+  content: "\e00b";
+}
 
 .icon-down_arrow:before {
-  content: "\e00c"; }
+  content: "\e00c";
+}
+
+.icon-color_icon:before {
+  content: "\e009";
+}
 
 /* ==========================================================================
    =type
@@ -809,38 +914,46 @@ you can use the generic selector below, but it's slower:
 body {
   font-family: "calluna-sans", sans-serif;
   font-weight: 700;
-  text-align: center; }
+  text-align: center;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "league-gothic", sans-serif;
   font-weight: 400;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .waypoint {
-  font-size: 1.6em; }
+  font-size: 1.6em;
+}
 
 /* ==========================================================================
    =more structural
    ========================================================================== */
 #page-wrap {
-  position: relative; }
+  position: relative;
+}
 
 .js.opacity.csstransitions #page-wrap {
   opacity: 1;
   -webkit-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
-  transition: opacity 1s ease; }
-  .js.opacity.csstransitions #page-wrap.unstaged {
-    opacity: 0; }
+  transition: opacity 1s ease;
+}
+.js.opacity.csstransitions #page-wrap.unstaged {
+  opacity: 0;
+}
 
 .fade {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /* ==========================================================================
    =buttons
    ========================================================================== */
 button {
-  border: none; }
+  border: none;
+}
 
 /* ==========================================================================
    =navigation
@@ -848,19 +961,24 @@ button {
 .navigation {
   *zoom: 1;
   list-style: none;
-  padding-left: 0; }
-  .navigation:before, .navigation:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  .navigation:after {
-    clear: both; }
-  .navigation > li {
-    list-style: none;
-    float: left; }
-    .navigation > li a {
-      cursor: pointer; }
+  padding-left: 0;
+}
+.navigation:before, .navigation:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.navigation:after {
+  clear: both;
+}
+.navigation > li {
+  list-style: none;
+  float: left;
+}
+.navigation > li a {
+  cursor: pointer;
+}
 
 .navbar {
   position: fixed;
@@ -869,39 +987,46 @@ button {
   left: 0;
   z-index: 1030;
   margin-bottom: 0;
-  background-color: white; }
-  .navbar .navigation {
-    margin: 0 0 0 10%;
-    width: 80%; }
-  .navbar .navigation > li {
-    float: left;
-    width: 20%; }
-    .navbar .navigation > li > a {
-      display: block;
-      margin: 0;
-      padding: 10px 0;
-      color: #2e4066;
-      text-align: center;
-      line-height: 70px;
-      font-size: 1.125em; }
-      .navbar .navigation > li > a:hover, .navbar .navigation > li > a:focus, .navbar .navigation > li > a:active {
-        outline: none; }
-  .navbar .btn-navbar {
-    display: none;
-    width: 100%;
-    margin: 0;
-    padding: 20px 0;
-    line-height: 25px;
-    font-family: "league-gothic", sans-serif;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    background: #f05000;
-    color: white;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out; }
-  .navbar.scrolled {
-    box-shadow: 0 0 20px 2px rgba(46, 64, 102, 0.7); }
+  background-color: white;
+}
+.navbar .navigation {
+  margin: 0 0 0 10%;
+  width: 80%;
+}
+.navbar .navigation > li {
+  float: left;
+  width: 20%;
+}
+.navbar .navigation > li > a {
+  display: block;
+  margin: 0;
+  padding: 10px 0;
+  color: #2e4066;
+  text-align: center;
+  line-height: 70px;
+  font-size: 1.125em;
+}
+.navbar .navigation > li > a:hover, .navbar .navigation > li > a:focus, .navbar .navigation > li > a:active {
+  outline: none;
+}
+.navbar .btn-navbar {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+  line-height: 25px;
+  font-family: "league-gothic", sans-serif;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  background: #f05000;
+  color: white;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.navbar.scrolled {
+  box-shadow: 0 0 20px 2px rgba(46, 64, 102, 0.7);
+}
 
 /* ==========================================================================
    =about
@@ -909,193 +1034,234 @@ button {
 #about {
   background-color: #2e4066;
   padding: 80px 20px;
-  position: relative; }
-  #about p {
-    max-width: 30em;
-    margin-left: auto;
-    margin-right: auto; }
+  position: relative;
+}
+#about p {
+  max-width: 30em;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .brand img {
   display: block;
   margin: 0 auto;
   padding: 0 15px 50px;
   border-bottom: 1px solid white;
-  width: 280px; }
+  width: 280px;
+}
 .brand b {
   padding: 0 15px;
   font-size: 28px;
   position: relative;
   bottom: 14px;
-  background-color: #2e4066; }
+  background-color: #2e4066;
+}
 
 .svg .brand img {
-  width: 360px; }
+  width: 360px;
+}
 .svg .brand b {
   font-size: 34px;
-  bottom: 18px; }
+  bottom: 18px;
+}
 
 /* ==========================================================================
    =development
    ========================================================================== */
 #development {
-  background-color: #f05000; }
-  #development .content {
-    width: 960px; }
-  #development .content > div {
-    width: 30%;
-    margin-right: 5%;
-    float: left;
-    position: relative;
-    -webkit-backface-visibility: hidden; }
-    #development .content > div:nth-child(3n) {
-      margin-right: 0; }
-    #development .content > div:nth-child(3n+1) {
-      clear: left; }
-  #development .content h3 {
-    width: 250px;
-    height: 250px;
-    margin: auto;
-    position: relative;
-    border: 12px solid white;
-    border-radius: 50%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
-    #development .content h3:before, #development .content h3:after {
-      font-size: 4em;
-      font-weight: bold;
-      line-height: 250px;
-      position: absolute;
-      top: 0;
-      opacity: 1;
-      -webkit-transition: all 0.3s ease;
-      -moz-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      z-index: 100; }
-    #development .content h3 span {
-      width: 100%;
-      text-align: center;
-      display: block;
-      line-height: 240px;
-      font-size: 1.5em;
-      opacity: 0;
-      top: 20px;
-      position: relative;
-      margin-bottom: 20px;
-      -webkit-transition: all 0.3s ease;
-      -moz-transition: all 0.3s ease;
-      transition: all 0.3s ease; }
-  #development .content p {
-    color: white;
-    -webkit-transition: color 0.3s ease;
-    -moz-transition: color 0.3s ease;
-    transition: color 0.3s ease; }
-  #development .content > div:hover {
-    color: #f05000; }
-    #development .content > div:hover h3 {
-      color: white; }
-      #development .content > div:hover h3:before, #development .content > div:hover h3:after {
-        font-size: 3.5em;
-        opacity: 0; }
-      #development .content > div:hover h3:before {
-        left: 7%; }
-      #development .content > div:hover h3:after {
-        right: 7%; }
-      #development .content > div:hover h3 span {
-        top: 0;
-        opacity: 1; }
-    #development .content > div:hover p {
-      color: white; }
-  #development .skill-html5 h3:after {
-    content: ">";
-    right: 14%;
-    top: -5px; }
-  #development .skill-html5 h3:before {
-    content: "<";
-    left: 14%;
-    top: -5px; }
-  #development .skill-css h3:after {
-    content: "}";
-    right: 26%;
-    top: -19px; }
-  #development .skill-css h3:before {
-    content: "{";
-    left: 25%;
-    top: -19px; }
-  #development .skill-js h3:after {
-    content: ")";
-    right: 26%;
-    top: -12px; }
-  #development .skill-js h3:before {
-    content: "(";
-    left: 24%;
-    top: -12px; }
+  background-color: #f05000;
+}
+#development .content {
+  width: 960px;
+}
+#development .content > div {
+  width: 30%;
+  margin-right: 5%;
+  float: left;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+}
+#development .content > div:nth-child(3n) {
+  margin-right: 0;
+}
+#development .content > div:nth-child(3n+1) {
+  clear: left;
+}
+#development .content h3 {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  position: relative;
+  border: 12px solid white;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#development .content h3:before, #development .content h3:after {
+  font-size: 4em;
+  font-weight: bold;
+  line-height: 250px;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+#development .content h3 span {
+  width: 100%;
+  text-align: center;
+  display: block;
+  line-height: 240px;
+  font-size: 1.5em;
+  opacity: 0;
+  top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#development .content p {
+  color: white;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+#development .content > div:hover {
+  color: #f05000;
+}
+#development .content > div:hover h3 {
+  color: white;
+}
+#development .content > div:hover h3:before, #development .content > div:hover h3:after {
+  font-size: 3.5em;
+  opacity: 0;
+}
+#development .content > div:hover h3:before {
+  left: 7%;
+}
+#development .content > div:hover h3:after {
+  right: 7%;
+}
+#development .content > div:hover h3 span {
+  top: 0;
+  opacity: 1;
+}
+#development .content > div:hover p {
+  color: white;
+}
+#development .skill-html5 h3:after {
+  content: ">";
+  right: 14%;
+  top: -5px;
+}
+#development .skill-html5 h3:before {
+  content: "<";
+  left: 14%;
+  top: -5px;
+}
+#development .skill-css h3:after {
+  content: "}";
+  right: 26%;
+  top: -19px;
+}
+#development .skill-css h3:before {
+  content: "{";
+  left: 25%;
+  top: -19px;
+}
+#development .skill-js h3:after {
+  content: ")";
+  right: 26%;
+  top: -12px;
+}
+#development .skill-js h3:before {
+  content: "(";
+  left: 24%;
+  top: -12px;
+}
 
 /* ==========================================================================
    =design
    ========================================================================== */
 #design {
   background: #efefef;
-  color: #798497; }
+  color: #798497;
+}
 
 /* ==========================================================================
    =ethos
    ========================================================================== */
 #ethos {
-  background-color: #316aa3; }
-  #ethos img {
-    border: 5px solid white;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    bottom: 7em;
-    margin-left: -56px; }
-  #ethos figure {
-    position: absolute;
-    left: 0;
-    right: 0; }
+  background-color: #316aa3;
+}
+#ethos img {
+  border: 5px solid white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 7em;
+  margin-left: -56px;
+}
+#ethos figure {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
 
 /* ==========================================================================
    =contact
    ========================================================================== */
 #contact {
-  background-color: #9ca2ad; }
-  #contact ul {
-    *zoom: 1;
-    list-style: none;
-    padding-left: 0;
-    width: 82.94039%;
-    /*span10*/
-    margin-left: 8.5298%;
-    /*offset1*/ }
-    #contact ul:before, #contact ul:after {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    #contact ul:after {
-      clear: both; }
-    #contact ul > li {
-      list-style: none;
-      float: left; }
-      #contact ul > li a {
-        cursor: pointer; }
-    #contact ul li {
-      padding: 20px;
-      box-sizing: border-box;
-      border-radius: 50%;
-      width: 25%; }
-      #contact ul li a {
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        font-size: 8em; }
-        #contact ul li a:hover, #contact ul li a:focus {
-          color: #316aa3;
-          font-size: 8.4em; }
+  background-color: #9ca2ad;
+}
+#contact ul {
+  *zoom: 1;
+  list-style: none;
+  padding-left: 0;
+  width: 82.94039%;
+  /*span10*/
+  margin-left: 8.5298%;
+  /*offset1*/
+}
+#contact ul:before, #contact ul:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+#contact ul:after {
+  clear: both;
+}
+#contact ul > li {
+  list-style: none;
+  float: left;
+}
+#contact ul > li a {
+  cursor: pointer;
+}
+#contact ul li {
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 25%;
+}
+#contact ul li a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 8em;
+}
+#contact ul li a:hover, #contact ul li a:focus {
+  color: #316aa3;
+  font-size: 8.4em;
+}
 
 /* ==========================================================================
    =fade plugin
@@ -1104,165 +1270,211 @@ button {
   position: relative;
   overflow: hidden;
   min-height: 90px;
-  margin-bottom: 3em; }
-  .fade > * {
-    -webkit-transition: opacity 0.6s ease-in-out;
-    -moz-transition: opacity 0.6s ease-in-out;
-    transition: opacity 0.6s ease-in-out;
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    right: 0; }
-    .fade > *.active {
-      opacity: 1; }
-    .fade > *.next, .fade > *.prev {
-      position: absolute;
-      top: 0;
-      width: 100%; }
+  margin-bottom: 3em;
+}
+.fade > * {
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.fade > *.active {
+  opacity: 1;
+}
+.fade > *.next, .fade > *.prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
 .fade-controls {
   *zoom: 1;
-  width: 40%;
-  margin: auto; }
-  .fade-controls:before, .fade-controls:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  .fade-controls:after {
-    clear: both; }
-  .fade-controls a {
-    color: #798497;
-    font-size: 2.8em;
-    border-radius: 4px;
-    padding: 5px;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
-  .fade-controls > div {
-    width: 33%;
-    float: left; }
-    .fade-controls > div span {
-      margin-top: 1em;
-      display: block;
-      text-transform: uppercase;
-      font-size: 0.65em; }
-  .fade-controls .active a {
-    color: #efefef;
-    background-color: #798497; }
+  width: 30%;
+  margin: auto;
+}
+.fade-controls:before, .fade-controls:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.fade-controls:after {
+  clear: both;
+}
+.fade-controls a {
+  color: #798497;
+  font-size: 2.8em;
+  border-radius: 4px;
+  padding: 5px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.fade-controls > div {
+  width: 33%;
+  float: left;
+}
+.fade-controls > div span {
+  margin-top: 1em;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.65em;
+}
+.fade-controls .active a {
+  color: #efefef;
+  background-color: #798497;
+}
 
 .no-opacity .fade > * {
-  display: none; }
+  display: none;
+}
 
 /* ==========================================================================
    =main-footer
    ========================================================================== */
 #main-footer {
-  padding: 2.5em 0; }
-  #main-footer img {
-    display: block;
-    margin: auto;
-    max-width: 300px; }
+  padding: 2.5em 0;
+}
+#main-footer img {
+  display: block;
+  margin: auto;
+  max-width: 300px;
+}
 
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 @media only screen and (max-width: 1024px) {
   .waypoint {
-    font-size: 1.4em; }
+    font-size: 1.4em;
+  }
 
   .svg .brand img {
-    width: 300px; }
+    width: 300px;
+  }
   .svg .brand b {
     font-size: 28px;
-    bottom: 14px; }
+    bottom: 14px;
+  }
 
   #development .content {
     width: auto;
     margin-left: 5%;
-    margin-right: 5%; }
-    #development .content h3 {
-      width: 160px;
-      height: 160px; }
-      #development .content h3:before, #development .content h3:after {
-        content: ""; }
-      #development .content h3 span {
-        line-height: 148px;
-        font-size: 1em;
-        opacity: 1;
-        top: auto; }
-    #development .content p {
-      font-size: 0.8em; } }
+    margin-right: 5%;
+  }
+  #development .content h3 {
+    width: 160px;
+    height: 160px;
+  }
+  #development .content h3:before, #development .content h3:after {
+    content: "";
+  }
+  #development .content h3 span {
+    line-height: 148px;
+    font-size: 1em;
+    opacity: 1;
+    top: auto;
+  }
+  #development .content p {
+    font-size: 0.8em;
+  }
+}
 @media only screen and (max-width: 979px) {
   body {
-    padding-top: 0; }
+    padding-top: 0;
+  }
 
   .navbar {
-    position: static; }
-    .navbar .navigation {
-      width: auto;
-      margin-left: 0; }
-    .navbar .nav-collapse .navigation > li a {
-      -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-      -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
-      .navbar .nav-collapse .navigation > li a:hover, .navbar .nav-collapse .navigation > li a:focus {
-        background-color: #f05000;
-        color: white; }
-      .navbar .nav-collapse .navigation > li a:active {
-        background-color: #f05000;
-        color: white; } }
+    position: static;
+  }
+  .navbar .navigation {
+    width: auto;
+    margin-left: 0;
+  }
+  .navbar .nav-collapse .navigation > li a {
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .navbar .nav-collapse .navigation > li a:hover, .navbar .nav-collapse .navigation > li a:focus {
+    background-color: #f05000;
+    color: white;
+  }
+  .navbar .nav-collapse .navigation > li a:active {
+    background-color: #f05000;
+    color: white;
+  }
+}
 @media only screen and (min-width: 768px) {
   .navbar .nav-collapse {
-    height: auto !important; } }
+    height: auto !important;
+  }
+}
 @media only screen and (max-width: 767px) {
   .navbar .nav-collapse {
     overflow: hidden;
     -webkit-transition: height 0.2s ease-in-out;
     -moz-transition: height 0.2s ease-in-out;
-    transition: height 0.2s ease-in-out; }
-    .navbar .nav-collapse .navigation li {
-      width: auto;
-      float: none;
-      margin-left: 0; }
-      .navbar .nav-collapse .navigation li a {
-        line-height: 20px; }
-    .navbar .nav-collapse.collapsed {
-      height: 0;
-      overflow: hidden; }
+    transition: height 0.2s ease-in-out;
+  }
+  .navbar .nav-collapse .navigation li {
+    width: auto;
+    float: none;
+    margin-left: 0;
+  }
+  .navbar .nav-collapse .navigation li a {
+    line-height: 20px;
+  }
+  .navbar .nav-collapse.collapsed {
+    height: 0;
+    overflow: hidden;
+  }
   .navbar .btn-navbar {
-    display: block; }
+    display: block;
+  }
 
   .waypoint {
-    font-size: 1em; }
-    .waypoint > div {
-      position: relative;
-      position: inherit;
-      left: auto;
-      right: auto;
-      top: auto;
-      margin-top: 6em; }
+    font-size: 1em;
+  }
+  .waypoint > div {
+    position: relative;
+    position: inherit;
+    left: auto;
+    right: auto;
+    top: auto;
+    margin-top: 6em;
+  }
 
   .svg .brand img {
-    width: 260px; }
+    width: 260px;
+  }
   .svg .brand b {
     font-size: 24px;
-    bottom: 12px; }
+    bottom: 12px;
+  }
 
   #development .content > div {
     float: none;
     width: auto;
-    margin-right: 0; }
+    margin-right: 0;
+  }
   #development .content h3 span {
     line-height: 148px;
     font-size: 1em;
     opacity: 1;
-    top: auto; }
+    top: auto;
+  }
   #development .content p {
-    font-size: 1em; }
+    font-size: 1em;
+  }
 
   #contact ul li a {
-    font-size: 3.5em; } }
+    font-size: 3.5em;
+  }
+}
 @media only screen and (max-height: 768px) {
   .waypoint > div {
     position: relative;
@@ -1270,9 +1482,12 @@ button {
     left: auto;
     right: auto;
     top: auto;
-    margin-top: 6em; } }
+    margin-top: 6em;
+  }
+}
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */ }
+  /* Style adjustments for high resolution devices */
+}
 /* ==========================================================================
    Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r
@@ -1283,17 +1498,21 @@ button {
     color: #000 !important;
     /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
-    text-shadow: none !important; }
+    text-shadow: none !important;
+  }
 
   a,
   a:visited {
-    text-decoration: underline; }
+    text-decoration: underline;
+  }
 
   a[href]:after {
-    content: " (" attr(href) ")"; }
+    content: " (" attr(href) ")";
+  }
 
   abbr[title]:after {
-    content: " (" attr(title) ")"; }
+    content: " (" attr(title) ")";
+  }
 
   /*
    * Don't show links for images, or javascript/internal links
@@ -1301,33 +1520,42 @@ button {
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
-    content: ""; }
+    content: "";
+  }
 
   pre,
   blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+  }
 
   thead {
     display: table-header-group;
-    /* h5bp.com/t */ }
+    /* h5bp.com/t */
+  }
 
   tr,
   img {
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+  }
 
   img {
-    max-width: 100% !important; }
+    max-width: 100% !important;
+  }
 
   @page {
-    margin: 0.5cm; }
+    margin: 0.5cm;
+}
 
   p,
   h2,
   h3 {
     orphans: 3;
-    widows: 3; }
+    widows: 3;
+  }
 
   h2,
   h3 {
-    page-break-after: avoid; } }
+    page-break-after: avoid;
+  }
+}
