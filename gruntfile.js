@@ -8,17 +8,24 @@ module.exports = function(grunt) {
         separator: ''
       },
       dist: {
-        // options: {
-        //   process: function(src, filepath) {
-        //     grunt.log.writeln("shitsnax: ", src.length, filepath);
-        //     grunt.log.writeln("shitsnax: ", '// Source: ' + filepath + '\n');
-        //   }
-        // },
-        // the files to concatenate
-        src: ['scripts/**/*.js'],
-        // the location of the resulting JS file
-        dest: 'assets/js/<%= pkg.name %>.js'
+        options: {
+          process: function(src, filepath) {
+            grunt.log.writeln("shitsnax: ", src.length, filepath);
+            grunt.log.writeln("shitsnax: ", '// Source: ' + filepath + '\n');
+          }
+        }
       },
+      // the files to concatenate
+      basic: {
+        src: ['scripts/jquery.simplefade.js', 'scripts/jquery.backfill.js', 'scripts/jquery.dropmenu.js'],
+        // the location of the resulting JS file
+        dest: 'assets/js/basic.js'
+      },
+      no_touch: {
+        src: ['scripts/jquery.dataAttr.min.js', 'scripts/jquery.scrollTo.js', 'scripts/jquery.scrollover.min.js'],
+        dest: 'assets/js/no-touch.js'
+      },
+
       stripBanners: {
         options: {
           block: true,
@@ -32,10 +39,18 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
+      },
+      basic: {
         files: {
-          'assets/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'assets/js/<%= pkg.name %>.min.js': 'scripts/main.js'
         }
-      }
+      },
+      async: {
+        files: {
+          'assets/js/basic.min.js': ['<%= concat.basic.dest %>'],
+          'assets/js/no-touch.min.js': ['<%= concat.no_touch.dest %>']
+        }
+      }    
     },
     jshint: {
       // define the files to lint

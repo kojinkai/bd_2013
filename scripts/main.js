@@ -1,51 +1,79 @@
-// Our main JS file
-$(document).ready(function() {
+yepnope({
+  test: !Modernizr.touch,
+  // is desktop (basically)
+  yep: {
+    'jQ_asyncPlugins': 'assets/js/no-touch.min.js'
+  },
+  // is touch enabled
+  nope: {
 
-  // doc ready here because grunt concat is not managing
-  // dependencies so calls to non-existent functions are
-  // breaking the shit. Get require.js going at some point
+  },
+  both:  {
+    'jQ_basicPlugins': 'assets/js/basic.min.js'
+  },
+  callback: {
+    'rstyles': function (url, result, key) {
+      alert('This is the regular styles!');
+    },
+    'mstyles': function (url, result, key) {
+      alert('This is the modified styles!');
+    },
+    'geopoly': function (url, result, key) {
+      alert('This is the geolocation polyfill!');
+    }
+  },
+  complete: function () {
+    alert('Everything has loaded in this test object!');
+    // Our main JS file
+    $(document).ready(function() {
 
-    var $navbar = $('.navbar'),
-        $navbarHeight = $navbar.height(),
-        
-        navOffset = function() {
-          var offset = $(window).width();
-          if ( offset >= 979 ) {
-            return $navbarHeight; 
-          }
-          return 0;
-        },
-        
-        $waypoints = $('.waypoint'),
-        $lastWaypoint = $('[data-scroll-target]').last();
+      // doc ready here because grunt concat is not managing
+      // dependencies so calls to non-existent functions are
+      // breaking the shit. Get require.js going at some point
 
-    // The menu scroll plugin 
-    $('.navigation').scrollover();
-
-    // The backstretch plugin
-    $('.waypoint').backfill({
-        offset: $navbarHeight
-    });
-
-    // The design Carousel
-    $(".fade").simplefade({
-      interval: 3000
-    });    
-
-    $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
-        
-        e.preventDefault();
-
-        var t = this,
-            target = $(t).dataAttr('scroll-target');
-
-        $.scrollTo(target, {
+        var $navbar = $('.navbar'),
+            $navbarHeight = $navbar.height(),
             
-          offset: { top: -navOffset(), left: 0 },
-          duration: 800
+            navOffset = function() {
+              var offset = $(window).width();
+              if ( offset >= 979 ) {
+                return $navbarHeight; 
+              }
+              return 0;
+            },
+            
+            $waypoints = $('.waypoint'),
+            $lastWaypoint = $('[data-scroll-target]').last();
+
+        // The menu scroll plugin 
+        $('.navigation').scrollover();
+
+        // The backstretch plugin
+        $('.waypoint').backfill({
+            offset: $navbarHeight
         });
-    });
 
-    $('#page-wrap').removeClass('unstaged');
+        // The design Carousel
+        $(".fade").simplefade({
+          interval: 3000
+        });    
 
+        $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
+            
+            e.preventDefault();
+
+            var t = this,
+                target = $(t).dataAttr('scroll-target');
+
+            $.scrollTo(target, {
+                
+              offset: { top: -navOffset(), left: 0 },
+              duration: 800
+            });
+        });
+
+        $('#page-wrap').removeClass('unstaged');
+
+    });    
+  }
 });
