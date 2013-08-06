@@ -99,6 +99,21 @@
       return this.fade('prev');
     },
 
+    pause: function (e) {
+          if (!e) {
+            this.paused = true;
+          }
+          
+          if (this.element.find('.next, .prev').length && this.transitionType() ) {
+            this.element.trigger($.support.transition.end)
+            this.cycle()
+          }
+
+          clearInterval(this.interval)
+          this.interval = null
+          return this
+        },    
+
     fade: function (type, next) {
       var $active = $(this.element).children('.active'),
           $next = next || $active[type](),
@@ -181,8 +196,16 @@
 
     // regex strip for ie7
     target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
-    option = $this.data();
+    option = $this.data(),
+    slideIndex;
+
     $(target).simplefade(option);
+    
+    if (slideIndex = $this.attr('data-slide-to')) {
+      $target.data('carousel').pause().to(slideIndex).cycle();
+    }
+
+    e.preventDefault();
   }); 
 
 })( jQuery, window, document );
