@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+  module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         dest: 'assets/js/basic.js'
       },
       no_touch: {
-        src: ['scripts/jquery.dataAttr.min.js', 'scripts/jquery.scrollTo.js', 'scripts/jquery.scrollover.min.js'],
+        src: ['scripts/vendor/jquery.dataAttr.min.js', 'scripts/vendor/jquery.scrollTo.js', 'scripts/jquery.scrollover.js'],
         dest: 'assets/js/no-touch.js'
       },
 

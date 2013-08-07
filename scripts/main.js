@@ -11,22 +11,11 @@ yepnope({
   both:  {
     'jQ_basicPlugins': 'assets/js/basic.min.js'
   },
-  callback: {
-    'rstyles': function (url, result, key) {
-      alert('This is the regular styles!');
-    },
-    'mstyles': function (url, result, key) {
-      alert('This is the modified styles!');
-    },
-    'geopoly': function (url, result, key) {
-      alert('This is the geolocation polyfill!');
-    }
-  },
   complete: function () {
-    alert('Everything has loaded in this test object!');
+
     // Our main JS file
     $(document).ready(function() {
-
+      alert('the plan is complete');
       // doc ready here because grunt concat is not managing
       // dependencies so calls to non-existent functions are
       // breaking the shit. Get require.js going at some point
@@ -52,12 +41,15 @@ yepnope({
         $('.waypoint').backfill({
             offset: $navbarHeight
         });
+        $(window).trigger('load', function(e) {
+          console.log(e);
+        });
 
         // The design Carousel
         $(".fade").simplefade({
           interval: 3000
         });    
-
+        console.log('plugins bum');
         $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
             
             e.preventDefault();
@@ -70,10 +62,21 @@ yepnope({
               offset: { top: -navOffset(), left: 0 },
               duration: 800
             });
-        });
+        }) ;
 
         $('#page-wrap').removeClass('unstaged');
 
     });    
-  }
+  },
+  callback: {
+    'rstyles': function (url, result, key) {
+      alert('This is the regular styles!');
+    },
+    'mstyles': function (url, result, key) {
+      alert('This is the modified styles!');
+    },
+    'geopoly': function (url, result, key) {
+      alert('This is the geolocation polyfill!');
+    }
+  }  
 });
