@@ -115,7 +115,7 @@
       if ( activeIndex == pos ) {
         return this.pause().cycle();
       }
-      console.log("chumpchange");
+
       return this.fade( pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]));
     },    
 
@@ -225,11 +225,8 @@
     target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
     option = $this.data(),
     slideIndex = $this.attr('data-slide-to');
-    console.log("target: ", target);
-    // $(target).simplefade(option);
     
     if (slideIndex) {
-      console.log("target data", $(target).data(simplefade));
       $(target).data('simplefade').pause().to(slideIndex);
     }
 
