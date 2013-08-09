@@ -488,6 +488,8 @@ BD.init();yepnope({
 
   },
   complete: function() {
-    BD.unstage();
+    $(document).ready(function() {
+      BD.unstage();
+    });
   }
 });
