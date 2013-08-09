@@ -75,3 +75,5 @@ var BD = BD || {
       $('#page-wrap').removeClass('unstaged');
     }
 };
+
+BD.init();

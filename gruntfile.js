@@ -17,9 +17,9 @@
       },
       // the files to concatenate
       basic: {
-        src: ['scripts/bd.js','scripts/jquery.simplefade.js', 'scripts/jquery.backfill.js', 'scripts/jquery.dropmenu.js'],
+        src: ['scripts/jquery.simplefade.js', 'scripts/jquery.backfill.js', 'scripts/jquery.dropmenu.js', 'scripts/bd.js', 'scripts/main.js'],
         // the location of the resulting JS file
-        dest: 'assets/js/basic.js'
+        dest: 'assets/js/<%= pkg.name %>.js'
       },
       desktop: {
         src: ['scripts/vendor/jquery.dataAttr.min.js', 'scripts/vendor/jquery.scrollTo.js', 'scripts/jquery.scrollover.js'],
@@ -42,12 +42,11 @@
       },
       basic: {
         files: {
-          'assets/js/<%= pkg.name %>.min.js': ['scripts/bd.js','scripts/main.js']
+          'assets/js/<%= pkg.name %>.min.js': ['<%= concat.basic.dest %>']
         }
       },
       async: {
         files: {
-          'assets/js/basic.min.js': ['<%= concat.basic.dest %>'],
           'assets/js/desktop.min.js': ['<%= concat.desktop.dest %>']
         }
       }    

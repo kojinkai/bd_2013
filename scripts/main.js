@@ -1,17 +1,22 @@
 yepnope({
   test: BD.isMobile(),
-  // is desktop (basically)
-  yep: {
-  },
-  // is mobile enabled
+
+  // is this desktop?
   nope: {
     'jQ_asyncPlugins': 'assets/js/desktop.min.js'
   },
-  both:  {
-    'jQ_basicPlugins': 'assets/js/basic.min.js'
-  },
   callback: function (url, result, key) {
-    console.log('url is: ', url, "\nresult is: ", result, "\nkey is: ", key);
+    console.log('url iZZZ: ', url, "\nresult iz: ", result, "\nkey iz: ", key);
+
+    if (result) {
+      console.log("foo");
+      BD.unstage();
+    }
+
+    else {
+      BD.enhance(BD.unstage());
+    }
+
     // Our main JS file
     $(document).ready(function() {
       // doc ready here because grunt concat is not managing
