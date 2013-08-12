@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+  module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -8,17 +8,24 @@ module.exports = function(grunt) {
         separator: ''
       },
       dist: {
-        // options: {
-        //   process: function(src, filepath) {
-        //     grunt.log.writeln("shitsnax: ", src.length, filepath);
-        //     grunt.log.writeln("shitsnax: ", '// Source: ' + filepath + '\n');
-        //   }
-        // },
-        // the files to concatenate
-        src: ['scripts/**/*.js'],
+        options: {
+          process: function(src, filepath) {
+            grunt.log.writeln("shitsnax: ", src.length, filepath);
+            grunt.log.writeln("shitsnax: ", '// Source: ' + filepath + '\n');
+          }
+        }
+      },
+      // the files to concatenate
+      basic: {
+        src: ['scripts/jquery.simplefade.js', 'scripts/jquery.backfill.js', 'scripts/jquery.dropmenu.js', 'scripts/bd.js', 'scripts/main.js'],
         // the location of the resulting JS file
         dest: 'assets/js/<%= pkg.name %>.js'
       },
+      desktop: {
+        src: ['scripts/vendor/jquery.dataAttr.min.js', 'scripts/vendor/jquery.scrollTo.js', 'scripts/jquery.scrollover.js'],
+        dest: 'assets/js/desktop.js'
+      },
+
       stripBanners: {
         options: {
           block: true,
@@ -32,10 +39,17 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
+      },
+      basic: {
         files: {
-          'assets/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'assets/js/<%= pkg.name %>.min.js': ['<%= concat.basic.dest %>']
         }
-      }
+      },
+      async: {
+        files: {
+          'assets/js/desktop.min.js': ['<%= concat.desktop.dest %>']
+        }
+      }    
     },
     jshint: {
       // define the files to lint

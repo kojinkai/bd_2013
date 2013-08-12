@@ -891,6 +891,13 @@ you can use the generic selector below, but it's slower:
 .icon-behance_icon:before {
   content: "\e008";
 }
+<<<<<<< HEAD
+=======
+
+.icon-eyedropper:before {
+  content: "\e009";
+}
+>>>>>>> feature/yepnope
 
 .icon-grid_icon:before {
   content: "\e00a";
@@ -903,10 +910,13 @@ you can use the generic selector below, but it's slower:
 .icon-down_arrow:before {
   content: "\e00c";
 }
+<<<<<<< HEAD
 
 .icon-color_icon:before {
   content: "\e009";
 }
+=======
+>>>>>>> feature/yepnope
 
 /* ==========================================================================
    =type
@@ -1292,7 +1302,11 @@ button {
 
 .fade-controls {
   *zoom: 1;
+<<<<<<< HEAD
+  width: 30%;
+=======
   width: 40%;
+>>>>>>> feature/yepnope
   margin: auto;
 }
 .fade-controls:before, .fade-controls:after {
