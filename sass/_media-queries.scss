@@ -70,62 +70,75 @@
 
       .navigation > li {
         a {
-          @include transition(background-color 0.2s ease-in-out, color 0.2s ease-in-out);
-          &:hover,
-          &:focus {
-            background-color: $orange;
-            color: $white;
-          }
-          &:active {
-            background-color: $orange;
-            color: $white;
-          }          
+          // @include transition(background-color 0.2s ease-in-out, color 0.2s ease-in-out);
+          // &:hover,
+          // &:focus {
+          //   background-color: $orange;
+          //   color: $white;
+          // }
+          // &:active {
+          //   background-color: $orange;
+          //   color: $white;
+          // }          
         }
       }
     }  
+  }
+
+  .fade-controls {
+    width: 50%;
   }
 
 }
 
 @media only screen and (min-width: 768px) {
   .navbar .nav-collapse {
-    height: auto!important;
+    // height: auto!important;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .navbar {
+  // .navbar {
 
-    .nav-collapse {
-      overflow: hidden;
-      @include transition(height 0.2s ease-in-out);
+  //   .nav-collapse {
+  //     overflow: hidden;
+  //     @include transition(height 0.2s ease-in-out);
 
-      .navigation li {
-        width: auto;
-        float: none;
-        margin-left: 0;
+  //     .navigation li {
+  //       width: auto;
+  //       float: none;
+  //       margin-left: 0;
 
-        a {
-          line-height: 20px;
-        }
+  //       a {
+  //         line-height: 20px;
+  //       }
 
-      }
-      &.collapsed {
-        height: 0;
-        overflow: hidden;
-      }
-    }
+  //     }
+  //     &.collapsed {
+  //       height: 0;
+  //       overflow: hidden;
+  //     }
+  //   }
 
-    .btn-navbar {
-      display: block;
-    } 
+  //   .btn-navbar {
+  //     display: block;
+  //   } 
 
+  // }
+  #about {
+    margin-top: 0;
+    padding-top: 35px;
   }
+
+  .icon-down_arrow {
+    display: none;
+    visibility: hidden;
+  }  
 
   .waypoint {
     font-size: 1em;
     &>div {
-      @include reset-content-box;      
+      @include reset-content-box;
     }    
   } 
   .svg .brand {
@@ -182,10 +195,10 @@
 
 }
 
-@media only screen and (max-height: 768px) {
+@media only screen and (max-height: 767px) {
   .waypoint {
     &>div {
-      @include reset-content-box
+      @include reset-content-box;
     }
   }
 }

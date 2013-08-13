@@ -12,7 +12,7 @@ yepnope({
       url: "/ajax/menu.html",
       cache: false
     }).done(function( html ) {
-      $('body').css('paddingTop', 0);
+      $('body').css('paddingTop', '90px');
       $("#page-wrap").prepend(html);
     });    
     

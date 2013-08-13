@@ -4,10 +4,14 @@ var BD = BD || {
       // Call these plugins
       // On all devices
       BD.isMobileTest();
+      
+      console.log("the window width is: ", $(window).width() > 768);
       // Backfill
-      $('.waypoint').backfill({
-          offset: BD.isMobile ? 0 : BD.getNavbarHeight()
-      });
+      if ( $(window).width() > 768 || !BD.isMobile ) {
+        $('.waypoint').backfill({
+            offset: BD.isMobile ? 0 : 90
+        });
+      }
 
       // The design Carousel
       $(".fade").simplefade({
@@ -35,7 +39,7 @@ var BD = BD || {
 
           $.scrollTo(target, {
               
-            offset: { top: BD.isMobile ? 0 : -BD.getNavbarHeight(), left: 0 },
+            offset: { top: BD.isMobile ? 0 : -90, left: 0 },
             duration: 800
           });
       });      
@@ -55,10 +59,6 @@ var BD = BD || {
       else {
         BD.isMobile = false;
       }
-    },
-    getNavbarHeight: function() {
-      var offset = $(window).width();
-      return $('.navbar').height();
     },
 
     triggerLoad: function() {

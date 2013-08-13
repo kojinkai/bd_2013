@@ -75,6 +75,7 @@
     },
 
     cycle: function() {
+      count++;
       if (this.interval) {
         clearInterval(this.interval);
       }
@@ -97,42 +98,6 @@
       }
       return this.fade('prev');
     },
-    
-    to: function (pos) {
-      var activeIndex = this.getActiveIndex(),
-      that = this;
-
-      if ( pos > (this.$items.length - 1) || pos < 0 ) {
-        return;
-      }
-
-      if ( this.fading ) {
-        return this.element.one('faded', function () {
-          that.to(pos);
-        });
-      }
-
-      if ( activeIndex == pos ) {
-        return this.pause().cycle();
-      }
-
-      return this.fade( pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]));
-    },    
-
-    pause: function (e) {
-          if (!e) {
-            this.paused = true;
-          }
-          
-          if ($(this.element).find('.next, .prev').length && this.transitionType() ) {
-            this.element.trigger(this.transitionType);
-            this.cycle();
-          }
-
-          clearInterval(this.interval);
-          this.interval = null;
-          return this;
-        },    
 
     fade: function (type, next) {
       var $active = $(this.element).children('.active'),
@@ -192,7 +157,7 @@
         $(this.element).trigger('faded');
         $active.fadeOut(250, function() {
           $active.removeClass('active');
-          $next.fadeIn(250).addClass('active');
+          $next.fadeIn(250);
         });
 
       }
@@ -202,14 +167,7 @@
 
   $.fn[simplefade] = function ( options ) {
     return this.each(function () {
-      var $this = $(this);
-      var data = $this.data('simplefade');
-      if (!data) {
-        $this.data('simplefade', (data = new SimpleFade(this, options)));
-      }
-      else {
-        new SimpleFade( this, options );
-      }      
+      new SimpleFade( this, options );
     });
   };  
 
@@ -223,14 +181,8 @@
 
     // regex strip for ie7
     target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
-    option = $this.data(),
-    slideIndex = $this.attr('data-slide-to');
-    
-    if (slideIndex) {
-      $(target).data('simplefade').pause().to(slideIndex);
-    }
-
-    e.preventDefault();
+    option = $this.data();
+    $(target).simplefade(option);
   }); 
 
 })( jQuery, window, document );/*
@@ -446,103 +398,4 @@
   });
 
 
-})( jQuery, window, document );var BD = BD || {
-    init: function(callback) {
-
-      // Call these plugins
-      // On all devices
-      BD.isMobileTest();
-      
-      console.log("the window width is: ", $(window).width() > 768);
-      // Backfill
-      if ( $(window).width() > 768 || !BD.isMobile ) {
-        $('.waypoint').backfill({
-            offset: BD.isMobile ? 0 : 90
-        });
-      }
-
-      // The design Carousel
-      $(".fade").simplefade({
-        interval: 3000
-      });
-
-      if ( typeof callback === 'function' ) {
-        callback();
-      }
-                 
-    },
-    enhance: function(callback) {
-      // call these plugins for desktop only
-      
-      // The menu scroll plugin 
-      $('.navigation').scrollover();
-
-      // The scrollTo plugin
-      $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
-          
-          e.preventDefault();
-
-          var $this = $(this),
-              target = $this.dataAttr('scroll-target');
-
-          $.scrollTo(target, {
-              
-            offset: { top: BD.isMobile ? 0 : -90, left: 0 },
-            duration: 800
-          });
-      });      
-
-      if ( typeof callback === 'function' ) {
-        callback();
-      }
-
-    },
-    isMobileTest: function() {
-      // test for mobile
-      var ua = navigator.userAgent;
-
-      if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(ua) ) {
-        BD.isMobile = true;
-      }
-      else {
-        BD.isMobile = false;
-      }
-    },
-
-    triggerLoad: function() {
-      $(window).trigger('load', function(e) {
-      });
-    },
-
-    unstage: function() {
-      $('#page-wrap').removeClass('unstaged');
-    }
-};
-
-BD.init();yepnope({
-  test: BD.isMobile,
-  // is this desktop?
-  nope: {
-    'jQ_asyncPlugins': 'assets/js/desktop.min.js'
-  },
-  callback: function (url, result, key) {
-    
-    // If its desktop
-    // load our scrolly powered menu
-    $.ajax({
-      url: "/ajax/menu.html",
-      cache: false
-    }).done(function( html ) {
-      $('body').css('paddingTop', '90px');
-      $("#page-wrap").prepend(html);
-    });    
-    
-    BD.enhance(BD.unstage());
-
-  },
-  complete: function() {
-    $(document).ready(function() {
-      BD.unstage();
-    });
-  }
-});
+})( jQuery, window, document );

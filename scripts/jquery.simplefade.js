@@ -75,7 +75,6 @@
     },
 
     cycle: function() {
-      count++;
       if (this.interval) {
         clearInterval(this.interval);
       }
@@ -98,6 +97,42 @@
       }
       return this.fade('prev');
     },
+    
+    to: function (pos) {
+      var activeIndex = this.getActiveIndex(),
+      that = this;
+
+      if ( pos > (this.$items.length - 1) || pos < 0 ) {
+        return;
+      }
+
+      if ( this.fading ) {
+        return this.element.one('faded', function () {
+          that.to(pos);
+        });
+      }
+
+      if ( activeIndex == pos ) {
+        return this.pause().cycle();
+      }
+
+      return this.fade( pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]));
+    },    
+
+    pause: function (e) {
+          if (!e) {
+            this.paused = true;
+          }
+          
+          if ($(this.element).find('.next, .prev').length && this.transitionType() ) {
+            this.element.trigger(this.transitionType);
+            this.cycle();
+          }
+
+          clearInterval(this.interval);
+          this.interval = null;
+          return this;
+        },    
 
     fade: function (type, next) {
       var $active = $(this.element).children('.active'),
@@ -157,7 +192,7 @@
         $(this.element).trigger('faded');
         $active.fadeOut(250, function() {
           $active.removeClass('active');
-          $next.fadeIn(250);
+          $next.fadeIn(250).addClass('active');
         });
 
       }
@@ -167,7 +202,14 @@
 
   $.fn[simplefade] = function ( options ) {
     return this.each(function () {
-      new SimpleFade( this, options );
+      var $this = $(this);
+      var data = $this.data('simplefade');
+      if (!data) {
+        $this.data('simplefade', (data = new SimpleFade(this, options)));
+      }
+      else {
+        new SimpleFade( this, options );
+      }      
     });
   };  
 
@@ -181,8 +223,14 @@
 
     // regex strip for ie7
     target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
-    option = $this.data();
-    $(target).simplefade(option);
+    option = $this.data(),
+    slideIndex = $this.attr('data-slide-to');
+    
+    if (slideIndex) {
+      $(target).data('simplefade').pause().to(slideIndex);
+    }
+
+    e.preventDefault();
   }); 
 
 })( jQuery, window, document );

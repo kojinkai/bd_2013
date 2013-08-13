@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon, .icon-eyedropper, .icon-grid_icon, .icon-type_icon, .icon-down_arrow {
+.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon, .icon-grid_icon, .icon-type_icon, .icon-down_arrow, .icon-color_icon {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -64,9 +64,6 @@ you can use the generic selector below, but it's slower:
 .icon-behance_icon:before {
 	content: "\e008";
 }
-.icon-eyedropper:before {
-	content: "\e009";
-}
 .icon-grid_icon:before {
 	content: "\e00a";
 }
@@ -75,4 +72,7 @@ you can use the generic selector below, but it's slower:
 }
 .icon-down_arrow:before {
 	content: "\e00c";
+}
+.icon-color_icon:before {
+	content: "\e009";
 }

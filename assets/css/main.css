@@ -545,7 +545,7 @@ table {
 
 body {
   position: relative;
-  padding-top: 90px;
+  padding-top: 0;
   line-height: 1.4;
   background-color: #FFF;
   color: white;
@@ -845,7 +845,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon, .icon-eyedropper, .icon-grid_icon, .icon-type_icon, .icon-down_arrow {
+.icon-menu_icon, .icon-star_icon, .icon-twitter_icon, .icon-linkedin_icon, .icon-google_icon, .icon-github_icon, .icon-flickr_icon, .icon-dribbble_icon, .icon-behance_icon, .icon-grid_icon, .icon-type_icon, .icon-down_arrow, .icon-color_icon {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -892,10 +892,6 @@ you can use the generic selector below, but it's slower:
   content: "\e008";
 }
 
-.icon-eyedropper:before {
-  content: "\e009";
-}
-
 .icon-grid_icon:before {
   content: "\e00a";
 }
@@ -906,6 +902,10 @@ you can use the generic selector below, but it's slower:
 
 .icon-down_arrow:before {
   content: "\e00c";
+}
+
+.icon-color_icon:before {
+  content: "\e009";
 }
 
 /* ==========================================================================
@@ -1194,6 +1194,9 @@ button {
   background: #efefef;
   color: #798497;
 }
+#design .icon-down_arrow {
+  color: inherit;
+}
 
 /* ==========================================================================
    =ethos
@@ -1292,7 +1295,7 @@ button {
 
 .fade-controls {
   *zoom: 1;
-  width: 40%;
+  width: 30%;
   margin: auto;
 }
 .fade-controls:before, .fade-controls:after {
@@ -1394,46 +1397,20 @@ button {
     width: auto;
     margin-left: 0;
   }
-  .navbar .nav-collapse .navigation > li a {
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-  .navbar .nav-collapse .navigation > li a:hover, .navbar .nav-collapse .navigation > li a:focus {
-    background-color: #f05000;
-    color: white;
-  }
-  .navbar .nav-collapse .navigation > li a:active {
-    background-color: #f05000;
-    color: white;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .navbar .nav-collapse {
-    height: auto !important;
+
+  .fade-controls {
+    width: 50%;
   }
 }
 @media only screen and (max-width: 767px) {
-  .navbar .nav-collapse {
-    overflow: hidden;
-    -webkit-transition: height 0.2s ease-in-out;
-    -moz-transition: height 0.2s ease-in-out;
-    transition: height 0.2s ease-in-out;
+  #about {
+    margin-top: 0;
+    padding-top: 35px;
   }
-  .navbar .nav-collapse .navigation li {
-    width: auto;
-    float: none;
-    margin-left: 0;
-  }
-  .navbar .nav-collapse .navigation li a {
-    line-height: 20px;
-  }
-  .navbar .nav-collapse.collapsed {
-    height: 0;
-    overflow: hidden;
-  }
-  .navbar .btn-navbar {
-    display: block;
+
+  .icon-down_arrow {
+    display: none;
+    visibility: hidden;
   }
 
   .waypoint {
@@ -1475,7 +1452,7 @@ button {
     font-size: 3.5em;
   }
 }
-@media only screen and (max-height: 768px) {
+@media only screen and (max-height: 767px) {
   .waypoint > div {
     position: relative;
     position: inherit;
