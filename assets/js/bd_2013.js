@@ -1,4 +1,239 @@
-/*
+/* ==========================================================
+ * Borrowed heavily from:
+ * bootstrap-carousel.js v2.3.2
+ * http://twitter.github.com/bootstrap/javascript.html#carousel
+ * ==========================================================
+ * 
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *
+ * ========================================================== */
+
+
+;(function ( $, window, document, undefined ) {
+
+  // Create the defaults once
+  var simplefade = 'simplefade',
+      defaults = {
+        interval: 5000,
+        startsWith: 0
+      },
+      count = 0;
+
+  function testTransition() {
+    var t,
+        el = document.createElement('fakeelement');
+    
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'otransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    };
+
+    for ( t in transitions ) {
+          if ( el.style[t] !== undefined ) {
+            return transitions[t];
+        }
+      }
+      return false;
+    }
+
+  function SimpleFade(element, options) {
+    this.element = element;
+
+    // Merge defaults and uder options
+    this.options = $.extend( {}, defaults, options);
+    
+    this.$indicators = $(this.element).siblings('.fade-controls');
+
+    this._defaults = defaults;
+    this._name = simplefade;
+    
+    this.init();
+  }
+
+  SimpleFade.prototype = {
+    
+    init: function() {
+      $(this.element).children().eq(this.options.startsWith).addClass('active');
+      this.cycle();
+    },
+
+    transitionType: testTransition(),
+
+    getActiveIndex: function () {
+      this.$active = $(this.element).find('.active');
+      this.$items = this.$active.parent().children();
+      return this.$items.index(this.$active);
+
+    },
+
+    cycle: function() {
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
+      if ( this.options.interval ) {
+        this.interval = setInterval($.proxy(this.next, this), this.options.interval);
+      }
+      return this;
+    },
+    
+    next: function () {
+      if (this.fading) {
+        return;
+      }
+      return this.fade('next');
+    },
+    
+    prev: function () {
+      if (this.sliding) {
+        return;
+      }
+      return this.fade('prev');
+    },
+    
+    to: function (pos) {
+      var activeIndex = this.getActiveIndex(),
+      that = this;
+
+      if ( pos > (this.$items.length - 1) || pos < 0 ) {
+        return;
+      }
+
+      if ( this.fading ) {
+        return this.element.one('faded', function () {
+          that.to(pos);
+        });
+      }
+
+      if ( activeIndex == pos ) {
+        return this.pause().cycle();
+      }
+
+      return this.fade( pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]));
+    },    
+
+    pause: function (e) {
+          if (!e) {
+            this.paused = true;
+          }
+          
+          if ($(this.element).find('.next, .prev').length && this.transitionType() ) {
+            this.element.trigger(this.transitionType);
+            this.cycle();
+          }
+
+          clearInterval(this.interval);
+          this.interval = null;
+          return this;
+        },    
+
+    fade: function (type, next) {
+      var $active = $(this.element).children('.active'),
+          $next = next || $active[type](),
+          direction = type === 'next' ? 'left' : 'right',
+          that = this,
+          e;
+
+      // switch to fading state
+      this.fading = true;
+      
+      // if we are at the last slide (e.g. no .next()) then fallback to beginning
+      $next = $next.length ? $next : $(this.element).children().first();
+
+      e = $.Event('fade', {
+        relatedTarget: $next[0],
+        direction: direction
+      });
+
+      if ( this.$indicators.length ) {
+        this.$indicators.find('.active').removeClass('active');
+        $(this.element).one('faded', function () {
+          var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()]);
+          if ( $nextIndicator ) {
+            $nextIndicator.addClass('active');            
+          }
+        });
+      }
+
+
+      if ( this.transitionType ) {
+        
+        $(this.element).trigger(e);
+
+        $next.addClass(type);
+        $active.one( this.transitionType, function () {
+          
+          // when transition ends, cleanup transitioning classes
+          $next.removeClass([type, direction].join(' ')).addClass('active');
+          $active.removeClass(['active', direction].join(' '));
+          $next.addClass('active');
+          that.fading = false;
+          
+          $(that.element).trigger('faded');
+        });
+        $active.removeClass('active');
+      }
+
+      else {
+       
+
+       // Fallback to jQuery
+        $(this.element).trigger(e);
+        // $active.removeClass('active');
+        // $next.addClass('active');
+        this.fading = false;
+        $(this.element).trigger('faded');
+        $active.fadeOut(250, function() {
+          $active.removeClass('active');
+          $next.fadeIn(250).addClass('active');
+        });
+
+      }
+        this.cycle();
+    }
+  };
+
+  $.fn[simplefade] = function ( options ) {
+    return this.each(function () {
+      var $this = $(this);
+      var data = $this.data('simplefade');
+      if (!data) {
+        $this.data('simplefade', (data = new SimpleFade(this, options)));
+      }
+      else {
+        new SimpleFade( this, options );
+      }      
+    });
+  };  
+
+ /* simpleFade DATA-API
+  * ================= */
+
+  $(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  
+    var $this = $(this), 
+    href,
+
+    // regex strip for ie7
+    target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
+    option = $this.data(),
+    slideIndex = $this.attr('data-slide-to');
+    
+    if (slideIndex) {
+      $(target).data('simplefade').pause().to(slideIndex);
+    }
+
+    e.preventDefault();
+  }); 
+
+})( jQuery, window, document );/*
  * backfill.js
  * 
  *
@@ -211,561 +446,99 @@
   });
 
 
-})( jQuery, window, document );;(function($){
-   
-    $.fn.scrollover = function( options ) {
+})( jQuery, window, document );var BD = BD || {
+    init: function(callback) {
 
-      var defaults = {
-        
-        // Our Settings.
-        classname:        "scrolled",
-        onScrollStart:    function() {}
-
-      };
-
-      var settings = $.extend( defaults, options );
-
-
-      // Begin plugin code
-      
-      // Cache $(this)
-      var $this = $(this);
-
-      // Instance variables
-      var nav_height = $this.height(),
-          offset = $this.scrollTop();
-
-
-      function scrolled_switch() {
-        if ( offset > 0 ) {
-          $this.addClass( defaults.classname );
-        }
-
-        else {
-          $this.removeClass( defaults.classname );
-        }
-      }
-
-      $(window).on("scroll", function() {
-        defaults.onScrollStart();
-        
-        // Update our scrollTop value
-        offset = $(this).scrollTop();
-
-        // switch our state, if needed
-        scrolled_switch();
-
+      // Call these plugins
+      // On all devices
+      BD.isMobileTest();
+      // Backfill
+      $('.waypoint').backfill({
+          offset: BD.isMobile ? 0 : 90
       });
 
-      
-      // Just return this object for now.
-      // We're not gonna be applying this to
-      // a jQuery set so no need to return this.each()
-      return this;
-   };
-
-})(jQuery);/* ==========================================================
- * Borrowed heavily from:
- * bootstrap-carousel.js v2.3.2
- * http://twitter.github.com/bootstrap/javascript.html#carousel
- * ==========================================================
- * 
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- *
- * ========================================================== */
-
-
-;(function ( $, window, document, undefined ) {
-
-  // Create the defaults once
-  var simplefade = 'simplefade',
-      defaults = {
-        interval: 5000,
-        startsWith: 0
-      },
-      count = 0;
-
-  function testTransition() {
-    var t,
-        el = document.createElement('fakeelement');
-    
-    var transitions = {
-      'transition':'transitionend',
-      'OTransition':'otransitionEnd',
-      'MozTransition':'transitionend',
-      'WebkitTransition':'webkitTransitionEnd'
-    };
-
-    for ( t in transitions ) {
-          if ( el.style[t] !== undefined ) {
-            return transitions[t];
-        }
-      }
-      return false;
-    }
-
-  function SimpleFade(element, options) {
-    this.element = element;
-
-    // Merge defaults and uder options
-    this.options = $.extend( {}, defaults, options);
-    
-    this.$indicators = $(this.element).siblings('.fade-controls');
-
-    this._defaults = defaults;
-    this._name = simplefade;
-    
-    this.init();
-  }
-
-  SimpleFade.prototype = {
-    
-    init: function() {
-      $(this.element).children().eq(this.options.startsWith).addClass('active');
-      this.cycle();
-    },
-
-    transitionType: testTransition(),
-
-    getActiveIndex: function () {
-      this.$active = $(this.element).find('.active');
-      this.$items = this.$active.parent().children();
-      return this.$items.index(this.$active);
-
-    },
-
-    cycle: function() {
-      if (this.interval) {
-        clearInterval(this.interval);
-      }
-      if ( this.options.interval ) {
-        this.interval = setInterval($.proxy(this.next, this), this.options.interval);
-      }
-      return this;
-    },
-    
-    next: function () {
-      if (this.fading) {
-        return;
-      }
-      return this.fade('next');
-    },
-    
-    prev: function () {
-      if (this.sliding) {
-        return;
-      }
-      return this.fade('prev');
-    },
-    
-    to: function (pos) {
-      var activeIndex = this.getActiveIndex(),
-      that = this;
-
-      if ( pos > (this.$items.length - 1) || pos < 0 ) {
-        return;
-      }
-
-      if ( this.fading ) {
-        return this.element.one('faded', function () {
-          that.to(pos);
-        });
-      }
-
-      if ( activeIndex == pos ) {
-        return this.pause().cycle();
-      }
-      console.log("chumpchange");
-      return this.fade( pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]));
-    },    
-
-    pause: function (e) {
-          if (!e) {
-            this.paused = true;
-          }
-          
-          if ($(this.element).find('.next, .prev').length && this.transitionType() ) {
-            this.element.trigger(this.transitionType);
-            this.cycle();
-          }
-
-          clearInterval(this.interval);
-          this.interval = null;
-          return this;
-        },    
-
-    fade: function (type, next) {
-      var $active = $(this.element).children('.active'),
-          $next = next || $active[type](),
-          direction = type === 'next' ? 'left' : 'right',
-          that = this,
-          e;
-
-      // switch to fading state
-      this.fading = true;
-      
-      // if we are at the last slide (e.g. no .next()) then fallback to beginning
-      $next = $next.length ? $next : $(this.element).children().first();
-
-      e = $.Event('fade', {
-        relatedTarget: $next[0],
-        direction: direction
+      // The design Carousel
+      $(".fade").simplefade({
+        interval: 3000
       });
 
-      if ( this.$indicators.length ) {
-        this.$indicators.find('.active').removeClass('active');
-        $(this.element).one('faded', function () {
-          var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()]);
-          if ( $nextIndicator ) {
-            $nextIndicator.addClass('active');            
-          }
-        });
+      if ( typeof callback === 'function' ) {
+        callback();
+      }
+                 
+    },
+    enhance: function(callback) {
+      // call these plugins for desktop only
+      
+      // The menu scroll plugin 
+      $('.navigation').scrollover();
+
+      // The scrollTo plugin
+      $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
+          
+          e.preventDefault();
+
+          var $this = $(this),
+              target = $this.dataAttr('scroll-target');
+
+          $.scrollTo(target, {
+              
+            offset: { top: BD.isMobile ? 0 : -90, left: 0 },
+            duration: 800
+          });
+      });      
+
+      if ( typeof callback === 'function' ) {
+        callback();
       }
 
+    },
+    isMobileTest: function() {
+      // test for mobile
+      var ua = navigator.userAgent;
 
-      if ( this.transitionType ) {
-        
-        $(this.element).trigger(e);
-
-        $next.addClass(type);
-        $active.one( this.transitionType, function () {
-          
-          // when transition ends, cleanup transitioning classes
-          $next.removeClass([type, direction].join(' ')).addClass('active');
-          $active.removeClass(['active', direction].join(' '));
-          $next.addClass('active');
-          that.fading = false;
-          
-          $(that.element).trigger('faded');
-        });
-        $active.removeClass('active');
+      if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(ua) ) {
+        BD.isMobile = true;
       }
-
       else {
-       
-
-       // Fallback to jQuery
-        $(this.element).trigger(e);
-        // $active.removeClass('active');
-        // $next.addClass('active');
-        this.fading = false;
-        $(this.element).trigger('faded');
-        $active.fadeOut(250, function() {
-          $active.removeClass('active');
-          $next.fadeIn(250).addClass('active');
-        });
-
+        BD.isMobile = false;
       }
-        this.cycle();
+    },
+
+    triggerLoad: function() {
+      $(window).trigger('load', function(e) {
+      });
+    },
+
+    unstage: function() {
+      $('#page-wrap').removeClass('unstaged');
     }
-  };
+};
 
-  $.fn[simplefade] = function ( options ) {
-    return this.each(function () {
-      var $this = $(this);
-      var data = $this.data('simplefade');
-      if (!data) {
-        $this.data('simplefade', (data = new SimpleFade(this, options)));
-      }
-      else {
-        new SimpleFade( this, options );
-      }      
-    });
-  };  
-
- /* simpleFade DATA-API
-  * ================= */
-
-  $(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
-  
-    var $this = $(this), 
-    href,
-
-    // regex strip for ie7
-    target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
-    option = $this.data(),
-    slideIndex = $this.attr('data-slide-to');
-    console.log("target: ", target);
-    // $(target).simplefade(option);
+BD.init();yepnope({
+  test: BD.isMobile,
+  // is this desktop?
+  nope: {
+    'jQ_asyncPlugins': 'assets/js/desktop.min.js'
+  },
+  callback: function (url, result, key) {
     
-    if (slideIndex) {
-      console.log("target data", $(target).data(simplefade));
-      $(target).data('simplefade').pause().to(slideIndex);
-    }
-
-    e.preventDefault();
-  }); 
-
-})( jQuery, window, document );// Our main JS file
-$(document).ready(function() {
-
-  // doc ready here because grunt concat is not managing
-  // dependencies so calls to non-existent functions are
-  // breaking the shit. Get require.js going at some point
-
-    var $navbar = $('.navbar'),
-        $navbarHeight = $navbar.height(),
-        
-        navOffset = function() {
-          var offset = $(window).width();
-          if ( offset >= 979 ) {
-            return $navbarHeight; 
-          }
-          return 0;
-        },
-        
-        $waypoints = $('.waypoint'),
-        $lastWaypoint = $('[data-scroll-target]').last();
-
-    // The menu scroll plugin 
-    $('.navigation').scrollover();
-
-    // The backstretch plugin
-    $('.waypoint').backfill({
-        offset: $navbarHeight
-    });
-
-    // The design Carousel
-    $(".fade").simplefade({
-      interval: 3000
+    // If its desktop
+    // load our scrolly powered menu
+    $.ajax({
+      url: "/ajax/menu.html",
+      cache: false
+    }).done(function( html ) {
+      $('body').css('paddingTop', '90px');
+      $("#page-wrap").prepend(html);
     });    
+    
+    BD.enhance(BD.unstage());
 
-    $(document).on('click.scrollTo.data-api', '[data-scroll-target]', function (e) {
-        
-        e.preventDefault();
-
-        var t = this,
-            target = $(t).dataAttr('scroll-target');
-
-        $.scrollTo(target, {
-            
-          offset: { top: -navOffset(), left: 0 },
-          duration: 800
-        });
+  },
+  complete: function() {
+    $(document).ready(function() {
+      BD.unstage();
     });
-
-    $('#page-wrap').removeClass('unstaged');
-
-});/*! http://git.io/jcda v1.0.0 by @mathias */
-;jQuery.fn.dataAttr=function(a,b){return b?this.attr("data-"+a,b):this.attr("data-"+a)};/*!
- * jQuery.ScrollTo
- * Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
- * Dual licensed under MIT and GPL.
- *
- * @projectDescription Easy element scrolling using jQuery.
- * http://flesler.blogspot.com/2007/10/jqueryscrollto.html
- * @author Ariel Flesler
- * @version 1.4.6
- * @id jQuery.scrollTo
- * @id jQuery.fn.scrollTo
- * @param {String, Number, DOMElement, jQuery, Object} target Where to scroll the matched elements.
- *	  The different options for target are:
- *		- A number position (will be applied to all axes).
- *		- A string position ('44', '100px', '+=90', etc ) will be applied to all axes
- *		- A jQuery/DOM element ( logically, child of the element to scroll )
- *		- A string selector, that will be relative to the element to scroll ( 'li:eq(2)', etc )
- *		- A hash { top:x, left:y }, x and y can be any kind of number/string like above.
- *		- A percentage of the container's dimension/s, for example: 50% to go to the middle.
- *		- The string 'max' for go-to-end. 
- * @param {Number, Function} duration The OVERALL length of the animation, this argument can be the settings object instead.
- * @param {Object,Function} settings Optional set of settings or the onAfter callback.
- *	 @option {String} axis Which axis must be scrolled, use 'x', 'y', 'xy' or 'yx'.
- *	 @option {Number, Function} duration The OVERALL length of the animation.
- *	 @option {String} easing The easing method for the animation.
- *	 @option {Boolean} margin If true, the margin of the target element will be deducted from the final position.
- *	 @option {Object, Number} offset Add/deduct from the end position. One number for both axes or { top:x, left:y }.
- *	 @option {Object, Number} over Add/deduct the height/width multiplied by 'over', can be { top:x, left:y } when using both axes.
- *	 @option {Boolean} queue If true, and both axis are given, the 2nd axis will only be animated after the first one ends.
- *	 @option {Function} onAfter Function to be called after the scrolling ends. 
- *	 @option {Function} onAfterFirst If queuing is activated, this function will be called after the first scrolling ends.
- * @return {jQuery} Returns the same jQuery object, for chaining.
- *
- * @desc Scroll to a fixed position
- * @example $('div').scrollTo( 340 );
- *
- * @desc Scroll relatively to the actual position
- * @example $('div').scrollTo( '+=340px', { axis:'y' } );
- *
- * @desc Scroll using a selector (relative to the scrolled element)
- * @example $('div').scrollTo( 'p.paragraph:eq(2)', 500, { easing:'swing', queue:true, axis:'xy' } );
- *
- * @desc Scroll to a DOM element (same for jQuery object)
- * @example var second_child = document.getElementById('container').firstChild.nextSibling;
- *			$('#container').scrollTo( second_child, { duration:500, axis:'x', onAfter:function(){
- *				alert('scrolled!!');																   
- *			}});
- *
- * @desc Scroll on both axes, to different values
- * @example $('div').scrollTo( { top: 300, left:'+=200' }, { axis:'xy', offset:-20 } );
- */
-
-;(function( $ ){
-	
-	var $scrollTo = $.scrollTo = function( target, duration, settings ){
-		$(window).scrollTo( target, duration, settings );
-	};
-
-	$scrollTo.defaults = {
-		axis:'xy',
-		duration: parseFloat($.fn.jquery) >= 1.3 ? 0 : 1,
-		limit:true
-	};
-
-	// Returns the element that needs to be animated to scroll the window.
-	// Kept for backwards compatibility (specially for localScroll & serialScroll)
-	$scrollTo.window = function( scope ){
-		return $(window)._scrollable();
-	};
-
-	// Hack, hack, hack :)
-	// Returns the real elements to scroll (supports window/iframes, documents and regular nodes)
-	$.fn._scrollable = function(){
-		return this.map(function(){
-			var elem = this,
-				isWin = !elem.nodeName || $.inArray( elem.nodeName.toLowerCase(), ['iframe','#document','html','body'] ) != -1;
-
-				if( !isWin )
-					return elem;
-
-			var doc = (elem.contentWindow || elem).document || elem.ownerDocument || elem;
-			
-			return /webkit/i.test(navigator.userAgent) || doc.compatMode == 'BackCompat' ?
-				doc.body : 
-				doc.documentElement;
-		});
-	};
-
-	$.fn.scrollTo = function( target, duration, settings ){
-		if( typeof duration == 'object' ){
-			settings = duration;
-			duration = 0;
-		}
-		if( typeof settings == 'function' )
-			settings = { onAfter:settings };
-			
-		if( target == 'max' )
-			target = 9e9;
-			
-		settings = $.extend( {}, $scrollTo.defaults, settings );
-		// Speed is still recognized for backwards compatibility
-		duration = duration || settings.duration;
-		// Make sure the settings are given right
-		settings.queue = settings.queue && settings.axis.length > 1;
-		
-		if( settings.queue )
-			// Let's keep the overall duration
-			duration /= 2;
-		settings.offset = both( settings.offset );
-		settings.over = both( settings.over );
-
-		return this._scrollable().each(function(){
-			// Null target yields nothing, just like jQuery does
-			if (target == null) return;
-
-			var elem = this,
-				$elem = $(elem),
-				targ = target, toff, attr = {},
-				win = $elem.is('html,body');
-
-			switch( typeof targ ){
-				// A number will pass the regex
-				case 'number':
-				case 'string':
-					if( /^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(targ) ){
-						targ = both( targ );
-						// We are done
-						break;
-					}
-					// Relative selector, no break!
-					targ = $(targ,this);
-					if (!targ.length) return;
-				case 'object':
-					// DOMElement / jQuery
-					if( targ.is || targ.style )
-						// Get the real position of the target 
-						toff = (targ = $(targ)).offset();
-			}
-			$.each( settings.axis.split(''), function( i, axis ){
-				var Pos	= axis == 'x' ? 'Left' : 'Top',
-					pos = Pos.toLowerCase(),
-					key = 'scroll' + Pos,
-					old = elem[key],
-					max = $scrollTo.max(elem, axis);
-
-				if( toff ){// jQuery / DOMElement
-					attr[key] = toff[pos] + ( win ? 0 : old - $elem.offset()[pos] );
-
-					// If it's a dom element, reduce the margin
-					if( settings.margin ){
-						attr[key] -= parseInt(targ.css('margin'+Pos)) || 0;
-						attr[key] -= parseInt(targ.css('border'+Pos+'Width')) || 0;
-					}
-					
-					attr[key] += settings.offset[pos] || 0;
-					
-					if( settings.over[pos] )
-						// Scroll to a fraction of its width/height
-						attr[key] += targ[axis=='x'?'width':'height']() * settings.over[pos];
-				}else{ 
-					var val = targ[pos];
-					// Handle percentage values
-					attr[key] = val.slice && val.slice(-1) == '%' ? 
-						parseFloat(val) / 100 * max
-						: val;
-				}
-
-				// Number or 'number'
-				if( settings.limit && /^\d+$/.test(attr[key]) )
-					// Check the limits
-					attr[key] = attr[key] <= 0 ? 0 : Math.min( attr[key], max );
-
-				// Queueing axes
-				if( !i && settings.queue ){
-					// Don't waste time animating, if there's no need.
-					if( old != attr[key] )
-						// Intermediate animation
-						animate( settings.onAfterFirst );
-					// Don't animate this axis again in the next iteration.
-					delete attr[key];
-				}
-			});
-
-			animate( settings.onAfter );			
-
-			function animate( callback ){
-				$elem.animate( attr, duration, settings.easing, callback && function(){
-					callback.call(this, targ, settings);
-				});
-			};
-
-		}).end();
-	};
-	
-	// Max scrolling position, works on quirks mode
-	// It only fails (not too badly) on IE, quirks mode.
-	$scrollTo.max = function( elem, axis ){
-		var Dim = axis == 'x' ? 'Width' : 'Height',
-			scroll = 'scroll'+Dim;
-		
-		if( !$(elem).is('html,body') )
-			return elem[scroll] - $(elem)[Dim.toLowerCase()]();
-		
-		var size = 'client' + Dim,
-			html = elem.ownerDocument.documentElement,
-			body = elem.ownerDocument.body;
-
-		return Math.max( html[scroll], body[scroll] ) 
-			 - Math.min( html[size]  , body[size]   );
-	};
-
-	function both( val ){
-		return typeof val == 'object' ? val : { top:val, left:val };
-	};
-
-})( jQuery );
+  }
+});

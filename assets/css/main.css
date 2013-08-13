@@ -545,7 +545,7 @@ table {
 
 body {
   position: relative;
-  padding-top: 90px;
+  padding-top: 0;
   line-height: 1.4;
   background-color: #FFF;
   color: white;
@@ -1292,7 +1292,7 @@ button {
 
 .fade-controls {
   *zoom: 1;
-  width: 40%;
+  width: 30%;
   margin: auto;
 }
 .fade-controls:before, .fade-controls:after {

@@ -6,7 +6,7 @@ var BD = BD || {
       BD.isMobileTest();
       // Backfill
       $('.waypoint').backfill({
-          offset: BD.isMobile ? 0 : BD.getNavbarHeight()
+          offset: BD.isMobile ? 0 : 90
       });
 
       // The design Carousel
@@ -35,7 +35,7 @@ var BD = BD || {
 
           $.scrollTo(target, {
               
-            offset: { top: BD.isMobile ? 0 : -BD.getNavbarHeight(), left: 0 },
+            offset: { top: BD.isMobile ? 0 : -90, left: 0 },
             duration: 800
           });
       });      
@@ -55,10 +55,6 @@ var BD = BD || {
       else {
         BD.isMobile = false;
       }
-    },
-    getNavbarHeight: function() {
-      var offset = $(window).width();
-      return $('.navbar').height();
     },
 
     triggerLoad: function() {
