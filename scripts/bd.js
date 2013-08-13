@@ -4,10 +4,14 @@ var BD = BD || {
       // Call these plugins
       // On all devices
       BD.isMobileTest();
+      
+      console.log("the window width is: ", $(window).width() > 768);
       // Backfill
-      $('.waypoint').backfill({
-          offset: BD.isMobile ? 0 : 90
-      });
+      if ( $(window).width() > 768 || !BD.isMobile ) {
+        $('.waypoint').backfill({
+            offset: BD.isMobile ? 0 : 90
+        });
+      }
 
       // The design Carousel
       $(".fade").simplefade({

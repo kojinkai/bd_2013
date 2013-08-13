@@ -1194,6 +1194,9 @@ button {
   background: #efefef;
   color: #798497;
 }
+#design .icon-down_arrow {
+  color: inherit;
+}
 
 /* ==========================================================================
    =ethos
@@ -1394,46 +1397,20 @@ button {
     width: auto;
     margin-left: 0;
   }
-  .navbar .nav-collapse .navigation > li a {
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-  .navbar .nav-collapse .navigation > li a:hover, .navbar .nav-collapse .navigation > li a:focus {
-    background-color: #f05000;
-    color: white;
-  }
-  .navbar .nav-collapse .navigation > li a:active {
-    background-color: #f05000;
-    color: white;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .navbar .nav-collapse {
-    height: auto !important;
+
+  .fade-controls {
+    width: 50%;
   }
 }
 @media only screen and (max-width: 767px) {
-  .navbar .nav-collapse {
-    overflow: hidden;
-    -webkit-transition: height 0.2s ease-in-out;
-    -moz-transition: height 0.2s ease-in-out;
-    transition: height 0.2s ease-in-out;
+  #about {
+    margin-top: 0;
+    padding-top: 35px;
   }
-  .navbar .nav-collapse .navigation li {
-    width: auto;
-    float: none;
-    margin-left: 0;
-  }
-  .navbar .nav-collapse .navigation li a {
-    line-height: 20px;
-  }
-  .navbar .nav-collapse.collapsed {
-    height: 0;
-    overflow: hidden;
-  }
-  .navbar .btn-navbar {
-    display: block;
+
+  .icon-down_arrow {
+    display: none;
+    visibility: hidden;
   }
 
   .waypoint {
@@ -1475,7 +1452,7 @@ button {
     font-size: 3.5em;
   }
 }
-@media only screen and (max-height: 768px) {
+@media only screen and (max-height: 767px) {
   .waypoint > div {
     position: relative;
     position: inherit;

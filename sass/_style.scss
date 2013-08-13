@@ -314,6 +314,9 @@ button {
 
   background: $lightgrey;
   color: $slate;
+  .icon-down_arrow {
+    color: inherit;
+  }
 }
 
 /* ==========================================================================
