@@ -3,7 +3,7 @@
    Media Queries
    ========================================================================== */
 
-@media all and (max-device-width: 1024px) {
+@media all and (max-width: 1024px) {
   .waypoint {
     font-size: 1.4em;
   }  
@@ -49,7 +49,7 @@
   }
 }
 
-@media all and (max-device-width: 979px) {
+@media all and (max-width: 979px) {
   body {
     padding-top: 0;
   }
@@ -68,7 +68,7 @@
 
 }
 
-@media all and (max-device-width: 767px) {
+@media all and (max-width: 767px) {
   
   .navbar .navigation > li > a {
     font-size: 1em;
