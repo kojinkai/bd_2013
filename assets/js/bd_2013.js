@@ -533,7 +533,7 @@ BD.init();yepnope({
       url: "/ajax/menu.html",
       cache: false
     }).done(function( html ) {
-      $('body').css('paddingTop', '90px');
+      $('body').css('paddingTop', '90px').addClass('enhanced');
       $("#page-wrap").prepend(html);
     });    
     
