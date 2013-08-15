@@ -164,15 +164,33 @@
       }
     }
   }
+  #ethos img {
+    position: inherit;
+    left: auto;
+    bottom: auto;
+    display: block;
+    margin: auto;
+  }
+  #main-footer {
+    img {
+      max-width: 15em;
+    }
+  }
+  #contact ul {
+    margin: 0; 
+  }  
 }
 
-@media all and (max-device-width: 480px) {
+@media all and (max-width: 480px) {
+  #contact ul {
+    width: auto;
+  }
   .fade {
     margin-bottom: 0;
   }
   .fade-controls {
     width: 70%;
-  }  
+  } 
 }
 
 @media all and (max-width: 320px) {
@@ -182,6 +200,17 @@
   .fade-controls {
     width: auto;
   }
+  #contact {
+    ul {
+      margin: 3.5em 0 7em;
+      li {
+        padding: 0;
+        a {
+          font-size: 2.5em;
+        }
+      }
+    }
+  }  
 }
 
 @media all and (max-height: 767px) {

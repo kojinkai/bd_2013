@@ -455,11 +455,11 @@
       
       console.log("the window width is: ", $(window).width() > 768);
       // Backfill
-      // if ( $(window).width() > 768 || !BD.isMobile ) {
+      if ( $(window).width() > 600 || !BD.isMobile ) {
         $('.waypoint').backfill({
             offset: BD.isMobile ? 0 : 90
         });
-      // }
+      }
 
       // The design Carousel
       $(".fade").simplefade({
