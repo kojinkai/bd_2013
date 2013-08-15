@@ -1376,7 +1376,7 @@ button {
     content: "";
   }
   #development .content h3 span {
-    line-height: 128px;
+    line-height: 125px;
     font-size: 1em;
     opacity: 1;
     top: auto;
@@ -1399,9 +1399,14 @@ button {
     width: 50%;
   }
 }
+@media all and (max-device-width: 1024px) {
+  #development .content > div {
+    margin-top: 4.5em;
+  }
+}
 @media all and (max-width: 767px) {
   .navbar .navigation > li > a {
-    font-size: 1em;
+    font-size: 0.825em;
   }
 
   #about {
