@@ -33,10 +33,6 @@ h1,h2,h3,h4,h5,h6 {
     opacity: 0;
   }
 }
-
-.fade {
-  overflow: hidden;
-}
 /* ==========================================================================
    =buttons
    ========================================================================== */
@@ -375,7 +371,7 @@ button {
   
 .fade {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   min-height: 90px;
   margin: 3em 0;
   &>* {
