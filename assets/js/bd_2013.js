@@ -463,7 +463,7 @@
 
       // The design Carousel
       $(".fade").simplefade({
-        interval: 3000
+        interval: 5000
       });
 
       if ( typeof callback === 'function' ) {
