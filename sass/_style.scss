@@ -113,6 +113,44 @@ button {
   }
 }
 
+/*************
+  hover effect
+*************/
+.csstransforms.opacity {
+  .navbar li a {
+    &:before,
+    &:after {
+      // not sure if bourbon supports
+      // multiple transitions hence the fallback to longhand declarations
+      display: inline-block;
+      opacity: 0;
+      position: relative;
+      bottom: 1px;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+      -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+      transition: transform 0.3s, opacity 0.2s;
+    }
+    &:before {
+      content: '{';
+      margin-right: 10px;
+      @include transform(translateX(20px));      
+    }
+    &:after {
+      content: '}';
+      margin-left: 10px;
+      @include transform(translateX(-20px));      
+    }    
+    &:hover,
+    &:focus {
+      &:before,
+      &:after {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+    }    
+  }
+}
+
 /* ==========================================================================
    =about
    ========================================================================== */
@@ -312,7 +350,7 @@ button {
   color: $slate;
   .icon-down_arrow {
     color: inherit;
-  }
+  }  
 }
 
 /* ==========================================================================
@@ -330,11 +368,17 @@ button {
     margin-left: -56px;
   }
 
-  figure {
-    position: absolute;
-    left: 0;
-    right: 0;
+  blockquote {
   }
+  p {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .source {
+    font-size: 1.2em;
+    font-weight: bold;
+  }  
 }
 
 /* ==========================================================================

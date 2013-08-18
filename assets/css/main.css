@@ -833,9 +833,6 @@ h1, h2, h3, h4, h5, h6 {
   .js.opacity.csstransitions #page-wrap.unstaged {
     opacity: 0; }
 
-.fade {
-  overflow: hidden; }
-
 /* ==========================================================================
    =buttons
    ========================================================================== */
@@ -902,6 +899,41 @@ button {
     transition: all 0.1s ease-in-out; }
   .navbar.scrolled {
     box-shadow: 0 0 20px 2px rgba(46, 64, 102, 0.7); }
+
+/*************
+  hover effect
+*************/
+.csstransforms.opacity .navbar li a:before, .csstransforms.opacity .navbar li a:after {
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+  bottom: 1px;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s; }
+.csstransforms.opacity .navbar li a:before {
+  content: '{';
+  margin-right: 10px;
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  -o-transform: translateX(20px);
+  transform: translateX(20px); }
+.csstransforms.opacity .navbar li a:after {
+  content: '}';
+  margin-left: 10px;
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  -ms-transform: translateX(-20px);
+  -o-transform: translateX(-20px);
+  transform: translateX(-20px); }
+.csstransforms.opacity .navbar li a:hover:before, .csstransforms.opacity .navbar li a:hover:after, .csstransforms.opacity .navbar li a:focus:before, .csstransforms.opacity .navbar li a:focus:after {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0); }
 
 /* ==========================================================================
    =about
@@ -1055,10 +1087,13 @@ button {
     left: 50%;
     bottom: 7em;
     margin-left: -56px; }
-  #ethos figure {
-    position: absolute;
-    left: 0;
-    right: 0; }
+  #ethos p {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto; }
+  #ethos .source {
+    font-size: 1.2em;
+    font-weight: bold; }
 
 /* ==========================================================================
    =contact
@@ -1106,7 +1141,7 @@ button {
   position: relative;
   overflow: visible;
   min-height: 90px;
-  margin-bottom: 3em; }
+  margin: 3em 0; }
   .fade > * {
     -webkit-transition: opacity 0.6s ease-in-out;
     -moz-transition: opacity 0.6s ease-in-out;
@@ -1125,7 +1160,7 @@ button {
 .fade-controls {
   *zoom: 1;
   width: 30%;
-  margin: auto; }
+  margin: 0 auto 1em; }
   .fade-controls:before, .fade-controls:after {
     content: " ";
     /* 1 */
@@ -1164,7 +1199,7 @@ button {
   #main-footer img {
     display: block;
     margin: auto;
-    max-width: 300px; }
+    max-width: 18.75em; }
 
 /* ==========================================================================
    Media Queries
@@ -1184,32 +1219,35 @@ button {
     margin-left: 5%;
     margin-right: 5%; }
     #development .content h3 {
-      width: 160px;
-      height: 160px; }
+      width: 140px;
+      height: 140px; }
       #development .content h3:before, #development .content h3:after {
         content: ""; }
       #development .content h3 span {
-        line-height: 148px;
+        line-height: 125px;
         font-size: 1em;
         opacity: 1;
         top: auto; }
     #development .content p {
       font-size: 0.8em; } }
-@media only screen and (max-width: 979px) {
+@media all and (max-width: 979px) {
   body {
     padding-top: 0; }
 
-  .navbar {
-    position: static; }
-    .navbar .navigation {
-      width: auto;
-      margin-left: 0; }
+  .navbar .navigation {
+    width: auto;
+    margin-left: 0; }
 
   .fade-controls {
     width: 50%; } }
-@media only screen and (max-width: 767px) {
+@media all and (max-device-width: 1024px) {
+  #development .content > div {
+    margin-top: 4.5em; } }
+@media all and (max-width: 767px) {
+  .navbar .navigation > li > a {
+    font-size: 0.825em; }
+
   #about {
-    margin-top: 0;
     padding-top: 35px; }
 
   .icon-down_arrow {
@@ -1224,14 +1262,12 @@ button {
       left: auto;
       right: auto;
       top: auto;
-      margin-top: 6em; }
+      margin-top: auto; }
 
   .enhanced .waypoint > div {
-    margin-top: 150px;
-  }
+    margin-top: 150px; }
   .enhanced #development > div {
-    margin-top: 0;
-  }
+    margin-top: 0; }
 
   .svg .brand img {
     width: 260px; }
@@ -1242,7 +1278,8 @@ button {
   #development .content > div {
     float: none;
     width: auto;
-    margin-right: 0; }
+    margin-right: 0;
+    margin-bottom: 2em; }
   #development .content h3 span {
     line-height: 128px;
     font-size: 1em;
@@ -1253,14 +1290,55 @@ button {
 
   #contact ul li a {
     font-size: 3.5em; } }
-@media only screen and (max-height: 767px) {
+@media all and (max-device-width: 640px) {
+  #development .content h3 {
+    width: 120px;
+    height: 120px; }
+    #development .content h3 span {
+      line-height: 100px; }
+
+  #ethos img {
+    position: inherit;
+    left: auto;
+    bottom: auto;
+    display: block;
+    margin: auto; }
+
+  #main-footer img {
+    max-width: 15em; }
+
+  #contact ul {
+    margin: 0; } }
+@media all and (max-width: 480px) {
+  #contact ul {
+    width: auto; }
+
+  .fade {
+    margin-bottom: 0; }
+
+  .fade-controls {
+    width: 70%; } }
+@media all and (max-width: 320px) {
+  .fade {
+    margin-bottom: 3em; }
+
+  .fade-controls {
+    width: auto; }
+
+  #contact ul {
+    margin: 3.5em 0 7em; }
+    #contact ul li {
+      padding: 0; }
+      #contact ul li a {
+        font-size: 2.5em; } }
+@media all and (max-height: 767px) {
   .waypoint > div {
     position: relative;
     position: inherit;
     left: auto;
     right: auto;
     top: auto;
-    margin-top: 6em; } }
+    margin-top: auto; } }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }
 /* ==========================================================================
@@ -1307,7 +1385,7 @@ button {
     page-break-inside: avoid; }
 
   img {
-    max-width: 100% !important; }
+    max-device-width: 100% !important; }
 
   @page {
     margin: 0.5cm; }
