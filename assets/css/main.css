@@ -1129,10 +1129,41 @@ button {
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         transition: all 0.3s ease;
-        font-size: 8em; }
+        font-size: 8em;
+        border-radius: 50%;
+        position: relative; }
         #contact ul li a:hover, #contact ul li a:focus {
-          color: #316aa3;
-          font-size: 8.4em; }
+          color: #316aa3; }
+          #contact ul li a:hover:after, #contact ul li a:focus:after {
+            -webkit-transform: scale(0.9);
+            -moz-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            -o-transform: scale(0.9);
+            transform: scale(0.9);
+            opacity: 1; }
+        #contact ul li a:after {
+          top: -7px;
+          left: -7px;
+          padding: 7px;
+          box-shadow: 0 0 0 4px #316aa3;
+          -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+          -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+          transition: transform 0.2s, opacity 0.2s;
+          -webkit-transform: scale(0.8);
+          -moz-transform: scale(0.8);
+          -ms-transform: scale(0.8);
+          -o-transform: scale(0.8);
+          transform: scale(0.8);
+          opacity: 0;
+          pointer-events: none;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          content: '';
+          -webkit-box-sizing: content-box;
+          -moz-box-sizing: content-box;
+          box-sizing: content-box; }
 
 /* ==========================================================================
    =fade plugin
