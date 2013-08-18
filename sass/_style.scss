@@ -33,10 +33,6 @@ h1,h2,h3,h4,h5,h6 {
     opacity: 0;
   }
 }
-
-.fade {
-  overflow: hidden;
-}
 /* ==========================================================================
    =buttons
    ========================================================================== */
@@ -375,9 +371,9 @@ button {
   
 .fade {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   min-height: 90px;
-  margin-bottom: 3em;
+  margin: 3em 0;
   &>* {
     @include transition(opacity 0.6s ease-in-out);
     opacity: 0;
@@ -399,7 +395,7 @@ button {
 .fade-controls {
   @include clearfix;
   width: 30%;
-  margin: auto;
+  margin: 0 auto 1em;
   a {
     color: $slate;
     font-size: 2.8em;
@@ -445,6 +441,6 @@ button {
   img {
     display: block;
     margin: auto;
-    max-width: 300px;
+    max-width: 18.75em;
   }
 } 

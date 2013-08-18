@@ -3,7 +3,7 @@
    Media Queries
    ========================================================================== */
 
-@media only screen and (max-width: 1024px) {
+@media all and (max-width: 1024px) {
   .waypoint {
     font-size: 1.4em;
   }  
@@ -27,15 +27,15 @@
       margin-right: 5%;
 
       h3 {
-        width: 160px;
-        height: 160px;
+        width: 140px;
+        height: 140px;
         &:before,
         &:after {
           content: "";   
         }
 
         span {
-          line-height: 148px;
+          line-height: 125px;
           font-size: 1em;
           opacity: 1;
           top: auto;
@@ -49,40 +49,17 @@
   }
 }
 
-@media (max-width: 979px) and (min-width: 768px) {
-
-}
-
-@media only screen and (max-width: 979px) {
+@media all and (max-width: 979px) {
   body {
     padding-top: 0;
   }
 
   .navbar {
-   position: static;
 
     .navigation {
       width: auto;
       margin-left: 0;
     } 
-
-    .nav-collapse {
-
-      .navigation > li {
-        a {
-          // @include transition(background-color 0.2s ease-in-out, color 0.2s ease-in-out);
-          // &:hover,
-          // &:focus {
-          //   background-color: $orange;
-          //   color: $white;
-          // }
-          // &:active {
-          //   background-color: $orange;
-          //   color: $white;
-          // }          
-        }
-      }
-    }  
   }
 
   .fade-controls {
@@ -91,42 +68,21 @@
 
 }
 
-@media only screen and (min-width: 768px) {
-  .navbar .nav-collapse {
-    // height: auto!important;
+@media all and (max-device-width: 1024px) {
+  #development {
+    .content > div {
+      margin-top: 4.5em;
+    }
   }
 }
 
-@media only screen and (max-width: 767px) {
-  // .navbar {
+@media all and (max-width: 767px) {
+  
+  .navbar .navigation > li > a {
+    font-size: 0.825em;
+  }
 
-  //   .nav-collapse {
-  //     overflow: hidden;
-  //     @include transition(height 0.2s ease-in-out);
-
-  //     .navigation li {
-  //       width: auto;
-  //       float: none;
-  //       margin-left: 0;
-
-  //       a {
-  //         line-height: 20px;
-  //       }
-
-  //     }
-  //     &.collapsed {
-  //       height: 0;
-  //       overflow: hidden;
-  //     }
-  //   }
-
-  //   .btn-navbar {
-  //     display: block;
-  //   } 
-
-  // }
-  #about {
-    margin-top: 0;
+  #about {  
     padding-top: 35px;
   }
 
@@ -140,7 +96,20 @@
     &>div {
       @include reset-content-box;
     }    
-  } 
+  }
+
+  .enhanced {
+    .waypoint {
+      &>div {
+        margin-top: 150px;
+      }
+    }
+    #development {
+      &>div {
+        margin-top: 0; 
+      }
+    }
+  }
   .svg .brand {
     
     img {
@@ -161,12 +130,13 @@
         float: none;
         width: auto;
         margin-right: 0;
+        margin-bottom: 2em;
       }
 
       h3 {
 
         span {
-          line-height: 148px;
+          line-height: 128px;
           font-size: 1em;
           opacity: 1;
           top: auto;
@@ -191,11 +161,67 @@
 
 // Prevent the main slide from centering
 // when the screen gets too narrow or too short
-@media only screen and (max-width: 640px) {
+@media all and (max-device-width: 640px) {
+  #development .content {
 
+    h3 {
+      width: 120px;
+      height: 120px;
+      span {
+        line-height: 100px;
+      }
+    }
+  }
+  #ethos img {
+    position: inherit;
+    left: auto;
+    bottom: auto;
+    display: block;
+    margin: auto;
+  }
+  #main-footer {
+    img {
+      max-width: 15em;
+    }
+  }
+  #contact ul {
+    margin: 0; 
+  }  
 }
 
-@media only screen and (max-height: 767px) {
+@media all and (max-width: 480px) {
+  #contact ul {
+    width: auto;
+  }
+  .fade {
+    margin-bottom: 0;
+  }
+  .fade-controls {
+    width: 70%;
+  } 
+}
+
+@media all and (max-width: 320px) {
+  .fade {
+    margin-bottom: 3em;
+  }
+  .fade-controls {
+    width: auto;
+  }
+  #contact {
+    ul {
+      margin: 3.5em 0 7em;
+      li {
+        padding: 0;
+        a {
+          font-size: 2.5em;
+        }
+      }
+    }
+  }  
+}
+
+@media all and (max-height: 767px) {
   .waypoint {
     &>div {
       @include reset-content-box;
@@ -262,7 +288,7 @@
     }
 
     img {
-        max-width: 100% !important;
+        max-device-width: 100% !important;
     }
 
     @page {

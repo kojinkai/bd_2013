@@ -926,6 +926,11 @@ h1, h2, h3, h4, h5, h6 {
 .waypoint {
   font-size: 1.6em;
 }
+.waypoint p {
+  max-width: 30em;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* ==========================================================================
    =more structural
@@ -942,10 +947,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .js.opacity.csstransitions #page-wrap.unstaged {
   opacity: 0;
-}
-
-.fade {
-  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -1035,11 +1036,6 @@ button {
   background-color: #2e4066;
   padding: 80px 20px;
   position: relative;
-}
-#about p {
-  max-width: 30em;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .brand img {
@@ -1212,10 +1208,15 @@ button {
   bottom: 7em;
   margin-left: -56px;
 }
-#ethos figure {
+#ethos blockquote {
   position: absolute;
   left: 0;
   right: 0;
+  margin: 0;
+}
+#ethos blockquote span {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 /* ==========================================================================
@@ -1271,9 +1272,9 @@ button {
    ========================================================================== */
 .fade {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   min-height: 90px;
-  margin-bottom: 3em;
+  margin: 2em 0;
 }
 .fade > * {
   -webkit-transition: opacity 0.6s ease-in-out;
@@ -1296,7 +1297,7 @@ button {
 .fade-controls {
   *zoom: 1;
   width: 30%;
-  margin: auto;
+  margin: 0 auto 1em;
 }
 .fade-controls:before, .fade-controls:after {
   content: " ";
@@ -1344,13 +1345,13 @@ button {
 #main-footer img {
   display: block;
   margin: auto;
-  max-width: 300px;
+  max-width: 18.75em;
 }
 
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-@media only screen and (max-width: 1024px) {
+@media all and (max-width: 1024px) {
   .waypoint {
     font-size: 1.4em;
   }
@@ -1369,14 +1370,14 @@ button {
     margin-right: 5%;
   }
   #development .content h3 {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
   }
   #development .content h3:before, #development .content h3:after {
     content: "";
   }
   #development .content h3 span {
-    line-height: 148px;
+    line-height: 125px;
     font-size: 1em;
     opacity: 1;
     top: auto;
@@ -1385,14 +1386,11 @@ button {
     font-size: 0.8em;
   }
 }
-@media only screen and (max-width: 979px) {
+@media all and (max-width: 979px) {
   body {
     padding-top: 0;
   }
 
-  .navbar {
-    position: static;
-  }
   .navbar .navigation {
     width: auto;
     margin-left: 0;
@@ -1402,9 +1400,17 @@ button {
     width: 50%;
   }
 }
-@media only screen and (max-width: 767px) {
+@media all and (max-device-width: 1024px) {
+  #development .content > div {
+    margin-top: 4.5em;
+  }
+}
+@media all and (max-width: 767px) {
+  .navbar .navigation > li > a {
+    font-size: 0.825em;
+  }
+
   #about {
-    margin-top: 0;
     padding-top: 35px;
   }
 
@@ -1422,7 +1428,14 @@ button {
     left: auto;
     right: auto;
     top: auto;
-    margin-top: 6em;
+    margin-top: auto;
+  }
+
+  .enhanced .waypoint > div {
+    margin-top: 150px;
+  }
+  .enhanced #development > div {
+    margin-top: 0;
   }
 
   .svg .brand img {
@@ -1437,9 +1450,10 @@ button {
     float: none;
     width: auto;
     margin-right: 0;
+    margin-bottom: 2em;
   }
   #development .content h3 span {
-    line-height: 148px;
+    line-height: 128px;
     font-size: 1em;
     opacity: 1;
     top: auto;
@@ -1452,14 +1466,71 @@ button {
     font-size: 3.5em;
   }
 }
-@media only screen and (max-height: 767px) {
+@media all and (max-device-width: 640px) {
+  #development .content h3 {
+    width: 120px;
+    height: 120px;
+  }
+  #development .content h3 span {
+    line-height: 100px;
+  }
+
+  #ethos img {
+    position: inherit;
+    left: auto;
+    bottom: auto;
+    display: block;
+    margin: auto;
+  }
+
+  #main-footer img {
+    max-width: 15em;
+  }
+
+  #contact ul {
+    margin: 0;
+  }
+}
+@media all and (max-width: 480px) {
+  #contact ul {
+    width: auto;
+  }
+
+  .fade {
+    margin-bottom: 0;
+  }
+
+  .fade-controls {
+    width: 70%;
+  }
+}
+@media all and (max-width: 320px) {
+  .fade {
+    margin-bottom: 3em;
+  }
+
+  .fade-controls {
+    width: auto;
+  }
+
+  #contact ul {
+    margin: 3.5em 0 7em;
+  }
+  #contact ul li {
+    padding: 0;
+  }
+  #contact ul li a {
+    font-size: 2.5em;
+  }
+}
+@media all and (max-height: 767px) {
   .waypoint > div {
     position: relative;
     position: inherit;
     left: auto;
     right: auto;
     top: auto;
-    margin-top: 6em;
+    margin-top: auto;
   }
 }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
@@ -1517,7 +1588,7 @@ button {
   }
 
   img {
-    max-width: 100% !important;
+    max-device-width: 100% !important;
   }
 
   @page {
