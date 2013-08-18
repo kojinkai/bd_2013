@@ -216,7 +216,7 @@
  /* simpleFade DATA-API
   * ================= */
 
-  $(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  $(document).on('click.simplefade.data-api', '[data-slide], [data-slide-to]', function (e) {
   
     var $this = $(this), 
     href,

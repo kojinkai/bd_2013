@@ -216,7 +216,7 @@
  /* simpleFade DATA-API
   * ================= */
 
-  $(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  $(document).on('click.simplefade.data-api', '[data-slide], [data-slide-to]', function (e) {
   
     var $this = $(this), 
     href,
@@ -453,7 +453,6 @@
       // On all devices
       BD.isMobileTest();
       
-      console.log("the window width is: ", $(window).width() > 768);
       // Backfill
       if ( $(window).width() > 600 || !BD.isMobile ) {
         $('.waypoint').backfill({
@@ -462,9 +461,14 @@
       }
 
       // The design Carousel
-      $(".fade").simplefade({
-        interval: 6000
+      $("#design .fade").simplefade({
+        interval: 3000
       });
+
+      // The Ethos Carousel
+      $("#ethos .fade").simplefade({
+        interval: 3000
+      });      
 
       if ( typeof callback === 'function' ) {
         callback();
