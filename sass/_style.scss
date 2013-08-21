@@ -382,11 +382,15 @@ button {
     max-width: 30em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0;
   }
   .source {
     font-size: 1.2em;
     font-weight: bold;
-  }  
+  }
+  .cite {
+    font: 1.2em bold $headline;
+  }
 }
 
 /* ==========================================================================
