@@ -12,15 +12,23 @@ var BD = BD || {
         });
       }
 
-      // The design Carousel
-      $("#design .fade").simplefade({
-        interval: 3000
-      });
+      function callSimplefade(el, dur) {
+        $(el).simplefade({
+          interval: dur
+        });
+      }
+      
+      callSimplefade("#design .fade", 3000);
+      callSimplefade("#ethos .fade", 5000);      
+      // // The design Carousel
+      // $("#design .fade").simplefade({
+      //   interval: 3000
+      // });
 
-      // The Ethos Carousel
-      $("#ethos .fade").simplefade({
-        interval: 3000
-      });      
+      // // The Ethos Carousel
+      // $("#ethos .fade").simplefade({
+      //   interval: 6000
+      // });      
 
       if ( typeof callback === 'function' ) {
         callback();
