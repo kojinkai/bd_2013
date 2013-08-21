@@ -14,14 +14,14 @@ yepnope({
     }).done(function( html ) {
       $('body').css('paddingTop', '90px').addClass('enhanced');
       $("#page-wrap").prepend(html);
+      BD.enhance(BD.unstage);
     });    
     
-    BD.enhance(BD.unstage());
 
   },
   complete: function() {
     $(document).ready(function() {
-      BD.unstage();
+      // BD.unstage();
     });
   }
 });

@@ -1,12 +1,20 @@
 var BD = BD || {
     init: function(callback) {
 
+      var wrap = document.getElementById('page-wrap'),
+          // the last element node in the set
+          wrapNodes = wrap.childNodes,
+          // Get the last waypoint element
+          lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1);
+          console.log("height before: ", lastEl[0].style.height === "", typeof lastEl[0].style.height);
+
+
       // Call these plugins
       // On all devices
       BD.isMobileTest();
       
       // Backfill
-      if ( $(window).width() > 600 || !BD.isMobile ) {
+      if ( $(window).width() > 639 || !BD.isMobile ) {
         $('.waypoint').backfill({
             offset: BD.isMobile ? 0 : 90
         });
@@ -19,20 +27,23 @@ var BD = BD || {
       }
       
       callSimplefade("#design .fade", 3000);
-      callSimplefade("#ethos .fade", 5000);      
-      // // The design Carousel
-      // $("#design .fade").simplefade({
-      //   interval: 3000
-      // });
+      callSimplefade("#ethos .fade", 5000);   
 
-      // // The Ethos Carousel
-      // $("#ethos .fade").simplefade({
-      //   interval: 6000
-      // });      
-
-      if ( typeof callback === 'function' ) {
-        callback();
-      }
+      // Backfill is causing a nasty looking FOUC
+      // on tablet, so we are polling to see if
+      // the last element has finished re-sizing before
+      // triggering our unstage function.  Bit nasty, yeah.
+      // Its on the list.
+      (function pollHeight() {
+        if ( lastEl[0].style.height !== "" && BD.isMobile ) {
+          BD.unstage();
+        }
+        else {
+          setTimeout(function() {
+            pollHeight();
+          }, 500);
+        }
+      })();
                  
     },
     enhance: function(callback) {
@@ -79,6 +90,7 @@ var BD = BD || {
     },
 
     unstage: function() {
+      console.log('unstage');
       $('#page-wrap').removeClass('unstaged');
     }
 };
