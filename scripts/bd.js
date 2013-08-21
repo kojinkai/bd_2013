@@ -8,13 +8,13 @@ var BD = BD || {
           lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1);
           console.log("height before: ", lastEl[0].style.height === "", typeof lastEl[0].style.height);
 
-
+      BD.windowWidth = $(window).width();
       // Call these plugins
       // On all devices
       BD.isMobileTest();
       
       // Backfill
-      if ( $(window).width() > 639 || !BD.isMobile ) {
+      if ( BD.windowWidth > 639 || !BD.isMobile ) {
         $('.waypoint').backfill({
             offset: BD.isMobile ? 0 : 90
         });
@@ -35,7 +35,7 @@ var BD = BD || {
       // triggering our unstage function.  Bit nasty, yeah.
       // Its on the list.
       (function pollHeight() {
-        if ( lastEl[0].style.height !== "" && BD.isMobile ) {
+        if ( (lastEl[0].style.height !== "" && BD.isMobile) || BD.handHeld ) {
           BD.unstage();
         }
         else {
@@ -78,6 +78,9 @@ var BD = BD || {
 
       if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(ua) ) {
         BD.isMobile = true;
+        if ( BD.windowWidth < 639 ) {
+          BD.handHeld = true;
+        }
       }
       else {
         BD.isMobile = false;

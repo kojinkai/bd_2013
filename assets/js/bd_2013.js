@@ -456,13 +456,13 @@
           lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1);
           console.log("height before: ", lastEl[0].style.height === "", typeof lastEl[0].style.height);
 
-
+      BD.windowWidth = $(window).width();
       // Call these plugins
       // On all devices
       BD.isMobileTest();
       
       // Backfill
-      if ( $(window).width() > 639 || !BD.isMobile ) {
+      if ( BD.windowWidth > 639 || !BD.isMobile ) {
         $('.waypoint').backfill({
             offset: BD.isMobile ? 0 : 90
         });
@@ -477,13 +477,13 @@
       callSimplefade("#design .fade", 3000);
       callSimplefade("#ethos .fade", 5000);   
 
-      // if ( callback  && typeof callback === 'function' && BD.isMobile ) {
-      //   // setTimeout(callback(), 1000);
-      // }
-
+      // Backfill is causing a nasty looking FOUC
+      // on tablet, so we are polling to see if
+      // the last element has finished re-sizing before
+      // triggering our unstage function.  Bit nasty, yeah.
+      // Its on the list.
       (function pollHeight() {
-        // console.log('height after: ', lastEl[0].style.height, lastEl[0].style.height);
-        if ( lastEl[0].style.height !== "" && BD.isMobile ) {
+        if ( (lastEl[0].style.height !== "" && BD.isMobile) || BD.handHeld ) {
           BD.unstage();
         }
         else {
@@ -526,6 +526,9 @@
 
       if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(ua) ) {
         BD.isMobile = true;
+        if ( BD.windowWidth < 639 ) {
+          BD.handHeld = true;
+        }
       }
       else {
         BD.isMobile = false;
