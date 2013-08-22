@@ -6,7 +6,6 @@ var BD = BD || {
           wrapNodes = wrap.childNodes,
           // Get the last waypoint element
           lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1);
-          console.log("height before: ", lastEl[0].style.height === "", typeof lastEl[0].style.height);
 
       BD.windowWidth = $(window).width();
       // Call these plugins
