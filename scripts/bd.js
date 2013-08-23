@@ -11,6 +11,7 @@ var BD = BD || {
       // Call these plugins
       // On all devices
       BD.isMobileTest();
+      BD.isMainPagetest();
       
       // Backfill
       if ( BD.windowWidth > 639 || !BD.isMobile ) {
@@ -71,6 +72,7 @@ var BD = BD || {
       }
 
     },
+    
     isMobileTest: function() {
       // test for mobile
       var ua = navigator.userAgent;
@@ -86,13 +88,17 @@ var BD = BD || {
       }
     },
 
+    isMainPagetest: function() {
+      // this is terribly hacky - is there a better way?
+      BD.isMainPage = $('#about').length ? true : false;
+    },
+
     triggerLoad: function() {
       $(window).trigger('load', function(e) {
       });
     },
 
     unstage: function() {
-      console.log('unstage');
       $('#page-wrap').removeClass('unstaged');
     }
 };

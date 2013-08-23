@@ -459,6 +459,7 @@
       // Call these plugins
       // On all devices
       BD.isMobileTest();
+      BD.isMainPagetest();
       
       // Backfill
       if ( BD.windowWidth > 639 || !BD.isMobile ) {
@@ -519,6 +520,7 @@
       }
 
     },
+    
     isMobileTest: function() {
       // test for mobile
       var ua = navigator.userAgent;
@@ -534,13 +536,17 @@
       }
     },
 
+    isMainPagetest: function() {
+      // this is terribly hacky - is there a better way?
+      BD.isMainPage = $('#about').length ? true : false;
+    },
+
     triggerLoad: function() {
       $(window).trigger('load', function(e) {
       });
     },
 
     unstage: function() {
-      console.log('unstage');
       $('#page-wrap').removeClass('unstaged');
     }
 };
@@ -553,10 +559,10 @@ BD.init();yepnope({
   },
   callback: function (url, result, key) {
     
-    // If its desktop
+    // If its desktop, and we're on the main page
     // load our scrolly powered menu
     $.ajax({
-      url: "/ajax/menu.html",
+      url: BD.isMainPage ? "/ajax/main-menu.html" : "/ajax/page-menu.html",
       cache: false
     }).done(function( html ) {
       $('body').css('paddingTop', '90px').addClass('enhanced');
