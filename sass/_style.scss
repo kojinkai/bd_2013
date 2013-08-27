@@ -164,6 +164,28 @@ button {
     margin-left: auto;
     margin-right: auto;
   }
+  .more-link {
+    background: $orange;
+    padding: 0.5em 1em;
+    margin-top: 1em;
+    display: inline-block;
+    font-size: 0.75em;
+    border-radius: 4px;
+  }
+}
+
+.no-touch {
+  #about {
+    .more-link {
+      position: relative;
+      box-shadow: 0 5px darken($orange, 15);
+      &:hover,
+      &:focus {
+        top: -2px;
+        box-shadow: 0 7px darken($orange, 15);
+      }
+    }
+  }
 }
 
 .brand {
