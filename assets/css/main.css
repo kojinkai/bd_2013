@@ -730,6 +730,28 @@ textarea {
       text-transform: uppercase;
       margin-top: 1em; }
 
+.page {
+  *zoom: 1;
+  display: block;
+  padding: 60px 20px 30px 20px; }
+  .page:before, .page:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .page:after {
+    clear: both; }
+  .page a,
+  .page a:focus {
+    text-decoration: underline; }
+  .page a:hover,
+  .page a:active {
+    text-decoration: none; }
+  .page > div {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50em; }
+
 @font-face {
   font-family: 'icomoon';
   src: url("/assets/fonts/icomoon.eot");
@@ -818,6 +840,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .waypoint {
   font-size: 1.6em; }
+  .waypoint .page-link {
+    font-size: .75em; }
 
 /* ==========================================================================
    =more structural
@@ -838,6 +862,25 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 button {
   border: none; }
+
+.page-link {
+  background: white;
+  color: #2e4066;
+  border: 2px solid #263554;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  display: inline-block;
+  border-radius: 12px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  .page-link:visited {
+    color: #2e4066; }
+
+.no-touch .page-link:hover, .no-touch .page-link:focus {
+  border: 2px solid #263554;
+  background: #2e4066;
+  color: white; }
 
 /* ==========================================================================
    =navigation
@@ -946,19 +989,12 @@ button {
     max-width: 30em;
     margin-left: auto;
     margin-right: auto; }
-  #about .more-link {
+  #about .page-link {
     background: #263554;
     border: 2px solid #263554;
-    padding: 0.5em 1em;
-    margin-top: 1em;
-    display: inline-block;
-    font-size: 0.75em;
-    border-radius: 12px;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
+    color: white; }
 
-.no-touch #about .more-link:hover, .no-touch #about .more-link:focus {
+.no-touch #about .page-link:hover, .no-touch #about .page-link:focus {
   border: 2px solid white;
   background: #2e4066; }
 
@@ -1197,6 +1233,12 @@ button {
   background-color: #2e4066; }
   #about-this-site h1 {
     font-size: 1.5em; }
+  #about-this-site .content {
+    position: inherit;
+    top: auto;
+    margin: auto; }
+  #about-this-site p {
+    text-align: left; }
 
 /* ==========================================================================
    =fade plugin

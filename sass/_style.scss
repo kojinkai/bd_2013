@@ -16,6 +16,9 @@ h1,h2,h3,h4,h5,h6 {
 
 .waypoint {
   font-size: 1.6em;
+  .page-link {
+    font-size: .75em;
+  }
 }
 
 /* ==========================================================================
@@ -38,6 +41,31 @@ h1,h2,h3,h4,h5,h6 {
    ========================================================================== */
 button {
   border: none;
+}
+
+.page-link {
+  background: $white;
+  color: $royal;
+  border: 2px solid darken($royal, 5);
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  display: inline-block;
+  border-radius: 12px;
+  @include transition(all .2s ease);
+  &:visited {
+    color: $royal;
+  }
+}
+
+.no-touch {
+  .page-link {
+    &:hover,
+    &:focus {
+      border: 2px solid darken($royal, 5);
+      background: $royal;
+      color: $white;
+    }
+  }
 }
 
 /* ==========================================================================
@@ -164,28 +192,18 @@ button {
     margin-left: auto;
     margin-right: auto;
   }
-  .more-link {
+  .page-link {
     background: darken($royal, 5);
     border: 2px solid darken($royal, 5);
-    padding: 0.5em 1em;
-    margin-top: 1em;
-    display: inline-block;
-    font-size: 0.75em;
-    border-radius: 12px;
-    @include transition(all .2s ease);
+    color: $white;
   }
 }
 
 .no-touch {
   #about {
-    .more-link {
-      // position: relative;
-      // box-shadow: 0 5px darken($orange, 15);
+    .page-link {
       &:hover,
       &:focus {
-        // top: -2px;
-        // color: $orange;
-        // color: darken($royal, 5);
         border: 2px solid $white;
         background: $royal;
       }
@@ -479,6 +497,14 @@ button {
   background-color: $royal;
   h1 {
     font-size: 1.5em;
+  }
+  .content {
+    position: inherit;
+    top: auto;
+    margin: auto;
+  }
+  p {
+    text-align: left;
   }
 }
 
