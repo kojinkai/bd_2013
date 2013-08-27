@@ -165,24 +165,29 @@ button {
     margin-right: auto;
   }
   .more-link {
-    background: $orange;
+    background: darken($royal, 5);
+    border: 2px solid darken($royal, 5);
     padding: 0.5em 1em;
     margin-top: 1em;
     display: inline-block;
     font-size: 0.75em;
-    border-radius: 4px;
+    border-radius: 12px;
+    @include transition(all .2s ease);
   }
 }
 
 .no-touch {
   #about {
     .more-link {
-      position: relative;
-      box-shadow: 0 5px darken($orange, 15);
+      // position: relative;
+      // box-shadow: 0 5px darken($orange, 15);
       &:hover,
       &:focus {
-        top: -2px;
-        box-shadow: 0 7px darken($orange, 15);
+        // top: -2px;
+        // color: $orange;
+        // color: darken($royal, 5);
+        border: 2px solid $white;
+        background: $royal;
       }
     }
   }

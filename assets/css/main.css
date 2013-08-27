@@ -947,19 +947,20 @@ button {
     margin-left: auto;
     margin-right: auto; }
   #about .more-link {
-    background: #f05000;
+    background: #263554;
+    border: 2px solid #263554;
     padding: 0.5em 1em;
     margin-top: 1em;
     display: inline-block;
     font-size: 0.75em;
-    border-radius: 4px; }
+    border-radius: 12px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
 
-.no-touch #about .more-link {
-  position: relative;
-  box-shadow: 0 5px #a33600; }
-  .no-touch #about .more-link:hover, .no-touch #about .more-link:focus {
-    top: -2px;
-    box-shadow: 0 7px #a33600; }
+.no-touch #about .more-link:hover, .no-touch #about .more-link:focus {
+  border: 2px solid white;
+  background: #2e4066; }
 
 .brand img {
   display: block;
