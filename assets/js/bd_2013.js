@@ -568,13 +568,15 @@ BD.init();yepnope({
       $('body').css('paddingTop', '90px').addClass('enhanced');
       $("#page-wrap").prepend(html);
       BD.enhance(BD.unstage);
+      var $pageLink = $(".page .page-link");
+      if ( $pageLink.length ) {
+        $pageLink.remove();
+      }
     });    
     
 
   },
   complete: function() {
-    $(document).ready(function() {
-      // BD.unstage();
-    });
+
   }
 });

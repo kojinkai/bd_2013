@@ -44,27 +44,12 @@ button {
 }
 
 .page-link {
-  background: $white;
-  color: $royal;
-  border: 2px solid darken($royal, 5);
-  padding: 0.5em 1em;
-  margin-top: 1em;
-  display: inline-block;
-  border-radius: 12px;
-  @include transition(all .2s ease);
-  &:visited {
-    color: $royal;
-  }
+  @include navbarButton;
 }
 
-.no-touch {
+.page {
   .page-link {
-    &:hover,
-    &:focus {
-      border: 2px solid darken($royal, 5);
-      background: $royal;
-      color: $white;
-    }
+    @include pageButton;   
   }
 }
 
@@ -85,6 +70,10 @@ button {
   z-index: 1030;
   margin-bottom: 0;
   background-color: $white;
+
+  .container {
+    height: 90px; // Hack for sub-pages
+  }
 
   .navigation {
     margin: 0 0 0 10%;
@@ -193,21 +182,7 @@ button {
     margin-right: auto;
   }
   .page-link {
-    background: darken($royal, 5);
-    border: 2px solid darken($royal, 5);
-    color: $white;
-  }
-}
-
-.no-touch {
-  #about {
-    .page-link {
-      &:hover,
-      &:focus {
-        border: 2px solid $white;
-        background: $royal;
-      }
-    }
+    @include pageButton;   
   }
 }
 
