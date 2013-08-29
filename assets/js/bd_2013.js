@@ -475,7 +475,7 @@
       }
       
       callSimplefade("#design .fade", 3000);
-      callSimplefade("#ethos .fade", 5000);   
+      callSimplefade("#ethos .fade", 6000);   
 
       // Backfill is causing a nasty looking FOUC
       // on tablet, so we are polling to see if
@@ -568,10 +568,10 @@ BD.init();yepnope({
       $('body').css('paddingTop', '90px').addClass('enhanced');
       $("#page-wrap").prepend(html);
       BD.enhance(BD.unstage);
-      var $pageLink = $(".page .page-link");
-      if ( $pageLink.length ) {
-        $pageLink.remove();
-      }
+      
+      // remove our back to main page link
+      $(".page .page-link").remove();
+      
     });    
     
 

@@ -1612,6 +1612,11 @@ button {
     font-size: 0.825em;
   }
 
+  .csstransforms.opacity .navbar .navigation > li > a:before, .csstransforms.opacity .navbar .navigation > li > a:after {
+    content: '';
+    margin: 0;
+  }
+
   #about {
     padding-top: 35px;
   }
@@ -1662,6 +1667,11 @@ button {
   }
   #development .content p {
     font-size: 1em;
+  }
+}
+@media all and (max-width: 640px) {
+  .navbar .navigation > li > a {
+    font-size: 0.625em;
   }
 }
 @media all and (max-device-width: 640px) {
