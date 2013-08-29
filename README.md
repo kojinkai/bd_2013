@@ -40,6 +40,14 @@ Run the following from root:
 
 	sass --watch sass/.:assets/css
 
+If you don't already have capistrano you will need that in order to deploy
+    gem install capistrano
+
+Then to deploy run
+    cap deploy
+
+N.B. Root access to the server is blocked
+
 **Please note:** this will compile everything to a single, un-minified file in the /assets/css directory which is linked from the templates.  Additional SASS files should be prefixed with an _underscore to ensure that the SASS is compiled without creating a separate file in the destination folder.
 
 ###Node Modules, NPM Dependencies and grunt.js
