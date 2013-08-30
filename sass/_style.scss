@@ -468,7 +468,7 @@ button {
 /* ==========================================================================
    =about this site
    ========================================================================== */
-#about-this-site {
+.page {
   background-color: $royal;
   h1 {
     font-size: 1.5em;
@@ -477,6 +477,9 @@ button {
     position: inherit;
     top: auto;
     margin: auto;
+  }
+  section {
+    margin-top: 3em;
   }
   p {
     text-align: left;
