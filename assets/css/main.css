@@ -733,7 +733,7 @@ textarea {
 .page {
   *zoom: 1;
   display: block;
-  padding: 60px 20px 30px 20px; }
+  padding: 10px 20px 30px 20px; }
   .page:before, .page:after {
     content: " ";
     /* 1 */
@@ -888,7 +888,7 @@ button {
   background: #263554;
   border: 2px solid #263554;
   color: white;
-  margin-bottom: 1em; }
+  margin-bottom: 2em; }
   .page .page-link:visited {
     color: white; }
   .page .page-link:hover, .page .page-link:focus {
@@ -1010,7 +1010,7 @@ button {
     background: #263554;
     border: 2px solid #263554;
     color: white;
-    margin-bottom: 1em; }
+    margin-bottom: 2em; }
     #about .page-link:visited {
       color: white; }
     #about .page-link:hover, #about .page-link:focus {
@@ -1258,7 +1258,7 @@ button {
     top: auto;
     margin: auto; }
   .page section {
-    margin-top: 3em; }
+    margin-top: 2em; }
   .page p {
     text-align: left; }
 
@@ -1388,7 +1388,7 @@ button {
     margin: 0; }
 
   #about {
-    padding-top: 35px; }
+    padding: 35px 20px; }
 
   .icon-down_arrow {
     display: none;
