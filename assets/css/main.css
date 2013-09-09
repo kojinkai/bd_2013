@@ -1288,7 +1288,7 @@ button {
 .fade-controls {
   *zoom: 1;
   width: 30%;
-  margin: 0 auto 1em; }
+  margin: 4em auto 1em; }
   .fade-controls:before, .fade-controls:after {
     content: " ";
     /* 1 */
