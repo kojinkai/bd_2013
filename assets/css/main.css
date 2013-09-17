@@ -1027,7 +1027,7 @@ button {
 /*************
   hover effect
 *************/
-.csstransforms.opacity .navbar li a:before, .csstransforms.opacity .navbar li a:after {
+.csstransforms.opacity.csstransitions .navbar li a:before, .csstransforms.opacity.csstransitions .navbar li a:after {
   display: inline-block;
   opacity: 0;
   position: relative;
@@ -1036,7 +1036,7 @@ button {
   -moz-transition: -moz-transform 0.3s, opacity 0.2s;
   transition: transform 0.3s, opacity 0.2s;
 }
-.csstransforms.opacity .navbar li a:before {
+.csstransforms.opacity.csstransitions .navbar li a:before {
   content: '{';
   margin-right: 10px;
   -webkit-transform: translateX(20px);
@@ -1045,7 +1045,7 @@ button {
   -o-transform: translateX(20px);
   transform: translateX(20px);
 }
-.csstransforms.opacity .navbar li a:after {
+.csstransforms.opacity.csstransitions .navbar li a:after {
   content: '}';
   margin-left: 10px;
   -webkit-transform: translateX(-20px);
@@ -1054,7 +1054,7 @@ button {
   -o-transform: translateX(-20px);
   transform: translateX(-20px);
 }
-.csstransforms.opacity .navbar li a:hover:before, .csstransforms.opacity .navbar li a:hover:after, .csstransforms.opacity .navbar li a:focus:before, .csstransforms.opacity .navbar li a:focus:after {
+.csstransforms.opacity.csstransitions .navbar li a:hover:before, .csstransforms.opacity.csstransitions .navbar li a:hover:after, .csstransforms.opacity.csstransitions .navbar li a:focus:before, .csstransforms.opacity.csstransitions .navbar li a:focus:after {
   opacity: 1;
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -1308,17 +1308,14 @@ button {
   width: 25%;
 }
 #contact ul li a {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  transition: all 0.3s ease;
   font-size: 8em;
-  border-radius: 50%;
   position: relative;
 }
 #contact ul li a:hover, #contact ul li a:focus {
   color: #316aa3;
 }
-#contact ul li a:hover:after, #contact ul li a:focus:after {
+
+.csstransitions #contact ul li a:hover:after, .csstransitions #contact ul li a:focus:after {
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
   -ms-transform: scale(0.9);
@@ -1326,7 +1323,7 @@ button {
   transform: scale(0.9);
   opacity: 1;
 }
-#contact ul li a:after {
+.csstransitions #contact ul li a:after {
   top: -7px;
   left: -7px;
   padding: 7px;
@@ -1640,6 +1637,10 @@ button {
     right: auto;
     top: auto;
     margin-top: auto;
+  }
+
+  #ethos > img {
+    display: none;
   }
 }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {

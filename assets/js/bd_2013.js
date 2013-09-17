@@ -451,9 +451,18 @@
 
       var wrap = document.getElementById('page-wrap'),
           // the last element node in the set
-          wrapNodes = wrap.childNodes,
+          wrapNodes = wrap.childNodes;
           // Get the last waypoint element
-          lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1);
+          // if ( [].slice.call() !== "undefined" ) {
+          //    var lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1);
+          // }
+
+          try {
+            var lastEl = [].slice.call(wrapNodes, wrapNodes.length-2, wrapNodes.length-1); 
+          }
+          catch(e) {
+
+          }
 
       BD.windowWidth = $(window).width();
       // Call these plugins
@@ -483,7 +492,7 @@
       // triggering our unstage function.  Bit nasty, yeah.
       // Its on the list.
       (function pollHeight() {
-        if ( (lastEl[0].style.height !== "" && BD.isMobile) || BD.handHeld ) {
+        if ( (lastEL !== "undefined" && lastEl[0].style.height !== "" && BD.isMobile) || BD.handHeld ) {
           BD.unstage();
         }
         else {
