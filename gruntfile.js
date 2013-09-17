@@ -7,14 +7,6 @@
         // define a string to put between each file in the concatenated output
         separator: ''
       },
-      dist: {
-        options: {
-          process: function(src, filepath) {
-            grunt.log.writeln("shitsnax: ", src.length, filepath);
-            grunt.log.writeln("shitsnax: ", '// Source: ' + filepath + '\n');
-          }
-        }
-      },
       // the files to concatenate
       basic: {
         src: ['scripts/jquery.simplefade.js', 'scripts/jquery.backfill.js', 'scripts/jquery.dropmenu.js', 'scripts/bd.js', 'scripts/main.js'],
@@ -66,7 +58,7 @@
     sass: {                              // Task
       dist: {
         options: {                       // Target options
-          style: 'expanded'
+          style: 'compressed'
         },                                // Target
         files: {                         // Dictionary of files
           'assets/css/main.css': 'sass/main.scss'       // 'destination': 'source'
@@ -74,7 +66,7 @@
       },
       dev: {                             // Another target
         options: {                       // Target options
-          style: 'expanded'
+          style: 'compressed'
         },
         files: {
           'assets/css/main.css': 'sass/main.scss'

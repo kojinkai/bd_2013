@@ -70,6 +70,47 @@
   margin-top: auto;  
 }
 
+// navbar link button
+@mixin navbarButton {
+  text-decoration: none;
+  background: $white; 
+  color: $royal;
+  border: 2px solid $royal;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  display: inline-block;
+  border-radius: 12px;
+  @include transition(all .2s ease);
+  &:visited {
+    color: $royal;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    border: 2px solid $royal, 5;
+    background: $royal;
+    color: $white;
+  }   
+}
+
+// page link button
+@mixin pageButton {
+    text-decoration: none;
+    background: darken($royal, 5);
+    border: 2px solid darken($royal, 5);
+    color: $white;
+    margin-bottom: 2em;
+      &:visited {
+        color: $white;
+      }    
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border: 2px solid $white;
+      background: $royal;
+    }     
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

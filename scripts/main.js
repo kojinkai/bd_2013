@@ -15,13 +15,15 @@ yepnope({
       $('body').css('paddingTop', '90px').addClass('enhanced');
       $("#page-wrap").prepend(html);
       BD.enhance(BD.unstage);
+      
+      // remove our back to main page link
+      $(".page .page-link").remove();
+      
     });    
     
 
   },
   complete: function() {
-    $(document).ready(function() {
-      // BD.unstage();
-    });
+
   }
 });

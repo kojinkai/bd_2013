@@ -16,6 +16,9 @@ h1,h2,h3,h4,h5,h6 {
 
 .waypoint {
   font-size: 1.6em;
+  .page-link {
+    font-size: .75em;
+  }
 }
 
 /* ==========================================================================
@@ -40,6 +43,16 @@ button {
   border: none;
 }
 
+.page-link {
+  @include navbarButton;
+}
+
+.page {
+  .page-link {
+    @include pageButton;   
+  }
+}
+
 /* ==========================================================================
    =navigation
    ========================================================================== */
@@ -57,6 +70,10 @@ button {
   z-index: 1030;
   margin-bottom: 0;
   background-color: $white;
+
+  .container {
+    height: 90px; // Hack for sub-pages
+  }
 
   .navigation {
     margin: 0 0 0 10%;
@@ -163,6 +180,9 @@ button {
     max-width: 30em;
     margin-left: auto;
     margin-right: auto;
+  }
+  .page-link {
+    @include pageButton;   
   }
 }
 
@@ -454,10 +474,21 @@ button {
 /* ==========================================================================
    =about this site
    ========================================================================== */
-#about-this-site {
+.page {
   background-color: $royal;
   h1 {
     font-size: 1.5em;
+  }
+  .content {
+    position: inherit;
+    top: auto;
+    margin: auto;
+  }
+  section {
+    margin-top: 2em;
+  }
+  p {
+    text-align: left;
   }
 }
 
@@ -491,8 +522,9 @@ button {
 .fade-controls {
   @include clearfix;
   width: 30%;
-  margin: 0 auto 1em;
+  margin: 4em auto 1em;
   a {
+    cursor: pointer;
     color: $slate;
     font-size: 2.8em;
     border-radius: 4px;

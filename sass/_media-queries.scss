@@ -97,9 +97,17 @@
   .navbar .navigation > li > a {
     font-size: 0.825em;
   }
-
+  .csstransforms.opacity {
+    .navbar .navigation > li > a {
+      &:before,
+      &:after {
+        content: '';
+        margin: 0;
+      }
+    }
+  }
   #about {  
-    padding-top: 35px;
+    padding: 35px 20px;
   }
 
   .icon-down_arrow {
@@ -166,7 +174,13 @@
   }
 }
 
-
+@media all and (max-width: 640px) {
+  // unfortunate hack to stop the layout
+  // Breaking when desktop browsers are narrowed
+  .navbar .navigation > li > a {
+    font-size: 0.625em;
+  }
+}
 // Prevent the main slide from centering
 // when the screen gets too narrow or too short
 @media all and (max-device-width: 640px) {
