@@ -240,6 +240,11 @@
       @include reset-content-box;
     }
   }
+  #ethos {
+    &>img {
+      display: none;
+    }
+  }  
 }
 
 @media print,
