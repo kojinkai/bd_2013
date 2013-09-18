@@ -22,8 +22,7 @@
       defaults = {
         interval: 5000,
         startsWith: 0
-      },
-      count = 0;
+      };
 
   function testTransition() {
     var t,
@@ -112,7 +111,7 @@
         });
       }
 
-      if ( activeIndex == pos ) {
+      if ( activeIndex === pos ) {
         return this.pause().cycle();
       }
 
@@ -223,7 +222,6 @@
 
     // regex strip for ie7
     target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''),
-    option = $this.data(),
     slideIndex = $this.attr('data-slide-to');
     
     if (slideIndex) {
