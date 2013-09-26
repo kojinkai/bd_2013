@@ -499,7 +499,7 @@ button {
 .fade {
   position: relative;
   overflow: visible;
-  min-height: 90px;
+  min-height: 100px;
   margin: 2em 0;
   &>* {
     @include transition(opacity 0.6s ease-in-out);

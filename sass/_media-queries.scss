@@ -253,6 +253,14 @@
     &>div {
       @include reset-content-box;
     }
+    .icon-down_arrow {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      position: inherit;
+      display: block;
+      margin: auto;
+    }
   }
   #ethos {
     &>img {
