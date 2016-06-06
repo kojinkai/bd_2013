@@ -1,3 +1,2 @@
 name: BoxDeluxe - Lewis Nixon's Portfolio
-pygments: false,
 exclude: [node_modules, sass, bourbon, serve, gruntfile.js, package.json, README.md, params.json]

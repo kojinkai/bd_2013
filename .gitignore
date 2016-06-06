@@ -14,3 +14,10 @@ Thumbs.db
 .scssc
 .sass-cache
 _site
+
+# Compiled Files  #
+###################
+assets/css/main.css
+assets/css/main.css.map
+assets/js/desktop.min.js
+assets/js/bd_2013.min.js
