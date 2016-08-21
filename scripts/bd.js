@@ -27,7 +27,6 @@ var BD = BD || {
       }
       
       callSimplefade("#design .fade", 3000);
-      callSimplefade("#ethos .fade", 6000);   
 
       // Backfill is causing a nasty looking FOUC
       // on tablet, so we are polling to see if
