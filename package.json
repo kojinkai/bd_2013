@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "Lewis Nixon's portfolio 2013",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/kojinkai/bd_2013.git"
